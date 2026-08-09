@@ -1,0 +1,14 @@
+artifacts/
+build/
+dist/
+.local/
+.cache/
+*.ttf
+*.otf
+*.woff
+*.woff2
+sources/upstream/
+sources/tishte-serif/iterations/
+licenses/
+*.pyc
+__pycache__/

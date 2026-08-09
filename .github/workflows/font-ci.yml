@@ -1,0 +1,113 @@
+name: Font CI
+
+on:
+  push:
+    branches: [main, "agent/**"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-fonts:
+    name: Validate fonts
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install system tools
+        run: sudo apt-get update && sudo apt-get install -y fontforge python3-fontforge opentype-sanitizer
+      - name: Install Python dependencies
+        run: python -m pip install --upgrade pip && pip install -r requirements-lock.txt
+      - name: Build TTF and WOFF2
+        run: python scripts/build_release.py --version 0.960
+      - name: Verify reproducible build
+        run: python scripts/audit_reproducible_build.py --version 0.960
+      - name: Fetch pinned OFL comparison fonts
+        run: python scripts/fetch_upstream.py
+      - name: Audit metric, language, OpenType and legal contracts
+        run: |
+          python scripts/audit_metric_contract.py --version 0.960
+          python scripts/audit_unicode_normalization.py --version 0.960
+          python scripts/audit_language_corpus.py --version 0.960
+          python scripts/audit_opentype.py --version 0.960
+          python scripts/audit_outline_originality.py --version 0.960 --max-identical-ratio 0.01
+          python scripts/audit_legal_metadata.py --version 0.960
+      - name: Validate outlines with FontForge
+        run: |
+          for font in build/*-v960.ttf; do
+            fontforge -lang=py -script scripts/validate_font_outlines.py "$font"
+          done
+      - name: Sanitize binaries with OTS
+        run: |
+          for font in build/*-v960.ttf build/web/*-v960.woff2; do
+            ots-sanitize "$font"
+          done
+      - name: Run FontBakery policy gate
+        run: python scripts/run_fontbakery.py --version 0.960
+      - name: Build distribution archive
+        run: python scripts/build_distribution.py --version 0.960
+      - name: Upload production package
+        uses: actions/upload-artifact@v7
+        with:
+          name: tishte-serif-v0960
+          path: |
+            dist/Tishte-Serif-v0.960.zip
+            dist/Tishte-Serif-v0.960.zip.sha256
+      - name: Upload binaries for portable audits
+        uses: actions/upload-artifact@v7
+        with:
+          name: tishte-v0960-binaries
+          path: |
+            build/*-v960.ttf
+            build/web/*-v960.woff2
+            build/web/tishte-serif-v960.css
+      - name: Upload quality reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: font-quality-reports
+          path: artifacts/reports/
+
+  portable-audits:
+    name: Portable audit (${{ matrix.os }})
+    needs: validate-fonts
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2025, macos-15]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install --upgrade pip && pip install -r requirements-audit-lock.txt
+      - uses: actions/download-artifact@v8
+        with:
+          name: tishte-v0960-binaries
+          path: build
+      - name: Audit portable contracts
+        run: |
+          python scripts/audit_metric_contract.py --version 0.960
+          python scripts/audit_unicode_normalization.py --version 0.960
+          python scripts/audit_language_corpus.py --version 0.960
+          python scripts/audit_opentype.py --version 0.960
+          python scripts/audit_legal_metadata.py --version 0.960
+
+  release-gate:
+    name: Release gate
+    if: always()
+    needs: [validate-fonts, portable-audits]
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Require every platform audit
+        env:
+          BUILD_RESULT: ${{ needs.validate-fonts.result }}
+          PORTABLE_RESULT: ${{ needs.portable-audits.result }}
+        run: test "$BUILD_RESULT" = success && test "$PORTABLE_RESULT" = success
