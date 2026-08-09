@@ -31,6 +31,7 @@ jobs:
         run: |
           python scripts/audit_metric_contract.py --version 0.090
           python scripts/audit_unicode_normalization_v090.py --version 0.090
+          python scripts/audit_language_corpus.py --version 0.090
       - name: Validate outlines with FontForge
         run: |
           for font in build/*-v090.ttf; do
