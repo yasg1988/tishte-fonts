@@ -14,6 +14,7 @@ from fontTools.ttLib import TTFont
 from fontTools.ttLib.tables import otTables
 
 from font_metrics_audit import load_charset
+from versioning import version_tag
 
 
 TOP_MARKS = (0x0300, 0x0301, 0x0302, 0x0303, 0x0304, 0x0306, 0x0307,
@@ -169,10 +170,10 @@ def append_mark_lookup(path: Path, codepoints: list[int]) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
-    parser.add_argument("--version", default="0.960")
+    parser.add_argument("--version", default="1.000")
     args = parser.parse_args()
     root = args.root.resolve()
-    tag = "v" + args.version.partition(".")[2]
+    tag = version_tag(args.version)
     codepoints = load_charset(root / "data" / "document-charset.txt")
     for style in STYLES:
         path = root / "build" / f"TishteSerif-{style}-{tag}.ttf"

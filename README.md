@@ -6,14 +6,14 @@
 ## Tishte Serif
 
 Tishte Serif — бесплатный документный шрифт с засечками, метрически совместимый
-с Times New Roman. Текущая версия `0.960` включает четыре начертания:
+с Times New Roman. Версия `1.000` включает четыре начертания:
 
 - Regular;
 - Bold;
 - Italic;
 - Bold Italic.
 
-В каждом файле 423 заявленных символа: русская кириллица, специальные буквы
+В каждом файле 425 заявленных символов: русская кириллица, специальные буквы
 луговомарийского (`Ӓ ӓ, Ӧ ӧ, Ӱ ӱ, Ҥ ҥ`) и горномарийского
 (`Ӓ ӓ, Ӧ ӧ, Ӱ ӱ, Ӹ ӹ`) языков, Latin Extended-A, цифры, валюты,
 пунктуация, математические и документные знаки. TTF предназначены для
@@ -86,7 +86,7 @@ val TishteSerif = FontFamily(
 Скопируйте содержимое `fonts/web` на сервер, подключите CSS:
 
 ```html
-<link rel="stylesheet" href="/fonts/tishte-serif-v960.css">
+<link rel="stylesheet" href="/fonts/tishte-serif-v1000.css">
 ```
 
 ```css
@@ -98,15 +98,17 @@ body { font-family: "Tishte Serif", serif; }
 Требуются Python 3.12+, FontForge и зависимости из `requirements-lock.txt`.
 
 ```powershell
-python scripts/build_release.py --version 0.960
-python scripts/audit_reproducible_build.py --version 0.960
-python scripts/audit_metric_contract.py --version 0.960
-python scripts/audit_unicode_normalization.py --version 0.960
-python scripts/audit_language_corpus.py --version 0.960
-python scripts/audit_opentype.py --version 0.960
-python scripts/audit_outline_originality.py --version 0.960 --max-identical-ratio 0.01
-python scripts/audit_legal_metadata.py --version 0.960
-python scripts/run_fontbakery.py --version 0.960
+python scripts/build_release.py --version 1.000
+python scripts/audit_reproducible_build.py --version 1.000
+python scripts/audit_metric_contract.py --version 1.000
+python scripts/audit_unicode_normalization.py --version 1.000
+python scripts/audit_language_corpus.py --version 1.000
+python scripts/audit_opentype.py --version 1.000
+python scripts/audit_document_layout.py --version 1.000
+python scripts/audit_outline_originality.py --version 1.000 --max-identical-ratio 0.01
+python scripts/audit_legal_metadata.py --version 1.000
+python scripts/audit_source_metadata.py
+python scripts/run_fontbakery.py --version 1.000
 ```
 
 Канонические редактируемые исходники находятся в `sources/tishte-serif`.

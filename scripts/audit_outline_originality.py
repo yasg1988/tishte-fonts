@@ -11,6 +11,7 @@ from fontTools.pens.recordingPen import DecomposingRecordingPen
 from fontTools.ttLib import TTFont
 
 from font_metrics_audit import load_charset
+from versioning import version_tag
 
 
 STYLES = {
@@ -31,11 +32,11 @@ def recording(font: TTFont, glyph_name: str):
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
-    parser.add_argument("--version", default="0.960")
+    parser.add_argument("--version", default="1.000")
     parser.add_argument("--max-identical-ratio", type=float)
     args = parser.parse_args()
     root = args.root.resolve()
-    tag = "v" + args.version.partition(".")[2]
+    tag = version_tag(args.version)
     charset = load_charset(root / "data" / "document-charset.txt")
     report = {
         "version": args.version,

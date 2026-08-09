@@ -10,6 +10,8 @@ from pathlib import Path
 import shutil
 import zipfile
 
+from versioning import version_tag
+
 
 STYLES = ("Regular", "Bold", "Italic", "BoldItalic")
 ZIP_TIME = (2026, 8, 9, 0, 0, 0)
@@ -21,10 +23,10 @@ def sha256(path: Path) -> str:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--version", default="0.960")
+    parser.add_argument("--version", default="1.000")
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
-    tag = "v" + args.version.partition(".")[2]
+    tag = version_tag(args.version)
     package_name = f"Tishte-Serif-v{args.version}"
     stage = root / "dist" / package_name
     archive = root / "dist" / f"{package_name}.zip"

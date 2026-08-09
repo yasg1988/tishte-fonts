@@ -48,10 +48,10 @@ def text_line(draw: ImageDraw.ImageDraw, xy: tuple[int, int], text: str, font_pa
 
 
 def render(font_dir: Path, output: Path) -> None:
-    regular = font_dir / "TishteSerif-Regular-v960.ttf"
-    bold = font_dir / "TishteSerif-Bold-v960.ttf"
-    italic = font_dir / "TishteSerif-Italic-v960.ttf"
-    bold_italic = font_dir / "TishteSerif-BoldItalic-v960.ttf"
+    regular = font_dir / "TishteSerif-Regular-v1000.ttf"
+    bold = font_dir / "TishteSerif-Bold-v1000.ttf"
+    italic = font_dir / "TishteSerif-Italic-v1000.ttf"
+    bold_italic = font_dir / "TishteSerif-BoldItalic-v1000.ttf"
     for path in (regular, bold, italic, bold_italic):
         if not path.exists():
             raise FileNotFoundError(path)
@@ -69,7 +69,7 @@ def render(font_dir: Path, output: Path) -> None:
     v_rule(draw, concept_x - 44, 54, 304)
     label(draw, concept_x, 58, "Характер", regular, 1070)
     draw.text((concept_x, 100), "Ясная структура. Спокойный ритм.\nТочная документная верстка.\nЧетыре согласованных начертания.", font=face(regular, 31), fill=INK, spacing=14)
-    draw.text((concept_x, 248), "Версия 0.960 · SIL Open Font License 1.1", font=face(regular, 23), fill=MUTED)
+    draw.text((concept_x, 248), "Версия 1.000 · SIL Open Font License 1.1", font=face(regular, 23), fill=MUTED)
     rule(draw, 330)
 
     # Alphabets
@@ -111,7 +111,7 @@ def render(font_dir: Path, output: Path) -> None:
     sx = num_split + 38
     label(draw, sx, 1038, "Знаки, валюты и символы", regular, WIDTH - MARGIN - sx)
     text_line(draw, (sx, 1080), "№  ₽  $  €  £  ¥  ¢   ©  ®  ™  §  ¶  •  †  ‡  ※", regular, 42, WIDTH - MARGIN - sx)
-    text_line(draw, (sx, 1140), "+  -  ×  ÷  =  ≠  <  >  ≤  ≥  ±  ∞  √  ∑  ∆  µ", regular, 42, WIDTH - MARGIN - sx)
+    text_line(draw, (sx, 1140), "+  −  ×  ÷  =  ≠  <  >  ≤  ≥  ±  ∞  √  ∑  ∆  µ", regular, 42, WIDTH - MARGIN - sx)
     text_line(draw, (sx, 1200), "—  –  …  « »  „ “  ( )  [ ]  { }  /  \\  @  &  %  ‰  °", regular, 38, WIDTH - MARGIN - sx)
     rule(draw, 1294)
 
@@ -150,7 +150,7 @@ def render(font_dir: Path, output: Path) -> None:
         text_line(draw, (x, 1874), "Aa Бб Ӓӓ Ӹӹ Ҥҥ & ₽", font_path, 29, style_width)
 
     rule(draw, 1936)
-    draw.text((MARGIN + 8, 1962), "Tishte Serif · v0.960 · 423 символа · TTF + WOFF2", font=face(regular, 23), fill=MUTED)
+    draw.text((MARGIN + 8, 1962), "Tishte Serif · v1.000 · 425 символов · TTF + WOFF2", font=face(regular, 23), fill=MUTED)
     footer = "Разработчик: Сергей Якунин"
     footer_face = face(regular, 21)
     footer_w = draw.textbbox((0, 0), footer, font=footer_face)[2]
@@ -164,7 +164,7 @@ def render(font_dir: Path, output: Path) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--font-dir", type=Path, default=Path("build"))
-    parser.add_argument("--output", type=Path, default=Path("artifacts/specimens/tishte-serif-v0960-card.png"))
+    parser.add_argument("--output", type=Path, default=Path("artifacts/specimens/tishte-serif-v1000-card.png"))
     args = parser.parse_args()
     render(args.font_dir, args.output)
 

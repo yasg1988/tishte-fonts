@@ -10,10 +10,10 @@ New-Item -ItemType Directory -Path $fontStore -Force | Out-Null
 New-Item -Path $registryPath -Force | Out-Null
 
 $styles = @(
-    @{ File = "TishteSerif-Regular-v960.ttf"; Registry = "Tishte Serif (TrueType)" },
-    @{ File = "TishteSerif-Bold-v960.ttf"; Registry = "Tishte Serif Bold (TrueType)" },
-    @{ File = "TishteSerif-Italic-v960.ttf"; Registry = "Tishte Serif Italic (TrueType)" },
-    @{ File = "TishteSerif-BoldItalic-v960.ttf"; Registry = "Tishte Serif Bold Italic (TrueType)" }
+    @{ File = "TishteSerif-Regular-v1000.ttf"; Registry = "Tishte Serif (TrueType)" },
+    @{ File = "TishteSerif-Bold-v1000.ttf"; Registry = "Tishte Serif Bold (TrueType)" },
+    @{ File = "TishteSerif-Italic-v1000.ttf"; Registry = "Tishte Serif Italic (TrueType)" },
+    @{ File = "TishteSerif-BoldItalic-v1000.ttf"; Registry = "Tishte Serif Bold Italic (TrueType)" }
 )
 
 foreach ($style in $styles) {

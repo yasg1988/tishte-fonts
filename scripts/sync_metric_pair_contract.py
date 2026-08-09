@@ -11,6 +11,7 @@ from fontTools.ttLib import TTFont
 
 from audit_metric_contract import Shaper
 from kerning import append_delta_lookup
+from versioning import version_tag
 
 
 STYLES = ("Regular", "Bold", "Italic", "BoldItalic")
@@ -19,10 +20,10 @@ STYLES = ("Regular", "Bold", "Italic", "BoldItalic")
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
-    parser.add_argument("--version", default="0.960")
+    parser.add_argument("--version", default="1.000")
     args = parser.parse_args()
     root = args.root.resolve()
-    tag = "v" + args.version.partition(".")[2]
+    tag = version_tag(args.version)
     contract = json.loads(
         (root / "data" / "times-new-roman-metrics.json").read_text(encoding="utf-8")
     )

@@ -15,6 +15,7 @@ import uharfbuzz as hb
 
 from build_serif_family import STYLES
 from font_metrics_audit import load_charset
+from versioning import version_tag
 
 
 FEATURES = {"kern": True, "liga": False, "clig": False}
@@ -110,15 +111,16 @@ def append_delta_lookup(path: Path, deltas: dict[tuple[str, str], int]) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
-    parser.add_argument("--version-tag", default="v960")
-    parser.add_argument("--version", default="0.960")
+    parser.add_argument("--version-tag", default=None)
+    parser.add_argument("--version", default="1.000")
     args = parser.parse_args()
     root = args.root.resolve()
     codepoints = load_charset(root / "data" / "document-charset.txt")
     report = {"version": args.version, "styles": {}}
+    tag = args.version_tag or version_tag(args.version)
     for style in STYLES:
         reference = Path("C:/Windows/Fonts") / style.reference_name
-        candidate = root / "build" / f"TishteSerif-{style.key}-{args.version_tag}.ttf"
+        candidate = root / "build" / f"TishteSerif-{style.key}-{tag}.ttf"
         deltas = measure_deltas(reference, candidate, codepoints)
         append_delta_lookup(candidate, deltas)
         values = list(deltas.values())
@@ -128,7 +130,7 @@ def main() -> None:
             "maximum_delta": max(values, default=0),
         }
         print(f"{style.key}: {len(deltas)} pairs")
-    output = root / "artifacts" / "reports" / f"kerning-deltas-{args.version_tag}.json"
+    output = root / "artifacts" / "reports" / f"kerning-deltas-{tag}.json"
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 

@@ -17,10 +17,11 @@ from fontTools.ttLib import TTFont
 from fontTools.ttLib.tables._g_l_y_f import Glyph
 
 from font_metrics_audit import load_charset
+from versioning import version_tag
 
 
 FAMILY = "Tishte Serif"
-VERSION = "0.960"
+VERSION = "1.000"
 LICENSE = "This Font Software is licensed under the SIL Open Font License, Version 1.1."
 LICENSE_URL = "https://openfontlicense.org"
 # OpenType seconds since 1904-01-01 for 2026-01-01T00:00:00Z. Keeping this
@@ -242,11 +243,11 @@ def build(
     metric_contract = json.loads(
         (root / "data" / "times-new-roman-metrics.json").read_text(encoding="utf-8")
     )
-    version_tag = "v" + version.partition(".")[2]
+    tag = version_tag(version)
     outputs: list[Path] = []
     for style in STYLES:
         source = root / "sources" / "tishte-serif" / f"TishteSerif-{style.key}.sfd"
-        output = root / "build" / f"TishteSerif-{style.key}-{version_tag}.ttf"
+        output = root / "build" / f"TishteSerif-{style.key}-{tag}.ttf"
         generate(source, output)
         normalize(output, style, metric_contract["styles"][style.key], codepoints, version)
         outputs.append(output)

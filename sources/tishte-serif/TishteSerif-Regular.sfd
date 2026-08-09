@@ -1,10 +1,10 @@
 SplineFontDB: 3.2
-FontName: TishteSerifPrototype-Regular
-FullName: Tishte Serif Prototype Regular
-FamilyName: Tishte Serif Prototype
+FontName: TishteSerif-Regular
+FullName: Tishte Serif Regular
+FamilyName: Tishte Serif
 Weight: Regular
-Copyright: Copyright 2026 The Tinos Project Authors (https://github.com/googlefonts/tinos)
-Version: 0.140
+Copyright: Copyright 2026 The Tinos Project Authors; Copyright 2026 Tishte Project contributors; modified for the Tishte Project
+Version: 1.000
 ItalicAngle: 0
 UnderlinePosition: -273
 UnderlineWidth: 100
@@ -4336,7 +4336,7 @@ ShortTable: maxp 16
   4
   1
 EndShort
-LangName: 1033 "" "" "" "Version 0.001; Tishte Serif engineering prototype" "" "Version 0.001" "" "Tinos is a trademark of Google Inc." "Monotype Imaging Inc." "Steve Matteson" "Tinos was designed by Steve Matteson as an innovative, refreshing serif design that is metrically compatible with Times New Roman+ISIA. Tinos offers improved on-screen readability characteristics and the pan-European WGL character set and solves the needs of developers looking for width-compatible fonts to address document portability across platforms." "http://www.google.com/get/noto/" "http://www.monotype.com/studio" "This Font Software is licensed under the SIL Open Font License, Version 1.1." "https://openfontlicense.org" "" "Tishte Serif Prototype" "Regular"
+LangName: 1033 "Tishte Serif" "Regular" "Tishte Serif Regular" "Version 1.000; Tishte Serif; Regular" "Version 1.000" "TishteSerif-Regular" "" "Tishte Project" "Сергей Якунин" "Tishte Serif is a modified version of Tinos, developed as a free Times New Roman-metric document typeface with Russian, Meadow Mari, Hill Mari and Latin coverage." "https://github.com/yasg1988/tishte-fonts" "https://github.com/yasg1988/tishte-fonts" "This Font Software is licensed under the SIL Open Font License, Version 1.1." "https://openfontlicense.org" "" "Tishte Serif" "Regular"
 GaspTable: 1 65535 15 1
 Encoding: UnicodeBmp
 UnicodeInterp: none

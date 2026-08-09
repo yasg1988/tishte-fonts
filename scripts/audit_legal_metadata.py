@@ -9,6 +9,8 @@ from pathlib import Path
 
 from fontTools.ttLib import TTFont
 
+from versioning import version_tag
+
 
 STYLES = ("Regular", "Bold", "Italic", "BoldItalic")
 UPSTREAM_COPYRIGHT = "Copyright 2026 The Tinos Project Authors"
@@ -30,10 +32,10 @@ def values(font: TTFont, name_id: int) -> list[str]:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
-    parser.add_argument("--version", default="0.960")
+    parser.add_argument("--version", default="1.000")
     args = parser.parse_args()
     root = args.root.resolve()
-    tag = "v" + args.version.partition(".")[2]
+    tag = version_tag(args.version)
     license_text = (root / "LICENSE.txt").read_text(encoding="utf-8")
     license_checks = {
         "current_upstream_copyright": license_text.startswith(UPSTREAM_COPYRIGHT),
