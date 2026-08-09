@@ -32,6 +32,7 @@ Pygments==2.19.2
 PyYAML==6.0.3
 requests==2.32.3
 rich==14.2.0
+skia-pathops==0.9.2
 toml==0.10.2
 ufo2ft==3.6.9
 ufolint==1.2.0
