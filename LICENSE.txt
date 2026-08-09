@@ -1,4 +1,5 @@
 Copyright 2026 The Tinos Project Authors (https://github.com/googlefonts/tinos)
+Copyright 2020 The Arimo Project Authors (https://github.com/googlefonts/arimo)
 Copyright 2026 Tishte Project contributors; modified for the Tishte Project
 (https://github.com/yasg1988/tishte-fonts).
 

@@ -1,4 +1,4 @@
-# Exact dependency closure used to build and validate Tishte Serif v0.960.
+# Exact dependency closure used to build and validate Tishte 1.000.
 beziers==0.6.0
 booleanOperations==0.10.0
 brotli==1.2.0

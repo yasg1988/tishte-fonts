@@ -18,8 +18,8 @@ def digest(path: Path) -> str:
 
 
 def files(root: Path, tag: str) -> list[Path]:
-    return sorted((root / "build").glob(f"*-{tag}.ttf")) + sorted(
-        (root / "build" / "web").glob(f"*-{tag}.woff2")
+    return sorted((root / "build").glob(f"TishteSerif-*-{tag}.ttf")) + sorted(
+        (root / "build" / "web").glob(f"TishteSerif-*-{tag}.woff2")
     )
 
 
