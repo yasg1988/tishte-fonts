@@ -12,7 +12,7 @@ jobs:
   validate-fonts:
     name: Validate fonts
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
@@ -24,9 +24,13 @@ jobs:
       - name: Install Python dependencies
         run: python -m pip install --upgrade pip && pip install -r requirements-lock.txt
       - name: Build TTF and WOFF2
-        run: python scripts/build_release.py --version 1.000
+        run: |
+          python scripts/build_release.py --version 1.000
+          python scripts/build_sans_release.py --version 1.000
       - name: Verify reproducible build
-        run: python scripts/audit_reproducible_build.py --version 1.000
+        run: |
+          python scripts/audit_reproducible_build.py --version 1.000
+          python scripts/audit_sans_reproducible.py --version 1.000
       - name: Fetch pinned OFL comparison fonts
         run: python scripts/fetch_upstream.py
       - name: Audit metric, language, OpenType and legal contracts
@@ -39,10 +43,17 @@ jobs:
           python scripts/audit_outline_originality.py --version 1.000 --max-identical-ratio 0.01
           python scripts/audit_legal_metadata.py --version 1.000
           python scripts/audit_source_metadata.py
+          python scripts/audit_sans.py --version 1.000
+          python scripts/audit_sans_raster.py --version 1.000
+          python scripts/audit_sans_originality.py --version 1.000 --max-identical-ratio 0.01
+          python scripts/audit_superfamily.py --version 1.000
       - name: Validate outlines with FontForge
         run: |
-          for font in build/*-v1000.ttf; do
+          for font in build/TishteSerif-*-v1000.ttf; do
             fontforge -lang=py -script scripts/validate_font_outlines.py "$font"
+          done
+          for font in build/TishteSans-*-v1000.ttf; do
+            fontforge -lang=py -script scripts/validate_font_outlines.py "$font" --allowed-mask 32
           done
       - name: Sanitize binaries with OTS
         run: |
@@ -50,9 +61,15 @@ jobs:
             ots-sanitize "$font"
           done
       - name: Run FontBakery policy gate
-        run: python scripts/run_fontbakery.py --version 1.000
+        run: |
+          python scripts/run_fontbakery.py --version 1.000
+          python scripts/run_sans_fontbakery.py --version 1.000
       - name: Build distribution archive
-        run: python scripts/build_distribution.py --version 1.000
+        run: |
+          python scripts/build_distribution.py --version 1.000
+          python scripts/build_sans_distribution.py --version 1.000
+          python scripts/audit_distribution.py dist/Tishte-Serif-v1.000.zip
+          python scripts/audit_distribution.py dist/Tishte-Sans-v1.000.zip
       - name: Upload production package
         uses: actions/upload-artifact@v7
         with:
@@ -60,6 +77,8 @@ jobs:
           path: |
             dist/Tishte-Serif-v1.000.zip
             dist/Tishte-Serif-v1.000.zip.sha256
+            dist/Tishte-Sans-v1.000.zip
+            dist/Tishte-Sans-v1.000.zip.sha256
       - name: Upload binaries for portable audits
         uses: actions/upload-artifact@v7
         with:
@@ -68,6 +87,7 @@ jobs:
             build/*-v1000.ttf
             build/web/*-v1000.woff2
             build/web/tishte-serif-v1000.css
+            build/web/tishte-sans-v1000.css
       - name: Upload quality reports
         if: always()
         uses: actions/upload-artifact@v7
@@ -102,6 +122,9 @@ jobs:
           python scripts/audit_opentype.py --version 1.000
           python scripts/audit_document_layout.py --version 1.000
           python scripts/audit_legal_metadata.py --version 1.000
+          python scripts/audit_sans.py --version 1.000
+          python scripts/audit_sans_raster.py --version 1.000
+          python scripts/audit_superfamily.py --version 1.000
 
   release-gate:
     name: Release gate

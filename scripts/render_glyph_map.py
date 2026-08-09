@@ -43,9 +43,11 @@ def face(path: Path, size: int) -> ImageFont.FreeTypeFont:
     return ImageFont.truetype(str(path), size=size)
 
 
-def render(root: Path, version: str, output: Path) -> None:
+def render(root: Path, version: str, output: Path, family: str = "serif") -> None:
     tag = version_tag(version)
-    font_path = root / "build" / f"TishteSerif-Regular-{tag}.ttf"
+    prefix = "TishteSerif" if family == "serif" else "TishteSans"
+    family_name = "Tishte Serif" if family == "serif" else "Tishte Sans"
+    font_path = root / "build" / f"{prefix}-Regular-{tag}.ttf"
     codepoints = load_charset(root / "data" / "document-charset.txt")
     cmap = TTFont(font_path).getBestCmap()
     missing = [cp for cp in codepoints if cp not in cmap]
@@ -62,7 +64,7 @@ def render(root: Path, version: str, output: Path) -> None:
     small = face(font_path, 20)
     tiny = face(font_path, 16)
 
-    draw.text((MARGIN, 38), "Tishte Serif — полная карта знаков", font=title, fill=INK)
+    draw.text((MARGIN, 38), f"{family_name} — полная карта знаков", font=title, fill=INK)
     draw.text((MARGIN, 132), f"Версия {version} · {len(codepoints)} кодовых точек · реальный TTF", font=face(font_path, 27), fill=ACCENT)
     draw.line((MARGIN, 190, width - MARGIN, 190), fill=RULE, width=2)
 
@@ -94,10 +96,13 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--version", default="1.000")
-    parser.add_argument("--output", type=Path, default=Path("artifacts/specimens/tishte-serif-v1000-glyph-map.png"))
+    parser.add_argument("--family", choices=("serif", "sans"), default="serif")
+    parser.add_argument("--output", type=Path)
     args = parser.parse_args()
-    output = args.output if args.output.is_absolute() else args.root / args.output
-    render(args.root.resolve(), args.version, output)
+    default_name = f"tishte-{args.family}-v1000-glyph-map.png"
+    requested = args.output or Path("artifacts") / "specimens" / default_name
+    output = requested if requested.is_absolute() else args.root / requested
+    render(args.root.resolve(), args.version, output, args.family)
 
 
 if __name__ == "__main__":

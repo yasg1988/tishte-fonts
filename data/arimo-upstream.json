@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "repository": "https://github.com/google/fonts",
+  "commit": "2d85e20401920891efb7cd6272d6339685df2820",
+  "files": [
+    {
+      "name": "Arimo-wght.ttf",
+      "url": "https://raw.githubusercontent.com/google/fonts/2d85e20401920891efb7cd6272d6339685df2820/ofl/arimo/Arimo%5Bwght%5D.ttf",
+      "bytes": 496268,
+      "sha256": "e43898b143ec826ac8cb4034816458a7047fbe0836558de2a1f8c6223ae3e0ca"
+    },
+    {
+      "name": "Arimo-Italic-wght.ttf",
+      "url": "https://raw.githubusercontent.com/google/fonts/2d85e20401920891efb7cd6272d6339685df2820/ofl/arimo/Arimo-Italic%5Bwght%5D.ttf",
+      "bytes": 543196,
+      "sha256": "a80fc54fd0233c1dfe298577c4d00f5ae81d5bb83510975e473c47e699b7f4ed"
+    }
+  ]
+}
