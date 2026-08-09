@@ -13,7 +13,7 @@
 
 ## Статус
 
-Собран инженерный прототип Tishte Serif Regular v0.020. В нём начата
+Собран инженерный прототип Tishte Serif Regular v0.030. В нём начата
 собственная визуальная система для кириллицы, марийских букв, латиницы, цифр и
 документных знаков. Машинный профиль содержит 212 обязательных символов и
 сохраняет их метрики Times New Roman. Прототип пока основан на открытом
@@ -61,8 +61,8 @@ python scripts/build_serif_from_sfd.py
 Для сборки требуется FontForge.
 
 Текущая итерация собирается из
-`sources/tishte-serif/iterations/TishteSerif-Regular-v020.sfd` с версией
-`0.020`. После сборки выполняется `scripts/font_compliance_audit.py`; релиз не
+`sources/tishte-serif/iterations/TishteSerif-Regular-v030.sfd` с версией
+`0.030`. После сборки выполняется `scripts/font_compliance_audit.py`; релиз не
 считается прошедшим проверку при отсутствии обязательных символов или изменении
 их документных метрик.
 
