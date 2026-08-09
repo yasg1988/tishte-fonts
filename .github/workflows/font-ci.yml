@@ -1,0 +1,53 @@
+name: Font CI
+
+on:
+  push:
+    branches: [main, "agent/**"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-fonts:
+    name: Validate fonts
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install system tools
+        run: sudo apt-get update && sudo apt-get install -y fontforge python3-fontforge opentype-sanitizer
+      - name: Install Python dependencies
+        run: python -m pip install --upgrade pip && pip install -r requirements.txt
+      - name: Build TTF and WOFF2
+        run: |
+          python scripts/build_serif_family_v060.py --version 0.900 --source-version 0.110
+          python scripts/build_webfonts.py --version 0.900
+      - name: Audit metric and Unicode contracts
+        run: |
+          python scripts/audit_metric_contract.py --version 0.900
+          python scripts/audit_unicode_normalization_v090.py --version 0.900
+          python scripts/audit_language_corpus.py --version 0.900
+          python scripts/audit_opentype_v120.py --version 0.900
+      - name: Validate outlines with FontForge
+        run: |
+          for font in build/*-v900.ttf; do
+            fontforge -lang=py -script scripts/validate_font_outlines.py "$font"
+          done
+      - name: Sanitize binaries with OTS
+        run: |
+          for font in build/*-v900.ttf build/web/*-v900.woff2; do
+            ots-sanitize "$font"
+          done
+      - name: Run FontBakery policy gate
+        run: python scripts/run_fontbakery.py --version 0.900
+      - name: Upload quality reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: font-quality-reports
+          path: artifacts/reports/
