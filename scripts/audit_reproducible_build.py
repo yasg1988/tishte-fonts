@@ -24,8 +24,8 @@ def files(root: Path, tag: str) -> list[Path]:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
-    parser.add_argument("--version", default="0.910")
-    parser.add_argument("--source-version", default="0.110")
+    parser.add_argument("--version", default="0.920")
+    parser.add_argument("--source-version", default="0.120")
     args = parser.parse_args()
     root = args.root.resolve()
     tag = "v" + args.version.partition(".")[2]
