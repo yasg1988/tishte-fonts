@@ -15,6 +15,8 @@ def main():
     for name in sys.argv[2:]:
         glyph = font[name]
         print(f"\n{name} width={glyph.width} bbox={glyph.boundingBox()}")
+        if glyph.references:
+            print(f"  references={glyph.references}")
         for contour_index, contour in enumerate(glyph.foreground):
             points = " ".join(
                 f"{index}:{round(point.x)},{round(point.y)}{'o' if point.on_curve else 'c'}"
