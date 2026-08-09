@@ -22,6 +22,7 @@ $wdFormatDocumentDefault = 16
 $wdFieldPage = 33
 $wdCollapseEnd = 0
 $wdBorderNone = 0
+$nbsp = [char]0x00A0
 
 function Set-StyleFont {
     param(
@@ -268,7 +269,7 @@ function Build-LanguageDocument {
     Add-Paragraph $Document "Контроль букв: Ӓ ӓ, Ӧ ӧ, Ӱ ӱ, Ӹ ӹ. Кырык мары, шачмы вӓр, йӹлмӹ." "Tishte Body" $wdAlignLeft 0
 
     Add-Paragraph $Document "ЛАТИНИЦА, ЦИФРЫ И СПЕЦИАЛЬНЫЕ ЗНАКИ" "Tishte Heading" $wdAlignLeft 0 $true
-    Add-Paragraph $Document "ABCDEFGHIJKLMNOPQRSTUVWXYZ · abcdefghijklmnopqrstuvwxyz · 0123456789 · № 147 · 1 250 000,00 ₽ · € £ ¥ · ± × ÷ ≠ ≤ ≥ · ← ↑ → ↓ ↔" "Tishte Body" $wdAlignLeft 0
+    Add-Paragraph $Document "ABCDEFGHIJKLMNOPQRSTUVWXYZ · abcdefghijklmnopqrstuvwxyz · 0123456789 · № 147 · 1${nbsp}250${nbsp}000,00 ₽ · пробел: A B · NBSP: A${nbsp}B · € £ ¥ · ± × ÷ ≠ ≤ ≥ · ← ↑ → ↓ ↔" "Tishte Body" $wdAlignLeft 0
     if ($IncludeStyleMatrix) {
         Add-Paragraph $Document "КОНТРОЛЬ НАЧЕРТАНИЙ" "Tishte Heading" $wdAlignLeft 0 $true
         Add-Paragraph $Document "Regular: Республика Марий Эл · Ӓ ӓ Ӧ ӧ Ӱ ӱ Ӹ ӹ Ҥ ҥ · 0123456789" "Tishte Body" $wdAlignLeft 0

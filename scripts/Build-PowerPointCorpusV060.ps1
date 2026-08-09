@@ -20,6 +20,7 @@ $ink = 0x24211F
 $accent = 0x34248F
 $muted = 0x817A72
 $paper = 0xF7F4EF
+$nbsp = [char]0x00A0
 
 function Add-Text {
     param(
@@ -83,7 +84,7 @@ function Build-Deck {
         [void](Add-Text $slide "Ӓ ӓ   Ӧ ӧ   Ӱ ӱ   Ҥ ҥ`nМарий Эл Республикын Кугыжаныш Погынжо" 48 202 390 110 $FontName 24)
         [void](Add-Text $slide "ГОРНОМАРИЙСКИЙ" 510 164 360 24 $FontName 13 $true $false $accent)
         [void](Add-Text $slide "Ӓ ӓ   Ӧ ӧ   Ӱ ӱ   Ӹ ӹ`nШачмы йӹлмем ылеш сӹлнӹ." 510 202 390 110 $FontName 24)
-        [void](Add-Text $slide "ABC xyz · 0123456789 · № ₽ € £ ¥ · ± × ÷ ≠ ≤ ≥ · ← ↑ → ↓ ↔" 48 390 850 34 $FontName 18)
+        [void](Add-Text $slide "ABC xyz · 0123456789 · пробел: A B · NBSP: A${nbsp}B · № ₽ € £ ¥ · ± × ÷ ≠ ≤ ≥ · ← ↑ → ↓ ↔" 48 390 850 34 $FontName 18)
         Add-Footer $slide $FontName 2
 
         $slide = $deck.Slides.Add(3, $ppLayoutBlank)

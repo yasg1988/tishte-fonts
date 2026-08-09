@@ -134,12 +134,17 @@ def normalize(
     temporary.replace(path)
 
 
-def build(root: Path, version: str = VERSION) -> list[Path]:
+def build(
+    root: Path,
+    version: str = VERSION,
+    source_version: str | None = None,
+) -> list[Path]:
     codepoints = load_charset(root / "data" / "document-charset.txt")
     version_tag = "v" + version.partition(".")[2]
+    source_tag = "v" + (source_version or version).partition(".")[2]
     outputs: list[Path] = []
     for style in STYLES:
-        source = root / "sources" / "tishte-serif" / "iterations" / f"TishteSerif-{style.key}-{version_tag}.sfd"
+        source = root / "sources" / "tishte-serif" / "iterations" / f"TishteSerif-{style.key}-{source_tag}.sfd"
         output = root / "build" / f"TishteSerif-{style.key}-{version_tag}.ttf"
         reference = Path("C:/Windows/Fonts") / style.reference_name
         generate(source, output)
@@ -153,8 +158,9 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--version", default=VERSION)
+    parser.add_argument("--source-version")
     args = parser.parse_args()
-    build(args.root.resolve(), args.version)
+    build(args.root.resolve(), args.version, args.source_version)
 
 
 if __name__ == "__main__":

@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import argparse
 import json
 from pathlib import Path
 
@@ -17,7 +18,8 @@ CORPUS = {
     "hill_mari": "Ӓ ӓ Ӧ ӧ Ӱ ӱ Ӹ ӹ · Шачмы йӹлмем ылеш сӹлнӹ",
     "latin": "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz",
     "numbers": "0123456789 · 1 250 000,00 ₽ · € £ ¥ · ± × ÷ ≠ ≤ ≥",
-    "kerning_pairs": "AV AW AY AT FA LT LV PA TA TO Tr Ty VA WA Yo ТА АУ ЛТ РА",
+    "latin_kerning_pairs": "AV AW AY AT FA LT LV PA TA TO Tr Ty VA WA Yo",
+    "cyrillic_kerning_pairs": "ТА АУ ЛТ РА",
 }
 
 DOCUMENT_FEATURES = {"kern": False, "liga": False, "clig": False}
@@ -40,11 +42,15 @@ def shape(path: Path, text: str, features: dict[str, bool] | None = None) -> dic
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--version", default="0.070")
+    args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
+    version_tag = "v" + args.version.partition(".")[2]
     styles = {}
     for style in STYLES:
         reference = Path("C:/Windows/Fonts") / style.reference_name
-        candidate = root / "build" / f"TishteSerif-{style.key}-v070.ttf"
+        candidate = root / "build" / f"TishteSerif-{style.key}-{version_tag}.ttf"
         cases = {}
         for name, text in CORPUS.items():
             times_document = shape(reference, text, DOCUMENT_FEATURES)
@@ -77,12 +83,12 @@ def main() -> int:
         for side in ("times", "tishte")
     ]
     result = {
-        "version": "0.070",
+        "version": args.version,
         "policy": "Document compatibility is audited with discretionary kerning and ligatures disabled.",
         "styles": styles,
         "passed": all(value == 0 for value in document_differences) and all(value == 0 for value in notdefs),
     }
-    output = root / "artifacts" / "reports" / "shaping-v070.json"
+    output = root / "artifacts" / "reports" / f"shaping-{version_tag}.json"
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(result, ensure_ascii=False, indent=2))

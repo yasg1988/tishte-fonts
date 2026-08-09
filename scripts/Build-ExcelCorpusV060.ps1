@@ -20,6 +20,7 @@ $accent = 0x34248F
 $accentSoft = 0xE9E2F4
 $surface = 0xF7F4EF
 $border = 0xD2CCC4
+$nbsp = [char]0x00A0
 
 function Set-Font {
     param($Range, [string]$FontName, [double]$Size = 11, [bool]$Bold = $false, [bool]$Italic = $false)
@@ -172,7 +173,7 @@ function Build-Workbook {
             $styles.Rows.Item($textRow).RowHeight = 30
         }
         $styles.Range("A17:F17").Merge()
-        $styles.Range("A17").Value2 = "Формулы: 125 000,00 ₽ + 25% · даты: 09.08.2026 · знаки: ← ↑ → ↓ ↔"
+        $styles.Range("A17").Value2 = "Формулы: 125${nbsp}000,00 ₽ + 25% · пробел: A B · NBSP: A${nbsp}B · даты: 09.08.2026 · знаки: ← ↑ → ↓ ↔"
         Set-Font $styles.Range("A17") $FontName 13
         $styles.Columns.Item(1).ColumnWidth = 24
         foreach ($column in 2..6) { $styles.Columns.Item($column).ColumnWidth = 15 }

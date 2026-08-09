@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -47,7 +48,11 @@ def load_charset(path: Path | None) -> list[int]:
         line = raw_line.strip()
         if not line or line.startswith("#"):
             continue
-        codepoints.update(ord(char) for char in line)
+        tokens = line.split()
+        if tokens and all(re.fullmatch(r"U\+[0-9A-Fa-f]{4,6}", token) for token in tokens):
+            codepoints.update(int(token[2:], 16) for token in tokens)
+        else:
+            codepoints.update(ord(char) for char in line)
     return sorted(codepoints)
 
 

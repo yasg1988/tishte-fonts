@@ -1,0 +1,16 @@
+[CmdletBinding()]
+param([string]$OutputRoot = "dist")
+
+$ErrorActionPreference = "Stop"
+$workspace = [System.IO.Path]::GetFullPath((Get-Location).Path)
+$dist = [System.IO.Path]::GetFullPath((Join-Path $workspace $OutputRoot))
+$stage = [System.IO.Path]::GetFullPath((Join-Path $dist "Tishte-Serif-v080-office-tests"))
+$archive = [System.IO.Path]::GetFullPath((Join-Path $dist "Tishte-Serif-v080-office-tests.zip"))
+if (-not $stage.StartsWith($dist + [IO.Path]::DirectorySeparatorChar)) { throw "Unsafe package path: $stage" }
+if (Test-Path -LiteralPath $stage) { Remove-Item -LiteralPath $stage -Recurse -Force }
+New-Item -ItemType Directory -Path $stage -Force | Out-Null
+Copy-Item -LiteralPath "artifacts\document-tests\v080" -Destination (Join-Path $stage "word") -Recurse
+Copy-Item -LiteralPath "artifacts\office-tests\v080\excel" -Destination (Join-Path $stage "excel") -Recurse
+Copy-Item -LiteralPath "artifacts\office-tests\v080\powerpoint" -Destination (Join-Path $stage "powerpoint") -Recurse
+Compress-Archive -LiteralPath $stage -DestinationPath $archive -CompressionLevel Optimal -Force
+[ordered]@{ package = $archive; files = (Get-ChildItem $stage -Recurse -File).Count; bytes = (Get-Item $archive).Length } | ConvertTo-Json
