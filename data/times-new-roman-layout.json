@@ -1,0 +1,3521 @@
+{
+  "schema": 1,
+  "description": "Line-break and pagination results only; contains no Times New Roman outlines.",
+  "styles": {
+    "Regular": {
+      "reference_filename": "times.ttf",
+      "cases": [
+        {
+          "paragraph": 0,
+          "width": 9000,
+          "lines": [
+            "Правительство",
+            "Республики",
+            "Марий",
+            "Эл.",
+            "Постановление",
+            "№ 125 от",
+            "09.08.2026."
+          ],
+          "digest": "08840e7908bc5ba9672fedc19effd5c0154a52fef80d716e1cee2d6c8cdcf0ca"
+        },
+        {
+          "paragraph": 0,
+          "width": 12000,
+          "lines": [
+            "Правительство",
+            "Республики",
+            "Марий Эл.",
+            "Постановление",
+            "№ 125 от",
+            "09.08.2026."
+          ],
+          "digest": "c0b72ea074ee1602051152203bd8e1377ad3265a9c1e6114c9d3af2a222a4751"
+        },
+        {
+          "paragraph": 0,
+          "width": 16000,
+          "lines": [
+            "Правительство",
+            "Республики",
+            "Марий Эл.",
+            "Постановление №",
+            "125 от 09.08.2026."
+          ],
+          "digest": "7f2650fe8b2afb4e57f28f9d460399ada8c7a1da1dbd8c32fc36dd34cbaceb28"
+        },
+        {
+          "paragraph": 0,
+          "width": 22000,
+          "lines": [
+            "Правительство",
+            "Республики Марий Эл.",
+            "Постановление № 125 от",
+            "09.08.2026."
+          ],
+          "digest": "66609f50bef6d77f12939240ddc75e7c49cc2012802c5152de7633460b24cedf"
+        },
+        {
+          "paragraph": 1,
+          "width": 9000,
+          "lines": [
+            "Контроль",
+            "делового",
+            "текста:",
+            "Ёж,",
+            "Йошкар-Ола,",
+            "сумма 48",
+            "750,00 ₽;",
+            "срок —",
+            "30 дней."
+          ],
+          "digest": "0d5440770297d37ef72faf5bc1feb92050146354b10a43c86f460498a2f8ad9c"
+        },
+        {
+          "paragraph": 1,
+          "width": 12000,
+          "lines": [
+            "Контроль",
+            "делового",
+            "текста: Ёж,",
+            "Йошкар-Ола,",
+            "сумма 48",
+            "750,00 ₽;",
+            "срок — 30",
+            "дней."
+          ],
+          "digest": "276583f46c364e3b9bdbd7eef52a103e410127156e1aa8581ac393cc8ed00d45"
+        },
+        {
+          "paragraph": 1,
+          "width": 16000,
+          "lines": [
+            "Контроль",
+            "делового текста:",
+            "Ёж, Йошкар-Ола,",
+            "сумма 48 750,00",
+            "₽; срок — 30",
+            "дней."
+          ],
+          "digest": "62548cf5c8fa36ca7c115a79c035034cc6ef2d3ffd0660561cf60b4f85e981a8"
+        },
+        {
+          "paragraph": 1,
+          "width": 22000,
+          "lines": [
+            "Контроль делового",
+            "текста: Ёж, Йошкар-Ола,",
+            "сумма 48 750,00 ₽; срок",
+            "— 30 дней."
+          ],
+          "digest": "665c4efe961ad547121d5b6c1bc3f52b34f490979430d04d25d919da126f9bd5"
+        },
+        {
+          "paragraph": 2,
+          "width": 9000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "Кугыжаныш",
+            "Погынжо."
+          ],
+          "digest": "f6824a4366e6cac1908095b59f7019d47ce4f8835d9dc2ee5b9aeafa02a1f575"
+        },
+        {
+          "paragraph": 2,
+          "width": 12000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "Кугыжаныш",
+            "Погынжо."
+          ],
+          "digest": "f6824a4366e6cac1908095b59f7019d47ce4f8835d9dc2ee5b9aeafa02a1f575"
+        },
+        {
+          "paragraph": 2,
+          "width": 16000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "Кугыжаныш",
+            "Погынжо."
+          ],
+          "digest": "f6824a4366e6cac1908095b59f7019d47ce4f8835d9dc2ee5b9aeafa02a1f575"
+        },
+        {
+          "paragraph": 2,
+          "width": 22000,
+          "lines": [
+            "Марий Эл Республикын",
+            "Кугыжаныш Погынжо."
+          ],
+          "digest": "975adccbe56397f3d5bd48da787b9df5b86da9292837ea59cde15d7d55ffac1f"
+        },
+        {
+          "paragraph": 3,
+          "width": 9000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "Вуйлатышыже."
+          ],
+          "digest": "ca9513a4823fba85abb2bb20cb4b939a5630a35b1488373b43bfed19090c0786"
+        },
+        {
+          "paragraph": 3,
+          "width": 12000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "Вуйлатышыже."
+          ],
+          "digest": "ca9513a4823fba85abb2bb20cb4b939a5630a35b1488373b43bfed19090c0786"
+        },
+        {
+          "paragraph": 3,
+          "width": 16000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "Вуйлатышыже."
+          ],
+          "digest": "ca9513a4823fba85abb2bb20cb4b939a5630a35b1488373b43bfed19090c0786"
+        },
+        {
+          "paragraph": 3,
+          "width": 22000,
+          "lines": [
+            "Марий Эл Республикын",
+            "Вуйлатышыже."
+          ],
+          "digest": "963fafc4f6e16605d7da38cbf955867cdaebce65b5992a3a2a495aaab1fc9230"
+        },
+        {
+          "paragraph": 4,
+          "width": 9000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "тӱвыра,",
+            "печать да",
+            "калык-влакын",
+            "пашашт",
+            "шотышто",
+            "министерствыже."
+          ],
+          "digest": "1ee1d9327eb9ce84873cb79238bd88b164946736095fd653624fdada5ffa9869"
+        },
+        {
+          "paragraph": 4,
+          "width": 12000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "тӱвыра,",
+            "печать да",
+            "калык-влакын",
+            "пашашт",
+            "шотышто",
+            "министерствыже."
+          ],
+          "digest": "1ee1d9327eb9ce84873cb79238bd88b164946736095fd653624fdada5ffa9869"
+        },
+        {
+          "paragraph": 4,
+          "width": 16000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "тӱвыра, печать да",
+            "калык-влакын",
+            "пашашт шотышто",
+            "министерствыже."
+          ],
+          "digest": "7bafd10c94ea28febfd37ebeaa9d831c7ab60f807c4e2e9d8e051909ec17bd3a"
+        },
+        {
+          "paragraph": 4,
+          "width": 22000,
+          "lines": [
+            "Марий Эл Республикын",
+            "тӱвыра, печать да",
+            "калык-влакын пашашт",
+            "шотышто",
+            "министерствыже."
+          ],
+          "digest": "4c8e2a36c015e067c043219a5b7f3606e5cd237ce84fd074eab31c1d8c326be2"
+        },
+        {
+          "paragraph": 5,
+          "width": 9000,
+          "lines": [
+            "Контроль:",
+            "Ӓ ӓ, Ӧ ӧ,",
+            "Ӱ ӱ, Ҥ ҥ;",
+            "Йошкар-Ола,",
+            "Кугыжаныш,",
+            "тӱвыра,",
+            "калык-влак."
+          ],
+          "digest": "86fc14d3b2ecb736d8e3dc5b845660ee58a99bbb98313ce229f25bf6e9dfec30"
+        },
+        {
+          "paragraph": 5,
+          "width": 12000,
+          "lines": [
+            "Контроль: Ӓ",
+            "ӓ, Ӧ ӧ, Ӱ ӱ, Ҥ",
+            "ҥ;",
+            "Йошкар-Ола,",
+            "Кугыжаныш,",
+            "тӱвыра,",
+            "калык-влак."
+          ],
+          "digest": "98d5c3e147a734edd1d5d9d295f6105a949a931ad2d056541de68d7828ef727d"
+        },
+        {
+          "paragraph": 5,
+          "width": 16000,
+          "lines": [
+            "Контроль: Ӓ ӓ, Ӧ",
+            "ӧ, Ӱ ӱ, Ҥ ҥ;",
+            "Йошкар-Ола,",
+            "Кугыжаныш,",
+            "тӱвыра,",
+            "калык-влак."
+          ],
+          "digest": "7c85e5d5c3e6f534c5e2bc8fdeca46386cff25dfd587a90cf63add0f740d4cb3"
+        },
+        {
+          "paragraph": 5,
+          "width": 22000,
+          "lines": [
+            "Контроль: Ӓ ӓ, Ӧ ӧ, Ӱ ӱ,",
+            "Ҥ ҥ; Йошкар-Ола,",
+            "Кугыжаныш, тӱвыра,",
+            "калык-влак."
+          ],
+          "digest": "1a480630dbe2a342fceff4679af9448eea62b55b0ad7ee36db3c70bc84bffd67"
+        },
+        {
+          "paragraph": 6,
+          "width": 9000,
+          "lines": [
+            "Шачмы",
+            "йӹлмем",
+            "ылеш",
+            "сӹлнӹ."
+          ],
+          "digest": "f5fd9200e86835efa0e966bf2b064ec2ce849d390f56a21729bd6609b854302b"
+        },
+        {
+          "paragraph": 6,
+          "width": 12000,
+          "lines": [
+            "Шачмы",
+            "йӹлмем",
+            "ылеш сӹлнӹ."
+          ],
+          "digest": "c350e02d6e70f8dd9f3bd6fd6bf5bc362c90bb0f746fae8e459deb0c13f034d8"
+        },
+        {
+          "paragraph": 6,
+          "width": 16000,
+          "lines": [
+            "Шачмы йӹлмем",
+            "ылеш сӹлнӹ."
+          ],
+          "digest": "e12b70b0995d08b4ee2af62f13061e3e09ac4e25d4d7c7c103018a3757ab58fd"
+        },
+        {
+          "paragraph": 6,
+          "width": 22000,
+          "lines": [
+            "Шачмы йӹлмем ылеш",
+            "сӹлнӹ."
+          ],
+          "digest": "8e7dc2f19b7a2203499e23eb181829e0a7acef0134afade434d58430002b4f35"
+        },
+        {
+          "paragraph": 7,
+          "width": 9000,
+          "lines": [
+            "Яратыда,",
+            "перегӹдӓ",
+            "ӹшке",
+            "туан",
+            "йӹлмӹдӓм!"
+          ],
+          "digest": "fffb0e15b69a14e2e278644e490e1187d87495b43e41ac012b458785457e2789"
+        },
+        {
+          "paragraph": 7,
+          "width": 12000,
+          "lines": [
+            "Яратыда,",
+            "перегӹдӓ",
+            "ӹшке туан",
+            "йӹлмӹдӓм!"
+          ],
+          "digest": "248cf5ec37e0ebb714cb1f68eab2002d73383dc45d1ea227f07a2b64ee252d74"
+        },
+        {
+          "paragraph": 7,
+          "width": 16000,
+          "lines": [
+            "Яратыда,",
+            "перегӹдӓ ӹшке",
+            "туан йӹлмӹдӓм!"
+          ],
+          "digest": "182e076ee0756faea0d268a8836415713baf422fa592121861fcf116f670408c"
+        },
+        {
+          "paragraph": 7,
+          "width": 22000,
+          "lines": [
+            "Яратыда, перегӹдӓ ӹшке",
+            "туан йӹлмӹдӓм!"
+          ],
+          "digest": "3243478e649dd72103a8ec2aead09f1128d4794841984a3a7f843a4ae6ee5629"
+        },
+        {
+          "paragraph": 8,
+          "width": 9000,
+          "lines": [
+            "Контроль:",
+            "Ӓ ӓ, Ӧ ӧ,",
+            "Ӱ ӱ, Ӹ ӹ;",
+            "Кырык",
+            "мары,",
+            "шачмы",
+            "вӓр,",
+            "йӹлмӹ."
+          ],
+          "digest": "02018fef7c794024eacbb3b3b5a9409f0d5721e3318b6cd914764c5a432ce4b8"
+        },
+        {
+          "paragraph": 8,
+          "width": 12000,
+          "lines": [
+            "Контроль: Ӓ",
+            "ӓ, Ӧ ӧ, Ӱ ӱ, Ӹ",
+            "ӹ; Кырык",
+            "мары, шачмы",
+            "вӓр, йӹлмӹ."
+          ],
+          "digest": "bca47f4580659eb22c5df2399707c22db24afd2dfbc42b42c6da830f273fc865"
+        },
+        {
+          "paragraph": 8,
+          "width": 16000,
+          "lines": [
+            "Контроль: Ӓ ӓ, Ӧ",
+            "ӧ, Ӱ ӱ, Ӹ ӹ;",
+            "Кырык мары,",
+            "шачмы вӓр,",
+            "йӹлмӹ."
+          ],
+          "digest": "bd273d69e3a607ad72579bcaab72f474c4e8867bf1c07242afdf49a9e8577ef2"
+        },
+        {
+          "paragraph": 8,
+          "width": 22000,
+          "lines": [
+            "Контроль: Ӓ ӓ, Ӧ ӧ, Ӱ ӱ,",
+            "Ӹ ӹ; Кырык мары,",
+            "шачмы вӓр, йӹлмӹ."
+          ],
+          "digest": "1c223d8c89cb9ce9eeefad23322b31c997eae6ae7dc1f73660b9073dcca94f52"
+        },
+        {
+          "paragraph": 9,
+          "width": 9000,
+          "lines": [
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            "abcdefghijklmnopqrstuvwxyz."
+          ],
+          "digest": "6564c63868e617c67ca83228d521baac69df5dc9bf990965523aa679f51bc34e"
+        },
+        {
+          "paragraph": 9,
+          "width": 12000,
+          "lines": [
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            "abcdefghijklmnopqrstuvwxyz."
+          ],
+          "digest": "6564c63868e617c67ca83228d521baac69df5dc9bf990965523aa679f51bc34e"
+        },
+        {
+          "paragraph": 9,
+          "width": 16000,
+          "lines": [
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            "abcdefghijklmnopqrstuvwxyz."
+          ],
+          "digest": "6564c63868e617c67ca83228d521baac69df5dc9bf990965523aa679f51bc34e"
+        },
+        {
+          "paragraph": 9,
+          "width": 22000,
+          "lines": [
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            "abcdefghijklmnopqrstuvwxyz."
+          ],
+          "digest": "6564c63868e617c67ca83228d521baac69df5dc9bf990965523aa679f51bc34e"
+        },
+        {
+          "paragraph": 10,
+          "width": 9000,
+          "lines": [
+            "Latin",
+            "Extended:",
+            "ÀÁÂÃÄÅ",
+            "Æ Ç",
+            "ÈÉÊË;",
+            "ĀĂĄ",
+            "ĆĈĊČ Đ",
+            "ĒĔĖĘĚ;",
+            "Œ Š Ž Ÿ."
+          ],
+          "digest": "8a2284b4e29dca124f2623962f74353b797b998b659862a694119a6cbe66d29c"
+        },
+        {
+          "paragraph": 10,
+          "width": 12000,
+          "lines": [
+            "Latin",
+            "Extended:",
+            "ÀÁÂÃÄÅ Æ",
+            "Ç ÈÉÊË;",
+            "ĀĂĄ ĆĈĊČ",
+            "Đ ĒĔĖĘĚ; Œ",
+            "Š Ž Ÿ."
+          ],
+          "digest": "cdf794e781e1900f09336462fd46ecd3d0ca6f402d341630b7aa283967bc043a"
+        },
+        {
+          "paragraph": 10,
+          "width": 16000,
+          "lines": [
+            "Latin Extended:",
+            "ÀÁÂÃÄÅ Æ Ç",
+            "ÈÉÊË; ĀĂĄ",
+            "ĆĈĊČ Đ ĒĔĖĘĚ;",
+            "Œ Š Ž Ÿ."
+          ],
+          "digest": "adf06e71cc877f0f79dd1f5d2ed0a4919bfa37baf935239c97e9bec28b60f9e3"
+        },
+        {
+          "paragraph": 10,
+          "width": 22000,
+          "lines": [
+            "Latin Extended:",
+            "ÀÁÂÃÄÅ Æ Ç ÈÉÊË;",
+            "ĀĂĄ ĆĈĊČ Đ ĒĔĖĘĚ;",
+            "Œ Š Ž Ÿ."
+          ],
+          "digest": "9775af4f75f2a1c926771e0a2f013a90f3c378409636451d83f537d1e8d5b080"
+        },
+        {
+          "paragraph": 11,
+          "width": 9000,
+          "lines": [
+            "Address:",
+            "Government",
+            "of the",
+            "Mari El",
+            "Republic,",
+            "Yoshkar-Ola;",
+            "Straße 12;",
+            "e-mail@example.org."
+          ],
+          "digest": "ce319fb187bb62c68523a6d2919c20285df4c4cc5adaea47cc7e5018bd3e49aa"
+        },
+        {
+          "paragraph": 11,
+          "width": 12000,
+          "lines": [
+            "Address:",
+            "Government",
+            "of the Mari El",
+            "Republic,",
+            "Yoshkar-Ola;",
+            "Straße 12;",
+            "e-mail@example.org."
+          ],
+          "digest": "692e2066b18b9fdd70bc9830cfca7de1256c7126e38556e565cead9bde70e088"
+        },
+        {
+          "paragraph": 11,
+          "width": 16000,
+          "lines": [
+            "Address:",
+            "Government of the",
+            "Mari El Republic,",
+            "Yoshkar-Ola;",
+            "Straße 12;",
+            "e-mail@example.org."
+          ],
+          "digest": "414c6280838df210926d7e721e5e62014612ceb2cdc3c4bbc7f2f8609f63686f"
+        },
+        {
+          "paragraph": 11,
+          "width": 22000,
+          "lines": [
+            "Address: Government of",
+            "the Mari El Republic,",
+            "Yoshkar-Ola; Straße 12;",
+            "e-mail@example.org."
+          ],
+          "digest": "63ed78b1e122bef4c1f42ec07742813f0ad69f3d960c07001ce5424daca90d01"
+        },
+        {
+          "paragraph": 12,
+          "width": 9000,
+          "lines": [
+            "0123456789",
+            "· 1 250",
+            "000,00 ₽ ·",
+            "$ € £ ¥ ¢ ·",
+            "12,5% ·",
+            "3‰ · 20°."
+          ],
+          "digest": "cc3490d757613ae07cd679ec1795934a5b88444bf4b6925f74c6cb52ff2bc439"
+        },
+        {
+          "paragraph": 12,
+          "width": 12000,
+          "lines": [
+            "0123456789 ·",
+            "1 250 000,00",
+            "₽ · $ € £ ¥ ¢ ·",
+            "12,5% · 3‰ ·",
+            "20°."
+          ],
+          "digest": "1ff53256fe998b57a905f6b7c3972395f7eb45e11413b98d99daaad3ef81291b"
+        },
+        {
+          "paragraph": 12,
+          "width": 16000,
+          "lines": [
+            "0123456789 · 1",
+            "250 000,00 ₽ · $ €",
+            "£ ¥ ¢ · 12,5% · 3‰",
+            "· 20°."
+          ],
+          "digest": "1b59d9a312962cb874716204cec9eb5a03a5c15bc16ec576ed38ef1894465b78"
+        },
+        {
+          "paragraph": 12,
+          "width": 22000,
+          "lines": [
+            "0123456789 · 1 250",
+            "000,00 ₽ · $ € £ ¥ ¢ ·",
+            "12,5% · 3‰ · 20°."
+          ],
+          "digest": "e0668aff2c359258c8a9c7560583fc04c6ec7adacdb8f086442fa1a3c06b9b4c"
+        },
+        {
+          "paragraph": 13,
+          "width": 9000,
+          "lines": [
+            "№ § ¶ ©",
+            "® ™ • · †",
+            "‡ ※ ± × ÷",
+            "≈ ≠ ≤ ≥ ∞",
+            "√ ∑ ∆ µ",
+            "← ↑ → ↓",
+            "↔."
+          ],
+          "digest": "3e863acce03d3529308d2762b3c5eb65e2c16f8bddb00399dc7129996851b28d"
+        },
+        {
+          "paragraph": 13,
+          "width": 12000,
+          "lines": [
+            "№ § ¶ © ® ™",
+            "• · † ‡ ※ ± ×",
+            "÷ ≈ ≠ ≤ ≥ ∞ √",
+            "∑ ∆ µ ← ↑ →",
+            "↓ ↔."
+          ],
+          "digest": "7e9c1d616405aa15cdfd1e92a82a38674284ce5768c6729057af2db3c8b3ec02"
+        },
+        {
+          "paragraph": 13,
+          "width": 16000,
+          "lines": [
+            "№ § ¶ © ® ™ • · †",
+            "‡ ※ ± × ÷ ≈ ≠ ≤ ≥",
+            "∞ √ ∑ ∆ µ ← ↑ →",
+            "↓ ↔."
+          ],
+          "digest": "17b1d7ee3f077ce6f3c13b7ccb27f69559152574e19cd870df4cef6147d50a07"
+        },
+        {
+          "paragraph": 13,
+          "width": 22000,
+          "lines": [
+            "№ § ¶ © ® ™ • · † ‡ ※ ±",
+            "× ÷ ≈ ≠ ≤ ≥ ∞ √ ∑ ∆ µ ←",
+            "↑ → ↓ ↔."
+          ],
+          "digest": "ac62b211a43d76e7b38297154b4652b2a64aa89cf5980602725537de6229b962"
+        },
+        {
+          "paragraph": 14,
+          "width": 9000,
+          "lines": [
+            "¹ ² ³ ¼ ½",
+            "¾ — – ‑ -",
+            "_ …",
+            "«кавычки»",
+            "„quotes“",
+            "() [] {} / \\",
+            "@ & * + −",
+            "= < > |."
+          ],
+          "digest": "772632488e3389ad5bfe9b1f568aedf41a371ddc707e06e7b6cbd30519840989"
+        },
+        {
+          "paragraph": 14,
+          "width": 12000,
+          "lines": [
+            "¹ ² ³ ¼ ½ ¾ —",
+            "– ‑ - _ …",
+            "«кавычки»",
+            "„quotes“ () []",
+            "{} / \\ @ & * +",
+            "− = < > |."
+          ],
+          "digest": "6764d6c9c238ae26c09f1266ebe14b424b0d61b733b708397d4714fcd0126334"
+        },
+        {
+          "paragraph": 14,
+          "width": 16000,
+          "lines": [
+            "¹ ² ³ ¼ ½ ¾ — – ‑ -",
+            "_ … «кавычки»",
+            "„quotes“ () [] {} / \\",
+            "@ & * + − = < > |."
+          ],
+          "digest": "11e51d76dc5de4baf970332332fbcb53595a4a4f94ba39861c035f86e893a254"
+        },
+        {
+          "paragraph": 14,
+          "width": 22000,
+          "lines": [
+            "¹ ² ³ ¼ ½ ¾ — – ‑ - _ …",
+            "«кавычки» „quotes“ () []",
+            "{} / \\ @ & * + − = < > |."
+          ],
+          "digest": "c9cc9729c17c8eb73c7bc1d7dca1582e3a28fa58ab61efb01fbde16972ee92fa"
+        },
+        {
+          "paragraph": 15,
+          "width": 9000,
+          "lines": [
+            "ӒӓӦӧӰӱӸӹ",
+            "ÀÁÂÃÄÅ",
+            "Ç ÈÉÊË Ñ",
+            "Ö Ü Ý",
+            "àáâãäå ç",
+            "èéêë ñ ö ü",
+            "ý ÿ."
+          ],
+          "digest": "2305080015086af945471d1115f76e04eaf10a4f9fa1d3d2a4dc25259d285a66"
+        },
+        {
+          "paragraph": 15,
+          "width": 12000,
+          "lines": [
+            "ӒӓӦӧӰӱӸӹ",
+            "ÀÁÂÃÄÅ Ç",
+            "ÈÉÊË Ñ Ö Ü",
+            "Ý àáâãäå ç",
+            "èéêë ñ ö ü ý ÿ."
+          ],
+          "digest": "eff855608a8d3ab1e956e100a44d8801096a99b080fffec5a396064e266a34cd"
+        },
+        {
+          "paragraph": 15,
+          "width": 16000,
+          "lines": [
+            "ӒӓӦӧӰӱӸӹ",
+            "ÀÁÂÃÄÅ Ç",
+            "ÈÉÊË Ñ Ö Ü Ý",
+            "àáâãäå ç èéêë ñ ö ü",
+            "ý ÿ."
+          ],
+          "digest": "eed509df283202a25d8efb8d994a57bdfd31794664ccdcca7b7d8521c071ad5d"
+        },
+        {
+          "paragraph": 15,
+          "width": 22000,
+          "lines": [
+            "ӒӓӦӧӰӱӸӹ ÀÁÂÃÄÅ Ç",
+            "ÈÉÊË Ñ Ö Ü Ý àáâãäå ç",
+            "èéêë ñ ö ü ý ÿ."
+          ],
+          "digest": "a85fc1f80c3c3e74fdc0d34db6fd43890cd6259ccfc3585173f64ccf72e0938e"
+        },
+        {
+          "paragraph": 16,
+          "width": 9000,
+          "lines": [
+            "À Á Â Ã",
+            "Ä Å Ç ā ă",
+            "ȧ ä å a̋ ǎ ą."
+          ],
+          "digest": "395e1aec53bd4e6aaa3fed8f16a35046cca8e48171e11bef8934c7ec4e2d4ed8"
+        },
+        {
+          "paragraph": 16,
+          "width": 12000,
+          "lines": [
+            "À Á Â Ã Ä Å",
+            "Ç ā ă ȧ ä å a̋ ǎ",
+            "ą."
+          ],
+          "digest": "f4c845266dd92190260e301b689c8851ff88a2212805fff92a9b13d1d3a71136"
+        },
+        {
+          "paragraph": 16,
+          "width": 16000,
+          "lines": [
+            "À Á Â Ã Ä Å Ç ā",
+            "ă ȧ ä å a̋ ǎ ą."
+          ],
+          "digest": "32afb6d775139cd0de01a8fa99c3610c3fc64dec0f5e5515e83b64453b57c4ea"
+        },
+        {
+          "paragraph": 16,
+          "width": 22000,
+          "lines": [
+            "À Á Â Ã Ä Å Ç ā ă ȧ ä å a̋",
+            "ǎ ą."
+          ],
+          "digest": "0aed3ee72d82bf83e765c364a4f90831818e7d6ff5617e538da0746f9aeb0000"
+        }
+      ],
+      "pagination": [
+        {
+          "width": 9000,
+          "lines_per_page": 28,
+          "line_count": 2080,
+          "pages": 75
+        },
+        {
+          "width": 9000,
+          "lines_per_page": 36,
+          "line_count": 2080,
+          "pages": 58
+        },
+        {
+          "width": 9000,
+          "lines_per_page": 48,
+          "line_count": 2080,
+          "pages": 44
+        },
+        {
+          "width": 12000,
+          "lines_per_page": 28,
+          "line_count": 1740,
+          "pages": 63
+        },
+        {
+          "width": 12000,
+          "lines_per_page": 36,
+          "line_count": 1740,
+          "pages": 49
+        },
+        {
+          "width": 12000,
+          "lines_per_page": 48,
+          "line_count": 1740,
+          "pages": 37
+        },
+        {
+          "width": 16000,
+          "lines_per_page": 28,
+          "line_count": 1340,
+          "pages": 48
+        },
+        {
+          "width": 16000,
+          "lines_per_page": 36,
+          "line_count": 1340,
+          "pages": 38
+        },
+        {
+          "width": 16000,
+          "lines_per_page": 48,
+          "line_count": 1340,
+          "pages": 28
+        },
+        {
+          "width": 22000,
+          "lines_per_page": 28,
+          "line_count": 960,
+          "pages": 35
+        },
+        {
+          "width": 22000,
+          "lines_per_page": 36,
+          "line_count": 960,
+          "pages": 27
+        },
+        {
+          "width": 22000,
+          "lines_per_page": 48,
+          "line_count": 960,
+          "pages": 20
+        }
+      ]
+    },
+    "Bold": {
+      "reference_filename": "timesbd.ttf",
+      "cases": [
+        {
+          "paragraph": 0,
+          "width": 9000,
+          "lines": [
+            "Правительство",
+            "Республики",
+            "Марий",
+            "Эл.",
+            "Постановление",
+            "№ 125 от",
+            "09.08.2026."
+          ],
+          "digest": "08840e7908bc5ba9672fedc19effd5c0154a52fef80d716e1cee2d6c8cdcf0ca"
+        },
+        {
+          "paragraph": 0,
+          "width": 12000,
+          "lines": [
+            "Правительство",
+            "Республики",
+            "Марий Эл.",
+            "Постановление",
+            "№ 125 от",
+            "09.08.2026."
+          ],
+          "digest": "c0b72ea074ee1602051152203bd8e1377ad3265a9c1e6114c9d3af2a222a4751"
+        },
+        {
+          "paragraph": 0,
+          "width": 16000,
+          "lines": [
+            "Правительство",
+            "Республики",
+            "Марий Эл.",
+            "Постановление",
+            "№ 125 от",
+            "09.08.2026."
+          ],
+          "digest": "c0b72ea074ee1602051152203bd8e1377ad3265a9c1e6114c9d3af2a222a4751"
+        },
+        {
+          "paragraph": 0,
+          "width": 22000,
+          "lines": [
+            "Правительство",
+            "Республики Марий Эл.",
+            "Постановление № 125",
+            "от 09.08.2026."
+          ],
+          "digest": "d4b4e9a9eb12304d17fdc068e54b866a19827dfff9e49dbce64ba93149f4947e"
+        },
+        {
+          "paragraph": 1,
+          "width": 9000,
+          "lines": [
+            "Контроль",
+            "делового",
+            "текста:",
+            "Ёж,",
+            "Йошкар-Ола,",
+            "сумма 48",
+            "750,00 ₽;",
+            "срок —",
+            "30 дней."
+          ],
+          "digest": "0d5440770297d37ef72faf5bc1feb92050146354b10a43c86f460498a2f8ad9c"
+        },
+        {
+          "paragraph": 1,
+          "width": 12000,
+          "lines": [
+            "Контроль",
+            "делового",
+            "текста: Ёж,",
+            "Йошкар-Ола,",
+            "сумма 48",
+            "750,00 ₽;",
+            "срок — 30",
+            "дней."
+          ],
+          "digest": "276583f46c364e3b9bdbd7eef52a103e410127156e1aa8581ac393cc8ed00d45"
+        },
+        {
+          "paragraph": 1,
+          "width": 16000,
+          "lines": [
+            "Контроль",
+            "делового текста:",
+            "Ёж,",
+            "Йошкар-Ола,",
+            "сумма 48 750,00",
+            "₽; срок — 30",
+            "дней."
+          ],
+          "digest": "915487ce414cfebd0e819eabd984f12733fd1b155eb7236cee86f3c0254d53df"
+        },
+        {
+          "paragraph": 1,
+          "width": 22000,
+          "lines": [
+            "Контроль делового",
+            "текста: Ёж,",
+            "Йошкар-Ола, сумма 48",
+            "750,00 ₽; срок — 30",
+            "дней."
+          ],
+          "digest": "0416594c43955a03957c5144891bf6417d88ea94b4150df7d3d37d81ac092f3d"
+        },
+        {
+          "paragraph": 2,
+          "width": 9000,
+          "lines": [
+            "Марий",
+            "Эл",
+            "Республикын",
+            "Кугыжаныш",
+            "Погынжо."
+          ],
+          "digest": "c53e7a8a11e2b7b6bf55f3faaad3bae446c735bdde9fed3d0a09355b747ab91e"
+        },
+        {
+          "paragraph": 2,
+          "width": 12000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "Кугыжаныш",
+            "Погынжо."
+          ],
+          "digest": "f6824a4366e6cac1908095b59f7019d47ce4f8835d9dc2ee5b9aeafa02a1f575"
+        },
+        {
+          "paragraph": 2,
+          "width": 16000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "Кугыжаныш",
+            "Погынжо."
+          ],
+          "digest": "f6824a4366e6cac1908095b59f7019d47ce4f8835d9dc2ee5b9aeafa02a1f575"
+        },
+        {
+          "paragraph": 2,
+          "width": 22000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "Кугыжаныш Погынжо."
+          ],
+          "digest": "5825385679b0a7d32a1e0f4735e6a9ddf142a8589f6c61f21dd3d0241f005f1a"
+        },
+        {
+          "paragraph": 3,
+          "width": 9000,
+          "lines": [
+            "Марий",
+            "Эл",
+            "Республикын",
+            "Вуйлатышыже."
+          ],
+          "digest": "cd2c91f23564fed4476ebfe35d35972840002a87cb5d1d43e58635f65b02bb2d"
+        },
+        {
+          "paragraph": 3,
+          "width": 12000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "Вуйлатышыже."
+          ],
+          "digest": "ca9513a4823fba85abb2bb20cb4b939a5630a35b1488373b43bfed19090c0786"
+        },
+        {
+          "paragraph": 3,
+          "width": 16000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "Вуйлатышыже."
+          ],
+          "digest": "ca9513a4823fba85abb2bb20cb4b939a5630a35b1488373b43bfed19090c0786"
+        },
+        {
+          "paragraph": 3,
+          "width": 22000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "Вуйлатышыже."
+          ],
+          "digest": "ca9513a4823fba85abb2bb20cb4b939a5630a35b1488373b43bfed19090c0786"
+        },
+        {
+          "paragraph": 4,
+          "width": 9000,
+          "lines": [
+            "Марий",
+            "Эл",
+            "Республикын",
+            "тӱвыра,",
+            "печать да",
+            "калык-влакын",
+            "пашашт",
+            "шотышто",
+            "министерствыже."
+          ],
+          "digest": "4edb898440c09ae40e56ee442b813fba24781ce3c3e9d170ece61c40cdd313b9"
+        },
+        {
+          "paragraph": 4,
+          "width": 12000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "тӱвыра,",
+            "печать да",
+            "калык-влакын",
+            "пашашт",
+            "шотышто",
+            "министерствыже."
+          ],
+          "digest": "1ee1d9327eb9ce84873cb79238bd88b164946736095fd653624fdada5ffa9869"
+        },
+        {
+          "paragraph": 4,
+          "width": 16000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "тӱвыра, печать",
+            "да",
+            "калык-влакын",
+            "пашашт",
+            "шотышто",
+            "министерствыже."
+          ],
+          "digest": "347cce0e09751f1eedefd8ae1fa05aea50f4fffa351f462bcf81aca50036a0fb"
+        },
+        {
+          "paragraph": 4,
+          "width": 22000,
+          "lines": [
+            "Марий Эл",
+            "Республикын тӱвыра,",
+            "печать да",
+            "калык-влакын",
+            "пашашт шотышто",
+            "министерствыже."
+          ],
+          "digest": "070671e85628f7d62b0a8c865b3deafd6459d362bdcf45a76b30a319c4e7aba6"
+        },
+        {
+          "paragraph": 5,
+          "width": 9000,
+          "lines": [
+            "Контроль:",
+            "Ӓ ӓ, Ӧ ӧ,",
+            "Ӱ ӱ, Ҥ ҥ;",
+            "Йошкар-Ола,",
+            "Кугыжаныш,",
+            "тӱвыра,",
+            "калык-влак."
+          ],
+          "digest": "86fc14d3b2ecb736d8e3dc5b845660ee58a99bbb98313ce229f25bf6e9dfec30"
+        },
+        {
+          "paragraph": 5,
+          "width": 12000,
+          "lines": [
+            "Контроль: Ӓ",
+            "ӓ, Ӧ ӧ, Ӱ ӱ,",
+            "Ҥ ҥ;",
+            "Йошкар-Ола,",
+            "Кугыжаныш,",
+            "тӱвыра,",
+            "калык-влак."
+          ],
+          "digest": "432e2e123b1d47d76cfbf3dc10636b00dbf20db46e47e6892938e59431efcf5a"
+        },
+        {
+          "paragraph": 5,
+          "width": 16000,
+          "lines": [
+            "Контроль: Ӓ ӓ, Ӧ",
+            "ӧ, Ӱ ӱ, Ҥ ҥ;",
+            "Йошкар-Ола,",
+            "Кугыжаныш,",
+            "тӱвыра,",
+            "калык-влак."
+          ],
+          "digest": "7c85e5d5c3e6f534c5e2bc8fdeca46386cff25dfd587a90cf63add0f740d4cb3"
+        },
+        {
+          "paragraph": 5,
+          "width": 22000,
+          "lines": [
+            "Контроль: Ӓ ӓ, Ӧ ӧ, Ӱ ӱ,",
+            "Ҥ ҥ; Йошкар-Ола,",
+            "Кугыжаныш, тӱвыра,",
+            "калык-влак."
+          ],
+          "digest": "1a480630dbe2a342fceff4679af9448eea62b55b0ad7ee36db3c70bc84bffd67"
+        },
+        {
+          "paragraph": 6,
+          "width": 9000,
+          "lines": [
+            "Шачмы",
+            "йӹлмем",
+            "ылеш",
+            "сӹлнӹ."
+          ],
+          "digest": "f5fd9200e86835efa0e966bf2b064ec2ce849d390f56a21729bd6609b854302b"
+        },
+        {
+          "paragraph": 6,
+          "width": 12000,
+          "lines": [
+            "Шачмы",
+            "йӹлмем",
+            "ылеш",
+            "сӹлнӹ."
+          ],
+          "digest": "f5fd9200e86835efa0e966bf2b064ec2ce849d390f56a21729bd6609b854302b"
+        },
+        {
+          "paragraph": 6,
+          "width": 16000,
+          "lines": [
+            "Шачмы йӹлмем",
+            "ылеш сӹлнӹ."
+          ],
+          "digest": "e12b70b0995d08b4ee2af62f13061e3e09ac4e25d4d7c7c103018a3757ab58fd"
+        },
+        {
+          "paragraph": 6,
+          "width": 22000,
+          "lines": [
+            "Шачмы йӹлмем ылеш",
+            "сӹлнӹ."
+          ],
+          "digest": "8e7dc2f19b7a2203499e23eb181829e0a7acef0134afade434d58430002b4f35"
+        },
+        {
+          "paragraph": 7,
+          "width": 9000,
+          "lines": [
+            "Яратыда,",
+            "перегӹдӓ",
+            "ӹшке",
+            "туан",
+            "йӹлмӹдӓм!"
+          ],
+          "digest": "fffb0e15b69a14e2e278644e490e1187d87495b43e41ac012b458785457e2789"
+        },
+        {
+          "paragraph": 7,
+          "width": 12000,
+          "lines": [
+            "Яратыда,",
+            "перегӹдӓ",
+            "ӹшке туан",
+            "йӹлмӹдӓм!"
+          ],
+          "digest": "248cf5ec37e0ebb714cb1f68eab2002d73383dc45d1ea227f07a2b64ee252d74"
+        },
+        {
+          "paragraph": 7,
+          "width": 16000,
+          "lines": [
+            "Яратыда,",
+            "перегӹдӓ ӹшке",
+            "туан йӹлмӹдӓм!"
+          ],
+          "digest": "182e076ee0756faea0d268a8836415713baf422fa592121861fcf116f670408c"
+        },
+        {
+          "paragraph": 7,
+          "width": 22000,
+          "lines": [
+            "Яратыда, перегӹдӓ",
+            "ӹшке туан йӹлмӹдӓм!"
+          ],
+          "digest": "e5848679e81954967e1968c2263443db6363c982a611e1d7e15d03ad5a15b144"
+        },
+        {
+          "paragraph": 8,
+          "width": 9000,
+          "lines": [
+            "Контроль:",
+            "Ӓ ӓ, Ӧ ӧ,",
+            "Ӱ ӱ, Ӹ ӹ;",
+            "Кырык",
+            "мары,",
+            "шачмы",
+            "вӓр,",
+            "йӹлмӹ."
+          ],
+          "digest": "02018fef7c794024eacbb3b3b5a9409f0d5721e3318b6cd914764c5a432ce4b8"
+        },
+        {
+          "paragraph": 8,
+          "width": 12000,
+          "lines": [
+            "Контроль: Ӓ",
+            "ӓ, Ӧ ӧ, Ӱ ӱ,",
+            "Ӹ ӹ;",
+            "Кырык",
+            "мары,",
+            "шачмы вӓр,",
+            "йӹлмӹ."
+          ],
+          "digest": "bb21a5b0a91505c505e1bc1fa3577654f9c1f97e1d5499e70e9c6043b2f465e0"
+        },
+        {
+          "paragraph": 8,
+          "width": 16000,
+          "lines": [
+            "Контроль: Ӓ ӓ, Ӧ",
+            "ӧ, Ӱ ӱ, Ӹ ӹ;",
+            "Кырык мары,",
+            "шачмы вӓр,",
+            "йӹлмӹ."
+          ],
+          "digest": "bd273d69e3a607ad72579bcaab72f474c4e8867bf1c07242afdf49a9e8577ef2"
+        },
+        {
+          "paragraph": 8,
+          "width": 22000,
+          "lines": [
+            "Контроль: Ӓ ӓ, Ӧ ӧ, Ӱ ӱ,",
+            "Ӹ ӹ; Кырык мары,",
+            "шачмы вӓр, йӹлмӹ."
+          ],
+          "digest": "1c223d8c89cb9ce9eeefad23322b31c997eae6ae7dc1f73660b9073dcca94f52"
+        },
+        {
+          "paragraph": 9,
+          "width": 9000,
+          "lines": [
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            "abcdefghijklmnopqrstuvwxyz."
+          ],
+          "digest": "6564c63868e617c67ca83228d521baac69df5dc9bf990965523aa679f51bc34e"
+        },
+        {
+          "paragraph": 9,
+          "width": 12000,
+          "lines": [
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            "abcdefghijklmnopqrstuvwxyz."
+          ],
+          "digest": "6564c63868e617c67ca83228d521baac69df5dc9bf990965523aa679f51bc34e"
+        },
+        {
+          "paragraph": 9,
+          "width": 16000,
+          "lines": [
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            "abcdefghijklmnopqrstuvwxyz."
+          ],
+          "digest": "6564c63868e617c67ca83228d521baac69df5dc9bf990965523aa679f51bc34e"
+        },
+        {
+          "paragraph": 9,
+          "width": 22000,
+          "lines": [
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            "abcdefghijklmnopqrstuvwxyz."
+          ],
+          "digest": "6564c63868e617c67ca83228d521baac69df5dc9bf990965523aa679f51bc34e"
+        },
+        {
+          "paragraph": 10,
+          "width": 9000,
+          "lines": [
+            "Latin",
+            "Extended:",
+            "ÀÁÂÃÄÅ",
+            "Æ Ç",
+            "ÈÉÊË;",
+            "ĀĂĄ",
+            "ĆĈĊČ Đ",
+            "ĒĔĖĘĚ;",
+            "Œ Š Ž Ÿ."
+          ],
+          "digest": "8a2284b4e29dca124f2623962f74353b797b998b659862a694119a6cbe66d29c"
+        },
+        {
+          "paragraph": 10,
+          "width": 12000,
+          "lines": [
+            "Latin",
+            "Extended:",
+            "ÀÁÂÃÄÅ Æ",
+            "Ç ÈÉÊË;",
+            "ĀĂĄ ĆĈĊČ",
+            "Đ ĒĔĖĘĚ;",
+            "Œ Š Ž Ÿ."
+          ],
+          "digest": "3069eb7bac89ffd75597a351d1de3ba02cabff3ad7fee9d7d1dcaf20364ebee3"
+        },
+        {
+          "paragraph": 10,
+          "width": 16000,
+          "lines": [
+            "Latin Extended:",
+            "ÀÁÂÃÄÅ Æ Ç",
+            "ÈÉÊË; ĀĂĄ",
+            "ĆĈĊČ Đ ĒĔĖĘĚ;",
+            "Œ Š Ž Ÿ."
+          ],
+          "digest": "adf06e71cc877f0f79dd1f5d2ed0a4919bfa37baf935239c97e9bec28b60f9e3"
+        },
+        {
+          "paragraph": 10,
+          "width": 22000,
+          "lines": [
+            "Latin Extended:",
+            "ÀÁÂÃÄÅ Æ Ç ÈÉÊË;",
+            "ĀĂĄ ĆĈĊČ Đ ĒĔĖĘĚ;",
+            "Œ Š Ž Ÿ."
+          ],
+          "digest": "9775af4f75f2a1c926771e0a2f013a90f3c378409636451d83f537d1e8d5b080"
+        },
+        {
+          "paragraph": 11,
+          "width": 9000,
+          "lines": [
+            "Address:",
+            "Government",
+            "of the",
+            "Mari El",
+            "Republic,",
+            "Yoshkar-Ola;",
+            "Straße",
+            "12;",
+            "e-mail@example.org."
+          ],
+          "digest": "889e63c5dda3ca27d8448273dbe610a66fab09c7e42761fd2e74429e80a22fb8"
+        },
+        {
+          "paragraph": 11,
+          "width": 12000,
+          "lines": [
+            "Address:",
+            "Government",
+            "of the Mari",
+            "El Republic,",
+            "Yoshkar-Ola;",
+            "Straße 12;",
+            "e-mail@example.org."
+          ],
+          "digest": "37067ee1db63d35ef824a903c28d49ca761aa5d2edae539c014f1bc7928fd38a"
+        },
+        {
+          "paragraph": 11,
+          "width": 16000,
+          "lines": [
+            "Address:",
+            "Government of",
+            "the Mari El",
+            "Republic,",
+            "Yoshkar-Ola;",
+            "Straße 12;",
+            "e-mail@example.org."
+          ],
+          "digest": "907ac33b5cfbb955a81cb61dde0d4ea92941b9756157629e6514dc29ba6b4df6"
+        },
+        {
+          "paragraph": 11,
+          "width": 22000,
+          "lines": [
+            "Address: Government of",
+            "the Mari El Republic,",
+            "Yoshkar-Ola; Straße 12;",
+            "e-mail@example.org."
+          ],
+          "digest": "63ed78b1e122bef4c1f42ec07742813f0ad69f3d960c07001ce5424daca90d01"
+        },
+        {
+          "paragraph": 12,
+          "width": 9000,
+          "lines": [
+            "0123456789",
+            "· 1 250",
+            "000,00 ₽ ·",
+            "$ € £ ¥ ¢ ·",
+            "12,5% ·",
+            "3‰ · 20°."
+          ],
+          "digest": "cc3490d757613ae07cd679ec1795934a5b88444bf4b6925f74c6cb52ff2bc439"
+        },
+        {
+          "paragraph": 12,
+          "width": 12000,
+          "lines": [
+            "0123456789 ·",
+            "1 250 000,00",
+            "₽ · $ € £ ¥ ¢ ·",
+            "12,5% · 3‰ ·",
+            "20°."
+          ],
+          "digest": "1ff53256fe998b57a905f6b7c3972395f7eb45e11413b98d99daaad3ef81291b"
+        },
+        {
+          "paragraph": 12,
+          "width": 16000,
+          "lines": [
+            "0123456789 · 1",
+            "250 000,00 ₽ · $ €",
+            "£ ¥ ¢ · 12,5% ·",
+            "3‰ · 20°."
+          ],
+          "digest": "04fdad962d17250aa78ed34954d6aa5caef12c66d52c946314387b5122b2bcf4"
+        },
+        {
+          "paragraph": 12,
+          "width": 22000,
+          "lines": [
+            "0123456789 · 1 250",
+            "000,00 ₽ · $ € £ ¥ ¢ ·",
+            "12,5% · 3‰ · 20°."
+          ],
+          "digest": "e0668aff2c359258c8a9c7560583fc04c6ec7adacdb8f086442fa1a3c06b9b4c"
+        },
+        {
+          "paragraph": 13,
+          "width": 9000,
+          "lines": [
+            "№ § ¶ ©",
+            "® ™ • · †",
+            "‡ ※ ± × ÷",
+            "≈ ≠ ≤ ≥ ∞",
+            "√ ∑ ∆ µ",
+            "← ↑ → ↓",
+            "↔."
+          ],
+          "digest": "3e863acce03d3529308d2762b3c5eb65e2c16f8bddb00399dc7129996851b28d"
+        },
+        {
+          "paragraph": 13,
+          "width": 12000,
+          "lines": [
+            "№ § ¶ © ® ™",
+            "• · † ‡ ※ ± ×",
+            "÷ ≈ ≠ ≤ ≥ ∞ √",
+            "∑ ∆ µ ← ↑ →",
+            "↓ ↔."
+          ],
+          "digest": "7e9c1d616405aa15cdfd1e92a82a38674284ce5768c6729057af2db3c8b3ec02"
+        },
+        {
+          "paragraph": 13,
+          "width": 16000,
+          "lines": [
+            "№ § ¶ © ® ™ • · †",
+            "‡ ※ ± × ÷ ≈ ≠ ≤ ≥",
+            "∞ √ ∑ ∆ µ ← ↑ →",
+            "↓ ↔."
+          ],
+          "digest": "17b1d7ee3f077ce6f3c13b7ccb27f69559152574e19cd870df4cef6147d50a07"
+        },
+        {
+          "paragraph": 13,
+          "width": 22000,
+          "lines": [
+            "№ § ¶ © ® ™ • · † ‡ ※ ±",
+            "× ÷ ≈ ≠ ≤ ≥ ∞ √ ∑ ∆ µ ←",
+            "↑ → ↓ ↔."
+          ],
+          "digest": "ac62b211a43d76e7b38297154b4652b2a64aa89cf5980602725537de6229b962"
+        },
+        {
+          "paragraph": 14,
+          "width": 9000,
+          "lines": [
+            "¹ ² ³ ¼ ½",
+            "¾ — – ‑ -",
+            "_ …",
+            "«кавычки»",
+            "„quotes“",
+            "() [] {} / \\",
+            "@ & * +",
+            "− = < > |."
+          ],
+          "digest": "477a057fa71c8c7c2cfd1769d0182bb655497f705201eb5b91dbe5bed65d3b6c"
+        },
+        {
+          "paragraph": 14,
+          "width": 12000,
+          "lines": [
+            "¹ ² ³ ¼ ½ ¾ —",
+            "– ‑ - _ …",
+            "«кавычки»",
+            "„quotes“ () []",
+            "{} / \\ @ & * +",
+            "− = < > |."
+          ],
+          "digest": "6764d6c9c238ae26c09f1266ebe14b424b0d61b733b708397d4714fcd0126334"
+        },
+        {
+          "paragraph": 14,
+          "width": 16000,
+          "lines": [
+            "¹ ² ³ ¼ ½ ¾ — – ‑ -",
+            "_ … «кавычки»",
+            "„quotes“ () [] {} / \\",
+            "@ & * + − = < > |."
+          ],
+          "digest": "11e51d76dc5de4baf970332332fbcb53595a4a4f94ba39861c035f86e893a254"
+        },
+        {
+          "paragraph": 14,
+          "width": 22000,
+          "lines": [
+            "¹ ² ³ ¼ ½ ¾ — – ‑ - _ …",
+            "«кавычки» „quotes“ ()",
+            "[] {} / \\ @ & * + − = < > |."
+          ],
+          "digest": "b0c86be4a90b9a49a9290f7b9d3dc5607169fca3b4f53eeed711db64d0f1c229"
+        },
+        {
+          "paragraph": 15,
+          "width": 9000,
+          "lines": [
+            "ӒӓӦӧӰӱӸӹ",
+            "ÀÁÂÃÄÅ",
+            "Ç ÈÉÊË",
+            "Ñ Ö Ü Ý",
+            "àáâãäå ç",
+            "èéêë ñ ö ü",
+            "ý ÿ."
+          ],
+          "digest": "d4090770aedf7541fbccba52fdad7607b6d07baa329fdc6149775c3d16faf0e1"
+        },
+        {
+          "paragraph": 15,
+          "width": 12000,
+          "lines": [
+            "ӒӓӦӧӰӱӸӹ",
+            "ÀÁÂÃÄÅ Ç",
+            "ÈÉÊË Ñ Ö Ü",
+            "Ý àáâãäå ç",
+            "èéêë ñ ö ü ý",
+            "ÿ."
+          ],
+          "digest": "e7ccb0cfd83f5fc302ad9f69af9600b68cb8904ed3547a41e259b954ba089054"
+        },
+        {
+          "paragraph": 15,
+          "width": 16000,
+          "lines": [
+            "ӒӓӦӧӰӱӸӹ",
+            "ÀÁÂÃÄÅ Ç",
+            "ÈÉÊË Ñ Ö Ü Ý",
+            "àáâãäå ç èéêë ñ ö",
+            "ü ý ÿ."
+          ],
+          "digest": "3c45acfaa822ff8231622ccd5e6b56937a837801e77a32188a32291311b047f7"
+        },
+        {
+          "paragraph": 15,
+          "width": 22000,
+          "lines": [
+            "ӒӓӦӧӰӱӸӹ ÀÁÂÃÄÅ",
+            "Ç ÈÉÊË Ñ Ö Ü Ý",
+            "àáâãäå ç èéêë ñ ö ü ý ÿ."
+          ],
+          "digest": "bc31cae8f0fe9f777737c17de90ad09e10ebfa2b977f2d12cca8a73ab1eb37e6"
+        },
+        {
+          "paragraph": 16,
+          "width": 9000,
+          "lines": [
+            "À Á Â Ã",
+            "Ä Å Ç ā ă",
+            "ȧ ä å a̋ ǎ",
+            "ą."
+          ],
+          "digest": "aa29c5302c33f6bad0375b1c6ab4be9f823cb8a5bf9110333fd7334a5f148196"
+        },
+        {
+          "paragraph": 16,
+          "width": 12000,
+          "lines": [
+            "À Á Â Ã Ä Å",
+            "Ç ā ă ȧ ä å a̋",
+            "ǎ ą."
+          ],
+          "digest": "694a941935271a1818b43a5f2696a67483622f622548726893158a3da56c414a"
+        },
+        {
+          "paragraph": 16,
+          "width": 16000,
+          "lines": [
+            "À Á Â Ã Ä Å Ç ā",
+            "ă ȧ ä å a̋ ǎ ą."
+          ],
+          "digest": "32afb6d775139cd0de01a8fa99c3610c3fc64dec0f5e5515e83b64453b57c4ea"
+        },
+        {
+          "paragraph": 16,
+          "width": 22000,
+          "lines": [
+            "À Á Â Ã Ä Å Ç ā ă ȧ ä å",
+            "a̋ ǎ ą."
+          ],
+          "digest": "6ff1d45637ea9df644da2678dec759237c6ce18ebbb90e44f02d0e55c653eb52"
+        }
+      ],
+      "pagination": [
+        {
+          "width": 9000,
+          "lines_per_page": 28,
+          "line_count": 2160,
+          "pages": 78
+        },
+        {
+          "width": 9000,
+          "lines_per_page": 36,
+          "line_count": 2160,
+          "pages": 60
+        },
+        {
+          "width": 9000,
+          "lines_per_page": 48,
+          "line_count": 2160,
+          "pages": 45
+        },
+        {
+          "width": 12000,
+          "lines_per_page": 28,
+          "line_count": 1800,
+          "pages": 65
+        },
+        {
+          "width": 12000,
+          "lines_per_page": 36,
+          "line_count": 1800,
+          "pages": 50
+        },
+        {
+          "width": 12000,
+          "lines_per_page": 48,
+          "line_count": 1800,
+          "pages": 38
+        },
+        {
+          "width": 16000,
+          "lines_per_page": 28,
+          "line_count": 1500,
+          "pages": 54
+        },
+        {
+          "width": 16000,
+          "lines_per_page": 36,
+          "line_count": 1500,
+          "pages": 42
+        },
+        {
+          "width": 16000,
+          "lines_per_page": 48,
+          "line_count": 1500,
+          "pages": 32
+        },
+        {
+          "width": 22000,
+          "lines_per_page": 28,
+          "line_count": 1020,
+          "pages": 37
+        },
+        {
+          "width": 22000,
+          "lines_per_page": 36,
+          "line_count": 1020,
+          "pages": 29
+        },
+        {
+          "width": 22000,
+          "lines_per_page": 48,
+          "line_count": 1020,
+          "pages": 22
+        }
+      ]
+    },
+    "Italic": {
+      "reference_filename": "timesi.ttf",
+      "cases": [
+        {
+          "paragraph": 0,
+          "width": 9000,
+          "lines": [
+            "Правительство",
+            "Республики",
+            "Марий",
+            "Эл.",
+            "Постановление",
+            "№ 125 от",
+            "09.08.2026."
+          ],
+          "digest": "08840e7908bc5ba9672fedc19effd5c0154a52fef80d716e1cee2d6c8cdcf0ca"
+        },
+        {
+          "paragraph": 0,
+          "width": 12000,
+          "lines": [
+            "Правительство",
+            "Республики",
+            "Марий Эл.",
+            "Постановление",
+            "№ 125 от",
+            "09.08.2026."
+          ],
+          "digest": "c0b72ea074ee1602051152203bd8e1377ad3265a9c1e6114c9d3af2a222a4751"
+        },
+        {
+          "paragraph": 0,
+          "width": 16000,
+          "lines": [
+            "Правительство",
+            "Республики",
+            "Марий Эл.",
+            "Постановление",
+            "№ 125 от",
+            "09.08.2026."
+          ],
+          "digest": "c0b72ea074ee1602051152203bd8e1377ad3265a9c1e6114c9d3af2a222a4751"
+        },
+        {
+          "paragraph": 0,
+          "width": 22000,
+          "lines": [
+            "Правительство",
+            "Республики Марий Эл.",
+            "Постановление № 125",
+            "от 09.08.2026."
+          ],
+          "digest": "d4b4e9a9eb12304d17fdc068e54b866a19827dfff9e49dbce64ba93149f4947e"
+        },
+        {
+          "paragraph": 1,
+          "width": 9000,
+          "lines": [
+            "Контроль",
+            "делового",
+            "текста:",
+            "Ёж,",
+            "Йошкар-Ола,",
+            "сумма 48",
+            "750,00 ₽;",
+            "срок — 30",
+            "дней."
+          ],
+          "digest": "b869e21041354cc3183a9e615a6cc1fc2b76bfe0998e0c16ef802e8f98b98fd7"
+        },
+        {
+          "paragraph": 1,
+          "width": 12000,
+          "lines": [
+            "Контроль",
+            "делового",
+            "текста: Ёж,",
+            "Йошкар-Ола,",
+            "сумма 48",
+            "750,00 ₽;",
+            "срок — 30",
+            "дней."
+          ],
+          "digest": "276583f46c364e3b9bdbd7eef52a103e410127156e1aa8581ac393cc8ed00d45"
+        },
+        {
+          "paragraph": 1,
+          "width": 16000,
+          "lines": [
+            "Контроль",
+            "делового текста:",
+            "Ёж, Йошкар-Ола,",
+            "сумма 48 750,00",
+            "₽; срок — 30",
+            "дней."
+          ],
+          "digest": "62548cf5c8fa36ca7c115a79c035034cc6ef2d3ffd0660561cf60b4f85e981a8"
+        },
+        {
+          "paragraph": 1,
+          "width": 22000,
+          "lines": [
+            "Контроль делового",
+            "текста: Ёж,",
+            "Йошкар-Ола, сумма 48",
+            "750,00 ₽; срок — 30",
+            "дней."
+          ],
+          "digest": "0416594c43955a03957c5144891bf6417d88ea94b4150df7d3d37d81ac092f3d"
+        },
+        {
+          "paragraph": 2,
+          "width": 9000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "Кугыжаныш",
+            "Погынжо."
+          ],
+          "digest": "f6824a4366e6cac1908095b59f7019d47ce4f8835d9dc2ee5b9aeafa02a1f575"
+        },
+        {
+          "paragraph": 2,
+          "width": 12000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "Кугыжаныш",
+            "Погынжо."
+          ],
+          "digest": "f6824a4366e6cac1908095b59f7019d47ce4f8835d9dc2ee5b9aeafa02a1f575"
+        },
+        {
+          "paragraph": 2,
+          "width": 16000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "Кугыжаныш",
+            "Погынжо."
+          ],
+          "digest": "f6824a4366e6cac1908095b59f7019d47ce4f8835d9dc2ee5b9aeafa02a1f575"
+        },
+        {
+          "paragraph": 2,
+          "width": 22000,
+          "lines": [
+            "Марий Эл Республикын",
+            "Кугыжаныш Погынжо."
+          ],
+          "digest": "975adccbe56397f3d5bd48da787b9df5b86da9292837ea59cde15d7d55ffac1f"
+        },
+        {
+          "paragraph": 3,
+          "width": 9000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "Вуйлатышыже."
+          ],
+          "digest": "ca9513a4823fba85abb2bb20cb4b939a5630a35b1488373b43bfed19090c0786"
+        },
+        {
+          "paragraph": 3,
+          "width": 12000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "Вуйлатышыже."
+          ],
+          "digest": "ca9513a4823fba85abb2bb20cb4b939a5630a35b1488373b43bfed19090c0786"
+        },
+        {
+          "paragraph": 3,
+          "width": 16000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "Вуйлатышыже."
+          ],
+          "digest": "ca9513a4823fba85abb2bb20cb4b939a5630a35b1488373b43bfed19090c0786"
+        },
+        {
+          "paragraph": 3,
+          "width": 22000,
+          "lines": [
+            "Марий Эл Республикын",
+            "Вуйлатышыже."
+          ],
+          "digest": "963fafc4f6e16605d7da38cbf955867cdaebce65b5992a3a2a495aaab1fc9230"
+        },
+        {
+          "paragraph": 4,
+          "width": 9000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "тӱвыра,",
+            "печать да",
+            "калык-влакын",
+            "пашашт",
+            "шотышто",
+            "министерствыже."
+          ],
+          "digest": "1ee1d9327eb9ce84873cb79238bd88b164946736095fd653624fdada5ffa9869"
+        },
+        {
+          "paragraph": 4,
+          "width": 12000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "тӱвыра,",
+            "печать да",
+            "калык-влакын",
+            "пашашт",
+            "шотышто",
+            "министерствыже."
+          ],
+          "digest": "1ee1d9327eb9ce84873cb79238bd88b164946736095fd653624fdada5ffa9869"
+        },
+        {
+          "paragraph": 4,
+          "width": 16000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "тӱвыра, печать",
+            "да калык-влакын",
+            "пашашт",
+            "шотышто",
+            "министерствыже."
+          ],
+          "digest": "05bfc398155715445ccd4679c96080106a07dae90be639ea963552514006fad8"
+        },
+        {
+          "paragraph": 4,
+          "width": 22000,
+          "lines": [
+            "Марий Эл Республикын",
+            "тӱвыра, печать да",
+            "калык-влакын пашашт",
+            "шотышто",
+            "министерствыже."
+          ],
+          "digest": "4c8e2a36c015e067c043219a5b7f3606e5cd237ce84fd074eab31c1d8c326be2"
+        },
+        {
+          "paragraph": 5,
+          "width": 9000,
+          "lines": [
+            "Контроль:",
+            "Ӓ ӓ, Ӧ ӧ,",
+            "Ӱ ӱ, Ҥ ҥ;",
+            "Йошкар-Ола,",
+            "Кугыжаныш,",
+            "тӱвыра,",
+            "калык-влак."
+          ],
+          "digest": "86fc14d3b2ecb736d8e3dc5b845660ee58a99bbb98313ce229f25bf6e9dfec30"
+        },
+        {
+          "paragraph": 5,
+          "width": 12000,
+          "lines": [
+            "Контроль: Ӓ",
+            "ӓ, Ӧ ӧ, Ӱ ӱ, Ҥ",
+            "ҥ;",
+            "Йошкар-Ола,",
+            "Кугыжаныш,",
+            "тӱвыра,",
+            "калык-влак."
+          ],
+          "digest": "98d5c3e147a734edd1d5d9d295f6105a949a931ad2d056541de68d7828ef727d"
+        },
+        {
+          "paragraph": 5,
+          "width": 16000,
+          "lines": [
+            "Контроль: Ӓ ӓ, Ӧ",
+            "ӧ, Ӱ ӱ, Ҥ ҥ;",
+            "Йошкар-Ола,",
+            "Кугыжаныш,",
+            "тӱвыра,",
+            "калык-влак."
+          ],
+          "digest": "7c85e5d5c3e6f534c5e2bc8fdeca46386cff25dfd587a90cf63add0f740d4cb3"
+        },
+        {
+          "paragraph": 5,
+          "width": 22000,
+          "lines": [
+            "Контроль: Ӓ ӓ, Ӧ ӧ, Ӱ ӱ,",
+            "Ҥ ҥ; Йошкар-Ола,",
+            "Кугыжаныш, тӱвыра,",
+            "калык-влак."
+          ],
+          "digest": "1a480630dbe2a342fceff4679af9448eea62b55b0ad7ee36db3c70bc84bffd67"
+        },
+        {
+          "paragraph": 6,
+          "width": 9000,
+          "lines": [
+            "Шачмы",
+            "йӹлмем",
+            "ылеш",
+            "сӹлнӹ."
+          ],
+          "digest": "f5fd9200e86835efa0e966bf2b064ec2ce849d390f56a21729bd6609b854302b"
+        },
+        {
+          "paragraph": 6,
+          "width": 12000,
+          "lines": [
+            "Шачмы",
+            "йӹлмем",
+            "ылеш сӹлнӹ."
+          ],
+          "digest": "c350e02d6e70f8dd9f3bd6fd6bf5bc362c90bb0f746fae8e459deb0c13f034d8"
+        },
+        {
+          "paragraph": 6,
+          "width": 16000,
+          "lines": [
+            "Шачмы йӹлмем",
+            "ылеш сӹлнӹ."
+          ],
+          "digest": "e12b70b0995d08b4ee2af62f13061e3e09ac4e25d4d7c7c103018a3757ab58fd"
+        },
+        {
+          "paragraph": 6,
+          "width": 22000,
+          "lines": [
+            "Шачмы йӹлмем ылеш",
+            "сӹлнӹ."
+          ],
+          "digest": "8e7dc2f19b7a2203499e23eb181829e0a7acef0134afade434d58430002b4f35"
+        },
+        {
+          "paragraph": 7,
+          "width": 9000,
+          "lines": [
+            "Яратыда,",
+            "перегӹдӓ",
+            "ӹшке",
+            "туан",
+            "йӹлмӹдӓм!"
+          ],
+          "digest": "fffb0e15b69a14e2e278644e490e1187d87495b43e41ac012b458785457e2789"
+        },
+        {
+          "paragraph": 7,
+          "width": 12000,
+          "lines": [
+            "Яратыда,",
+            "перегӹдӓ",
+            "ӹшке туан",
+            "йӹлмӹдӓм!"
+          ],
+          "digest": "248cf5ec37e0ebb714cb1f68eab2002d73383dc45d1ea227f07a2b64ee252d74"
+        },
+        {
+          "paragraph": 7,
+          "width": 16000,
+          "lines": [
+            "Яратыда,",
+            "перегӹдӓ ӹшке",
+            "туан йӹлмӹдӓм!"
+          ],
+          "digest": "182e076ee0756faea0d268a8836415713baf422fa592121861fcf116f670408c"
+        },
+        {
+          "paragraph": 7,
+          "width": 22000,
+          "lines": [
+            "Яратыда, перегӹдӓ",
+            "ӹшке туан йӹлмӹдӓм!"
+          ],
+          "digest": "e5848679e81954967e1968c2263443db6363c982a611e1d7e15d03ad5a15b144"
+        },
+        {
+          "paragraph": 8,
+          "width": 9000,
+          "lines": [
+            "Контроль:",
+            "Ӓ ӓ, Ӧ ӧ,",
+            "Ӱ ӱ, Ӹ ӹ;",
+            "Кырык",
+            "мары,",
+            "шачмы",
+            "вӓр,",
+            "йӹлмӹ."
+          ],
+          "digest": "02018fef7c794024eacbb3b3b5a9409f0d5721e3318b6cd914764c5a432ce4b8"
+        },
+        {
+          "paragraph": 8,
+          "width": 12000,
+          "lines": [
+            "Контроль: Ӓ",
+            "ӓ, Ӧ ӧ, Ӱ ӱ, Ӹ",
+            "ӹ; Кырык",
+            "мары, шачмы",
+            "вӓр, йӹлмӹ."
+          ],
+          "digest": "bca47f4580659eb22c5df2399707c22db24afd2dfbc42b42c6da830f273fc865"
+        },
+        {
+          "paragraph": 8,
+          "width": 16000,
+          "lines": [
+            "Контроль: Ӓ ӓ, Ӧ",
+            "ӧ, Ӱ ӱ, Ӹ ӹ;",
+            "Кырык мары,",
+            "шачмы вӓр,",
+            "йӹлмӹ."
+          ],
+          "digest": "bd273d69e3a607ad72579bcaab72f474c4e8867bf1c07242afdf49a9e8577ef2"
+        },
+        {
+          "paragraph": 8,
+          "width": 22000,
+          "lines": [
+            "Контроль: Ӓ ӓ, Ӧ ӧ, Ӱ ӱ,",
+            "Ӹ ӹ; Кырык мары,",
+            "шачмы вӓр, йӹлмӹ."
+          ],
+          "digest": "1c223d8c89cb9ce9eeefad23322b31c997eae6ae7dc1f73660b9073dcca94f52"
+        },
+        {
+          "paragraph": 9,
+          "width": 9000,
+          "lines": [
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            "abcdefghijklmnopqrstuvwxyz."
+          ],
+          "digest": "6564c63868e617c67ca83228d521baac69df5dc9bf990965523aa679f51bc34e"
+        },
+        {
+          "paragraph": 9,
+          "width": 12000,
+          "lines": [
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            "abcdefghijklmnopqrstuvwxyz."
+          ],
+          "digest": "6564c63868e617c67ca83228d521baac69df5dc9bf990965523aa679f51bc34e"
+        },
+        {
+          "paragraph": 9,
+          "width": 16000,
+          "lines": [
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            "abcdefghijklmnopqrstuvwxyz."
+          ],
+          "digest": "6564c63868e617c67ca83228d521baac69df5dc9bf990965523aa679f51bc34e"
+        },
+        {
+          "paragraph": 9,
+          "width": 22000,
+          "lines": [
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            "abcdefghijklmnopqrstuvwxyz."
+          ],
+          "digest": "6564c63868e617c67ca83228d521baac69df5dc9bf990965523aa679f51bc34e"
+        },
+        {
+          "paragraph": 10,
+          "width": 9000,
+          "lines": [
+            "Latin",
+            "Extended:",
+            "ÀÁÂÃÄÅ",
+            "Æ Ç",
+            "ÈÉÊË;",
+            "ĀĂĄ",
+            "ĆĈĊČ Đ",
+            "ĒĔĖĘĚ;",
+            "Œ Š Ž Ÿ."
+          ],
+          "digest": "8a2284b4e29dca124f2623962f74353b797b998b659862a694119a6cbe66d29c"
+        },
+        {
+          "paragraph": 10,
+          "width": 12000,
+          "lines": [
+            "Latin",
+            "Extended:",
+            "ÀÁÂÃÄÅ Æ Ç",
+            "ÈÉÊË; ĀĂĄ",
+            "ĆĈĊČ Đ",
+            "ĒĔĖĘĚ; Œ Š",
+            "Ž Ÿ."
+          ],
+          "digest": "23e78a0d3e7580b7c34379e357f1f9534d73a06874c6882955251aed9de0bf5f"
+        },
+        {
+          "paragraph": 10,
+          "width": 16000,
+          "lines": [
+            "Latin Extended:",
+            "ÀÁÂÃÄÅ Æ Ç",
+            "ÈÉÊË; ĀĂĄ ĆĈĊČ",
+            "Đ ĒĔĖĘĚ; Œ Š Ž",
+            "Ÿ."
+          ],
+          "digest": "9c647b791aa77c7dd8212851613657985364925b1d0c2ab60aaa3c3552483d1c"
+        },
+        {
+          "paragraph": 10,
+          "width": 22000,
+          "lines": [
+            "Latin Extended: ÀÁÂÃÄÅ",
+            "Æ Ç ÈÉÊË; ĀĂĄ ĆĈĊČ",
+            "Đ ĒĔĖĘĚ; Œ Š Ž Ÿ."
+          ],
+          "digest": "907ef0a9f387cb5aa0ed2250957dff81e63dba82bfd5d16aa88f3df88886a4f4"
+        },
+        {
+          "paragraph": 11,
+          "width": 9000,
+          "lines": [
+            "Address:",
+            "Government",
+            "of the",
+            "Mari El",
+            "Republic,",
+            "Yoshkar-Ola;",
+            "Straße 12;",
+            "e-mail@example.org."
+          ],
+          "digest": "ce319fb187bb62c68523a6d2919c20285df4c4cc5adaea47cc7e5018bd3e49aa"
+        },
+        {
+          "paragraph": 11,
+          "width": 12000,
+          "lines": [
+            "Address:",
+            "Government",
+            "of the Mari El",
+            "Republic,",
+            "Yoshkar-Ola;",
+            "Straße 12;",
+            "e-mail@example.org."
+          ],
+          "digest": "692e2066b18b9fdd70bc9830cfca7de1256c7126e38556e565cead9bde70e088"
+        },
+        {
+          "paragraph": 11,
+          "width": 16000,
+          "lines": [
+            "Address:",
+            "Government of the",
+            "Mari El Republic,",
+            "Yoshkar-Ola;",
+            "Straße 12;",
+            "e-mail@example.org."
+          ],
+          "digest": "414c6280838df210926d7e721e5e62014612ceb2cdc3c4bbc7f2f8609f63686f"
+        },
+        {
+          "paragraph": 11,
+          "width": 22000,
+          "lines": [
+            "Address: Government of",
+            "the Mari El Republic,",
+            "Yoshkar-Ola; Straße 12;",
+            "e-mail@example.org."
+          ],
+          "digest": "63ed78b1e122bef4c1f42ec07742813f0ad69f3d960c07001ce5424daca90d01"
+        },
+        {
+          "paragraph": 12,
+          "width": 9000,
+          "lines": [
+            "0123456789",
+            "· 1 250",
+            "000,00 ₽ ·",
+            "$ € £ ¥ ¢ ·",
+            "12,5% ·",
+            "3‰ · 20°."
+          ],
+          "digest": "cc3490d757613ae07cd679ec1795934a5b88444bf4b6925f74c6cb52ff2bc439"
+        },
+        {
+          "paragraph": 12,
+          "width": 12000,
+          "lines": [
+            "0123456789 ·",
+            "1 250 000,00",
+            "₽ · $ € £ ¥ ¢ ·",
+            "12,5% · 3‰ ·",
+            "20°."
+          ],
+          "digest": "1ff53256fe998b57a905f6b7c3972395f7eb45e11413b98d99daaad3ef81291b"
+        },
+        {
+          "paragraph": 12,
+          "width": 16000,
+          "lines": [
+            "0123456789 · 1",
+            "250 000,00 ₽ · $ €",
+            "£ ¥ ¢ · 12,5% · 3‰",
+            "· 20°."
+          ],
+          "digest": "1b59d9a312962cb874716204cec9eb5a03a5c15bc16ec576ed38ef1894465b78"
+        },
+        {
+          "paragraph": 12,
+          "width": 22000,
+          "lines": [
+            "0123456789 · 1 250",
+            "000,00 ₽ · $ € £ ¥ ¢ ·",
+            "12,5% · 3‰ · 20°."
+          ],
+          "digest": "e0668aff2c359258c8a9c7560583fc04c6ec7adacdb8f086442fa1a3c06b9b4c"
+        },
+        {
+          "paragraph": 13,
+          "width": 9000,
+          "lines": [
+            "№ § ¶ ©",
+            "® ™ • · †",
+            "‡ ※ ± × ÷",
+            "≈ ≠ ≤ ≥ ∞",
+            "√ ∑ ∆ µ",
+            "← ↑ → ↓",
+            "↔."
+          ],
+          "digest": "3e863acce03d3529308d2762b3c5eb65e2c16f8bddb00399dc7129996851b28d"
+        },
+        {
+          "paragraph": 13,
+          "width": 12000,
+          "lines": [
+            "№ § ¶ © ® ™",
+            "• · † ‡ ※ ± ×",
+            "÷ ≈ ≠ ≤ ≥ ∞ √",
+            "∑ ∆ µ ← ↑ →",
+            "↓ ↔."
+          ],
+          "digest": "7e9c1d616405aa15cdfd1e92a82a38674284ce5768c6729057af2db3c8b3ec02"
+        },
+        {
+          "paragraph": 13,
+          "width": 16000,
+          "lines": [
+            "№ § ¶ © ® ™ • · †",
+            "‡ ※ ± × ÷ ≈ ≠ ≤ ≥",
+            "∞ √ ∑ ∆ µ ← ↑ →",
+            "↓ ↔."
+          ],
+          "digest": "17b1d7ee3f077ce6f3c13b7ccb27f69559152574e19cd870df4cef6147d50a07"
+        },
+        {
+          "paragraph": 13,
+          "width": 22000,
+          "lines": [
+            "№ § ¶ © ® ™ • · † ‡ ※ ±",
+            "× ÷ ≈ ≠ ≤ ≥ ∞ √ ∑ ∆ µ ←",
+            "↑ → ↓ ↔."
+          ],
+          "digest": "ac62b211a43d76e7b38297154b4652b2a64aa89cf5980602725537de6229b962"
+        },
+        {
+          "paragraph": 14,
+          "width": 9000,
+          "lines": [
+            "¹ ² ³ ¼ ½",
+            "¾ — – ‑ -",
+            "_ …",
+            "«кавычки»",
+            "„quotes“",
+            "() [] {} / \\",
+            "@ & * +",
+            "− = < > |."
+          ],
+          "digest": "477a057fa71c8c7c2cfd1769d0182bb655497f705201eb5b91dbe5bed65d3b6c"
+        },
+        {
+          "paragraph": 14,
+          "width": 12000,
+          "lines": [
+            "¹ ² ³ ¼ ½ ¾ —",
+            "– ‑ - _ …",
+            "«кавычки»",
+            "„quotes“ () []",
+            "{} / \\ @ & * +",
+            "− = < > |."
+          ],
+          "digest": "6764d6c9c238ae26c09f1266ebe14b424b0d61b733b708397d4714fcd0126334"
+        },
+        {
+          "paragraph": 14,
+          "width": 16000,
+          "lines": [
+            "¹ ² ³ ¼ ½ ¾ — – ‑ -",
+            "_ … «кавычки»",
+            "„quotes“ () [] {} / \\",
+            "@ & * + − = < >",
+            "|."
+          ],
+          "digest": "77a4f3b436049be299672d607630a1bee3691f06d830168c9de6114c211ec155"
+        },
+        {
+          "paragraph": 14,
+          "width": 22000,
+          "lines": [
+            "¹ ² ³ ¼ ½ ¾ — – ‑ - _ …",
+            "«кавычки» „quotes“ () []",
+            "{} / \\ @ & * + − = < > |."
+          ],
+          "digest": "c9cc9729c17c8eb73c7bc1d7dca1582e3a28fa58ab61efb01fbde16972ee92fa"
+        },
+        {
+          "paragraph": 15,
+          "width": 9000,
+          "lines": [
+            "ӒӓӦӧӰӱӸӹ",
+            "ÀÁÂÃÄÅ",
+            "Ç ÈÉÊË Ñ",
+            "Ö Ü Ý",
+            "àáâãäå ç",
+            "èéêë ñ ö ü",
+            "ý ÿ."
+          ],
+          "digest": "2305080015086af945471d1115f76e04eaf10a4f9fa1d3d2a4dc25259d285a66"
+        },
+        {
+          "paragraph": 15,
+          "width": 12000,
+          "lines": [
+            "ӒӓӦӧӰӱӸӹ",
+            "ÀÁÂÃÄÅ Ç",
+            "ÈÉÊË Ñ Ö Ü",
+            "Ý àáâãäå ç",
+            "èéêë ñ ö ü ý ÿ."
+          ],
+          "digest": "eff855608a8d3ab1e956e100a44d8801096a99b080fffec5a396064e266a34cd"
+        },
+        {
+          "paragraph": 15,
+          "width": 16000,
+          "lines": [
+            "ӒӓӦӧӰӱӸӹ",
+            "ÀÁÂÃÄÅ Ç ÈÉÊË",
+            "Ñ Ö Ü Ý àáâãäå ç",
+            "èéêë ñ ö ü ý ÿ."
+          ],
+          "digest": "58ee7e1a3779d7b787255f6c89b6bc1c5d482dfb3ad433043fe96aadbeb43e5a"
+        },
+        {
+          "paragraph": 15,
+          "width": 22000,
+          "lines": [
+            "ӒӓӦӧӰӱӸӹ ÀÁÂÃÄÅ Ç",
+            "ÈÉÊË Ñ Ö Ü Ý àáâãäå ç",
+            "èéêë ñ ö ü ý ÿ."
+          ],
+          "digest": "a85fc1f80c3c3e74fdc0d34db6fd43890cd6259ccfc3585173f64ccf72e0938e"
+        },
+        {
+          "paragraph": 16,
+          "width": 9000,
+          "lines": [
+            "À Á Â Ã Ä",
+            "Å Ç ā ă ȧ",
+            "ä å a̋ ǎ ą."
+          ],
+          "digest": "d147382577e80981e1419498a8c2ca42f4dbadc2806888b43d0c711c1816a04c"
+        },
+        {
+          "paragraph": 16,
+          "width": 12000,
+          "lines": [
+            "À Á Â Ã Ä Å Ç",
+            "ā ă ȧ ä å a̋ ǎ",
+            "ą."
+          ],
+          "digest": "64376dfa7efd8797f02d2920d3859bb4cf0bd6e8065db017b0e04f715a29c270"
+        },
+        {
+          "paragraph": 16,
+          "width": 16000,
+          "lines": [
+            "À Á Â Ã Ä Å Ç ā ă",
+            "ȧ ä å a̋ ǎ ą."
+          ],
+          "digest": "5bdbdbf77b87f09c12d6e0f875a1651b7f97f30f87ab51e6e95dc32aa0330421"
+        },
+        {
+          "paragraph": 16,
+          "width": 22000,
+          "lines": [
+            "À Á Â Ã Ä Å Ç ā ă ȧ ä å a̋",
+            "ǎ ą."
+          ],
+          "digest": "0aed3ee72d82bf83e765c364a4f90831818e7d6ff5617e538da0746f9aeb0000"
+        }
+      ],
+      "pagination": [
+        {
+          "width": 9000,
+          "lines_per_page": 28,
+          "line_count": 2080,
+          "pages": 75
+        },
+        {
+          "width": 9000,
+          "lines_per_page": 36,
+          "line_count": 2080,
+          "pages": 58
+        },
+        {
+          "width": 9000,
+          "lines_per_page": 48,
+          "line_count": 2080,
+          "pages": 44
+        },
+        {
+          "width": 12000,
+          "lines_per_page": 28,
+          "line_count": 1720,
+          "pages": 62
+        },
+        {
+          "width": 12000,
+          "lines_per_page": 36,
+          "line_count": 1720,
+          "pages": 48
+        },
+        {
+          "width": 12000,
+          "lines_per_page": 48,
+          "line_count": 1720,
+          "pages": 36
+        },
+        {
+          "width": 16000,
+          "lines_per_page": 28,
+          "line_count": 1380,
+          "pages": 50
+        },
+        {
+          "width": 16000,
+          "lines_per_page": 36,
+          "line_count": 1380,
+          "pages": 39
+        },
+        {
+          "width": 16000,
+          "lines_per_page": 48,
+          "line_count": 1380,
+          "pages": 29
+        },
+        {
+          "width": 22000,
+          "lines_per_page": 28,
+          "line_count": 940,
+          "pages": 34
+        },
+        {
+          "width": 22000,
+          "lines_per_page": 36,
+          "line_count": 940,
+          "pages": 27
+        },
+        {
+          "width": 22000,
+          "lines_per_page": 48,
+          "line_count": 940,
+          "pages": 20
+        }
+      ]
+    },
+    "BoldItalic": {
+      "reference_filename": "timesbi.ttf",
+      "cases": [
+        {
+          "paragraph": 0,
+          "width": 9000,
+          "lines": [
+            "Правительство",
+            "Республики",
+            "Марий",
+            "Эл.",
+            "Постановление",
+            "№ 125 от",
+            "09.08.2026."
+          ],
+          "digest": "08840e7908bc5ba9672fedc19effd5c0154a52fef80d716e1cee2d6c8cdcf0ca"
+        },
+        {
+          "paragraph": 0,
+          "width": 12000,
+          "lines": [
+            "Правительство",
+            "Республики",
+            "Марий Эл.",
+            "Постановление",
+            "№ 125 от",
+            "09.08.2026."
+          ],
+          "digest": "c0b72ea074ee1602051152203bd8e1377ad3265a9c1e6114c9d3af2a222a4751"
+        },
+        {
+          "paragraph": 0,
+          "width": 16000,
+          "lines": [
+            "Правительство",
+            "Республики",
+            "Марий Эл.",
+            "Постановление",
+            "№ 125 от",
+            "09.08.2026."
+          ],
+          "digest": "c0b72ea074ee1602051152203bd8e1377ad3265a9c1e6114c9d3af2a222a4751"
+        },
+        {
+          "paragraph": 0,
+          "width": 22000,
+          "lines": [
+            "Правительство",
+            "Республики Марий Эл.",
+            "Постановление № 125",
+            "от 09.08.2026."
+          ],
+          "digest": "d4b4e9a9eb12304d17fdc068e54b866a19827dfff9e49dbce64ba93149f4947e"
+        },
+        {
+          "paragraph": 1,
+          "width": 9000,
+          "lines": [
+            "Контроль",
+            "делового",
+            "текста:",
+            "Ёж,",
+            "Йошкар-Ола,",
+            "сумма 48",
+            "750,00 ₽;",
+            "срок —",
+            "30 дней."
+          ],
+          "digest": "0d5440770297d37ef72faf5bc1feb92050146354b10a43c86f460498a2f8ad9c"
+        },
+        {
+          "paragraph": 1,
+          "width": 12000,
+          "lines": [
+            "Контроль",
+            "делового",
+            "текста: Ёж,",
+            "Йошкар-Ола,",
+            "сумма 48",
+            "750,00 ₽;",
+            "срок — 30",
+            "дней."
+          ],
+          "digest": "276583f46c364e3b9bdbd7eef52a103e410127156e1aa8581ac393cc8ed00d45"
+        },
+        {
+          "paragraph": 1,
+          "width": 16000,
+          "lines": [
+            "Контроль",
+            "делового текста:",
+            "Ёж,",
+            "Йошкар-Ола,",
+            "сумма 48 750,00",
+            "₽; срок — 30",
+            "дней."
+          ],
+          "digest": "915487ce414cfebd0e819eabd984f12733fd1b155eb7236cee86f3c0254d53df"
+        },
+        {
+          "paragraph": 1,
+          "width": 22000,
+          "lines": [
+            "Контроль делового",
+            "текста: Ёж,",
+            "Йошкар-Ола, сумма 48",
+            "750,00 ₽; срок — 30",
+            "дней."
+          ],
+          "digest": "0416594c43955a03957c5144891bf6417d88ea94b4150df7d3d37d81ac092f3d"
+        },
+        {
+          "paragraph": 2,
+          "width": 9000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "Кугыжаныш",
+            "Погынжо."
+          ],
+          "digest": "f6824a4366e6cac1908095b59f7019d47ce4f8835d9dc2ee5b9aeafa02a1f575"
+        },
+        {
+          "paragraph": 2,
+          "width": 12000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "Кугыжаныш",
+            "Погынжо."
+          ],
+          "digest": "f6824a4366e6cac1908095b59f7019d47ce4f8835d9dc2ee5b9aeafa02a1f575"
+        },
+        {
+          "paragraph": 2,
+          "width": 16000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "Кугыжаныш",
+            "Погынжо."
+          ],
+          "digest": "f6824a4366e6cac1908095b59f7019d47ce4f8835d9dc2ee5b9aeafa02a1f575"
+        },
+        {
+          "paragraph": 2,
+          "width": 22000,
+          "lines": [
+            "Марий Эл Республикын",
+            "Кугыжаныш Погынжо."
+          ],
+          "digest": "975adccbe56397f3d5bd48da787b9df5b86da9292837ea59cde15d7d55ffac1f"
+        },
+        {
+          "paragraph": 3,
+          "width": 9000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "Вуйлатышыже."
+          ],
+          "digest": "ca9513a4823fba85abb2bb20cb4b939a5630a35b1488373b43bfed19090c0786"
+        },
+        {
+          "paragraph": 3,
+          "width": 12000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "Вуйлатышыже."
+          ],
+          "digest": "ca9513a4823fba85abb2bb20cb4b939a5630a35b1488373b43bfed19090c0786"
+        },
+        {
+          "paragraph": 3,
+          "width": 16000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "Вуйлатышыже."
+          ],
+          "digest": "ca9513a4823fba85abb2bb20cb4b939a5630a35b1488373b43bfed19090c0786"
+        },
+        {
+          "paragraph": 3,
+          "width": 22000,
+          "lines": [
+            "Марий Эл Республикын",
+            "Вуйлатышыже."
+          ],
+          "digest": "963fafc4f6e16605d7da38cbf955867cdaebce65b5992a3a2a495aaab1fc9230"
+        },
+        {
+          "paragraph": 4,
+          "width": 9000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "тӱвыра,",
+            "печать",
+            "да",
+            "калык-влакын",
+            "пашашт",
+            "шотышто",
+            "министерствыже."
+          ],
+          "digest": "ceb34472d28732784c43d3291c0931c2f30cb1fbcab5c27d745bbc573b1540f2"
+        },
+        {
+          "paragraph": 4,
+          "width": 12000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "тӱвыра,",
+            "печать да",
+            "калык-влакын",
+            "пашашт",
+            "шотышто",
+            "министерствыже."
+          ],
+          "digest": "1ee1d9327eb9ce84873cb79238bd88b164946736095fd653624fdada5ffa9869"
+        },
+        {
+          "paragraph": 4,
+          "width": 16000,
+          "lines": [
+            "Марий Эл",
+            "Республикын",
+            "тӱвыра, печать",
+            "да калык-влакын",
+            "пашашт",
+            "шотышто",
+            "министерствыже."
+          ],
+          "digest": "05bfc398155715445ccd4679c96080106a07dae90be639ea963552514006fad8"
+        },
+        {
+          "paragraph": 4,
+          "width": 22000,
+          "lines": [
+            "Марий Эл Республикын",
+            "тӱвыра, печать да",
+            "калык-влакын пашашт",
+            "шотышто",
+            "министерствыже."
+          ],
+          "digest": "4c8e2a36c015e067c043219a5b7f3606e5cd237ce84fd074eab31c1d8c326be2"
+        },
+        {
+          "paragraph": 5,
+          "width": 9000,
+          "lines": [
+            "Контроль:",
+            "Ӓ ӓ, Ӧ ӧ,",
+            "Ӱ ӱ, Ҥ ҥ;",
+            "Йошкар-Ола,",
+            "Кугыжаныш,",
+            "тӱвыра,",
+            "калык-влак."
+          ],
+          "digest": "86fc14d3b2ecb736d8e3dc5b845660ee58a99bbb98313ce229f25bf6e9dfec30"
+        },
+        {
+          "paragraph": 5,
+          "width": 12000,
+          "lines": [
+            "Контроль: Ӓ",
+            "ӓ, Ӧ ӧ, Ӱ ӱ, Ҥ",
+            "ҥ;",
+            "Йошкар-Ола,",
+            "Кугыжаныш,",
+            "тӱвыра,",
+            "калык-влак."
+          ],
+          "digest": "98d5c3e147a734edd1d5d9d295f6105a949a931ad2d056541de68d7828ef727d"
+        },
+        {
+          "paragraph": 5,
+          "width": 16000,
+          "lines": [
+            "Контроль: Ӓ ӓ, Ӧ",
+            "ӧ, Ӱ ӱ, Ҥ ҥ;",
+            "Йошкар-Ола,",
+            "Кугыжаныш,",
+            "тӱвыра,",
+            "калык-влак."
+          ],
+          "digest": "7c85e5d5c3e6f534c5e2bc8fdeca46386cff25dfd587a90cf63add0f740d4cb3"
+        },
+        {
+          "paragraph": 5,
+          "width": 22000,
+          "lines": [
+            "Контроль: Ӓ ӓ, Ӧ ӧ, Ӱ ӱ,",
+            "Ҥ ҥ; Йошкар-Ола,",
+            "Кугыжаныш, тӱвыра,",
+            "калык-влак."
+          ],
+          "digest": "1a480630dbe2a342fceff4679af9448eea62b55b0ad7ee36db3c70bc84bffd67"
+        },
+        {
+          "paragraph": 6,
+          "width": 9000,
+          "lines": [
+            "Шачмы",
+            "йӹлмем",
+            "ылеш",
+            "сӹлнӹ."
+          ],
+          "digest": "f5fd9200e86835efa0e966bf2b064ec2ce849d390f56a21729bd6609b854302b"
+        },
+        {
+          "paragraph": 6,
+          "width": 12000,
+          "lines": [
+            "Шачмы",
+            "йӹлмем",
+            "ылеш",
+            "сӹлнӹ."
+          ],
+          "digest": "f5fd9200e86835efa0e966bf2b064ec2ce849d390f56a21729bd6609b854302b"
+        },
+        {
+          "paragraph": 6,
+          "width": 16000,
+          "lines": [
+            "Шачмы йӹлмем",
+            "ылеш сӹлнӹ."
+          ],
+          "digest": "e12b70b0995d08b4ee2af62f13061e3e09ac4e25d4d7c7c103018a3757ab58fd"
+        },
+        {
+          "paragraph": 6,
+          "width": 22000,
+          "lines": [
+            "Шачмы йӹлмем ылеш",
+            "сӹлнӹ."
+          ],
+          "digest": "8e7dc2f19b7a2203499e23eb181829e0a7acef0134afade434d58430002b4f35"
+        },
+        {
+          "paragraph": 7,
+          "width": 9000,
+          "lines": [
+            "Яратыда,",
+            "перегӹдӓ",
+            "ӹшке",
+            "туан",
+            "йӹлмӹдӓм!"
+          ],
+          "digest": "fffb0e15b69a14e2e278644e490e1187d87495b43e41ac012b458785457e2789"
+        },
+        {
+          "paragraph": 7,
+          "width": 12000,
+          "lines": [
+            "Яратыда,",
+            "перегӹдӓ",
+            "ӹшке туан",
+            "йӹлмӹдӓм!"
+          ],
+          "digest": "248cf5ec37e0ebb714cb1f68eab2002d73383dc45d1ea227f07a2b64ee252d74"
+        },
+        {
+          "paragraph": 7,
+          "width": 16000,
+          "lines": [
+            "Яратыда,",
+            "перегӹдӓ ӹшке",
+            "туан йӹлмӹдӓм!"
+          ],
+          "digest": "182e076ee0756faea0d268a8836415713baf422fa592121861fcf116f670408c"
+        },
+        {
+          "paragraph": 7,
+          "width": 22000,
+          "lines": [
+            "Яратыда, перегӹдӓ",
+            "ӹшке туан йӹлмӹдӓм!"
+          ],
+          "digest": "e5848679e81954967e1968c2263443db6363c982a611e1d7e15d03ad5a15b144"
+        },
+        {
+          "paragraph": 8,
+          "width": 9000,
+          "lines": [
+            "Контроль:",
+            "Ӓ ӓ, Ӧ ӧ,",
+            "Ӱ ӱ, Ӹ ӹ;",
+            "Кырык",
+            "мары,",
+            "шачмы",
+            "вӓр,",
+            "йӹлмӹ."
+          ],
+          "digest": "02018fef7c794024eacbb3b3b5a9409f0d5721e3318b6cd914764c5a432ce4b8"
+        },
+        {
+          "paragraph": 8,
+          "width": 12000,
+          "lines": [
+            "Контроль: Ӓ",
+            "ӓ, Ӧ ӧ, Ӱ ӱ, Ӹ",
+            "ӹ; Кырык",
+            "мары,",
+            "шачмы вӓр,",
+            "йӹлмӹ."
+          ],
+          "digest": "8675b318e3b2c844cb0746fc65ebff90db022a2eba4cdb4434562cf8c49a06f2"
+        },
+        {
+          "paragraph": 8,
+          "width": 16000,
+          "lines": [
+            "Контроль: Ӓ ӓ, Ӧ",
+            "ӧ, Ӱ ӱ, Ӹ ӹ;",
+            "Кырык мары,",
+            "шачмы вӓр,",
+            "йӹлмӹ."
+          ],
+          "digest": "bd273d69e3a607ad72579bcaab72f474c4e8867bf1c07242afdf49a9e8577ef2"
+        },
+        {
+          "paragraph": 8,
+          "width": 22000,
+          "lines": [
+            "Контроль: Ӓ ӓ, Ӧ ӧ, Ӱ ӱ,",
+            "Ӹ ӹ; Кырык мары,",
+            "шачмы вӓр, йӹлмӹ."
+          ],
+          "digest": "1c223d8c89cb9ce9eeefad23322b31c997eae6ae7dc1f73660b9073dcca94f52"
+        },
+        {
+          "paragraph": 9,
+          "width": 9000,
+          "lines": [
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            "abcdefghijklmnopqrstuvwxyz."
+          ],
+          "digest": "6564c63868e617c67ca83228d521baac69df5dc9bf990965523aa679f51bc34e"
+        },
+        {
+          "paragraph": 9,
+          "width": 12000,
+          "lines": [
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            "abcdefghijklmnopqrstuvwxyz."
+          ],
+          "digest": "6564c63868e617c67ca83228d521baac69df5dc9bf990965523aa679f51bc34e"
+        },
+        {
+          "paragraph": 9,
+          "width": 16000,
+          "lines": [
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            "abcdefghijklmnopqrstuvwxyz."
+          ],
+          "digest": "6564c63868e617c67ca83228d521baac69df5dc9bf990965523aa679f51bc34e"
+        },
+        {
+          "paragraph": 9,
+          "width": 22000,
+          "lines": [
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            "abcdefghijklmnopqrstuvwxyz."
+          ],
+          "digest": "6564c63868e617c67ca83228d521baac69df5dc9bf990965523aa679f51bc34e"
+        },
+        {
+          "paragraph": 10,
+          "width": 9000,
+          "lines": [
+            "Latin",
+            "Extended:",
+            "ÀÁÂÃÄÅ",
+            "Æ Ç",
+            "ÈÉÊË;",
+            "ĀĂĄ",
+            "ĆĈĊČ Đ",
+            "ĒĔĖĘĚ;",
+            "Œ Š Ž Ÿ."
+          ],
+          "digest": "8a2284b4e29dca124f2623962f74353b797b998b659862a694119a6cbe66d29c"
+        },
+        {
+          "paragraph": 10,
+          "width": 12000,
+          "lines": [
+            "Latin",
+            "Extended:",
+            "ÀÁÂÃÄÅ Æ",
+            "Ç ÈÉÊË;",
+            "ĀĂĄ ĆĈĊČ",
+            "Đ ĒĔĖĘĚ; Œ",
+            "Š Ž Ÿ."
+          ],
+          "digest": "cdf794e781e1900f09336462fd46ecd3d0ca6f402d341630b7aa283967bc043a"
+        },
+        {
+          "paragraph": 10,
+          "width": 16000,
+          "lines": [
+            "Latin Extended:",
+            "ÀÁÂÃÄÅ Æ Ç",
+            "ÈÉÊË; ĀĂĄ",
+            "ĆĈĊČ Đ ĒĔĖĘĚ;",
+            "Œ Š Ž Ÿ."
+          ],
+          "digest": "adf06e71cc877f0f79dd1f5d2ed0a4919bfa37baf935239c97e9bec28b60f9e3"
+        },
+        {
+          "paragraph": 10,
+          "width": 22000,
+          "lines": [
+            "Latin Extended:",
+            "ÀÁÂÃÄÅ Æ Ç ÈÉÊË;",
+            "ĀĂĄ ĆĈĊČ Đ ĒĔĖĘĚ;",
+            "Œ Š Ž Ÿ."
+          ],
+          "digest": "9775af4f75f2a1c926771e0a2f013a90f3c378409636451d83f537d1e8d5b080"
+        },
+        {
+          "paragraph": 11,
+          "width": 9000,
+          "lines": [
+            "Address:",
+            "Government",
+            "of the",
+            "Mari El",
+            "Republic,",
+            "Yoshkar-Ola;",
+            "Straße 12;",
+            "e-mail@example.org."
+          ],
+          "digest": "ce319fb187bb62c68523a6d2919c20285df4c4cc5adaea47cc7e5018bd3e49aa"
+        },
+        {
+          "paragraph": 11,
+          "width": 12000,
+          "lines": [
+            "Address:",
+            "Government",
+            "of the Mari",
+            "El Republic,",
+            "Yoshkar-Ola;",
+            "Straße 12;",
+            "e-mail@example.org."
+          ],
+          "digest": "37067ee1db63d35ef824a903c28d49ca761aa5d2edae539c014f1bc7928fd38a"
+        },
+        {
+          "paragraph": 11,
+          "width": 16000,
+          "lines": [
+            "Address:",
+            "Government of the",
+            "Mari El Republic,",
+            "Yoshkar-Ola;",
+            "Straße 12;",
+            "e-mail@example.org."
+          ],
+          "digest": "414c6280838df210926d7e721e5e62014612ceb2cdc3c4bbc7f2f8609f63686f"
+        },
+        {
+          "paragraph": 11,
+          "width": 22000,
+          "lines": [
+            "Address: Government of",
+            "the Mari El Republic,",
+            "Yoshkar-Ola; Straße 12;",
+            "e-mail@example.org."
+          ],
+          "digest": "63ed78b1e122bef4c1f42ec07742813f0ad69f3d960c07001ce5424daca90d01"
+        },
+        {
+          "paragraph": 12,
+          "width": 9000,
+          "lines": [
+            "0123456789",
+            "· 1 250",
+            "000,00 ₽ ·",
+            "$ € £ ¥ ¢ ·",
+            "12,5% ·",
+            "3‰ · 20°."
+          ],
+          "digest": "cc3490d757613ae07cd679ec1795934a5b88444bf4b6925f74c6cb52ff2bc439"
+        },
+        {
+          "paragraph": 12,
+          "width": 12000,
+          "lines": [
+            "0123456789 ·",
+            "1 250 000,00",
+            "₽ · $ € £ ¥ ¢ ·",
+            "12,5% · 3‰ ·",
+            "20°."
+          ],
+          "digest": "1ff53256fe998b57a905f6b7c3972395f7eb45e11413b98d99daaad3ef81291b"
+        },
+        {
+          "paragraph": 12,
+          "width": 16000,
+          "lines": [
+            "0123456789 · 1",
+            "250 000,00 ₽ · $ €",
+            "£ ¥ ¢ · 12,5% · 3‰",
+            "· 20°."
+          ],
+          "digest": "1b59d9a312962cb874716204cec9eb5a03a5c15bc16ec576ed38ef1894465b78"
+        },
+        {
+          "paragraph": 12,
+          "width": 22000,
+          "lines": [
+            "0123456789 · 1 250",
+            "000,00 ₽ · $ € £ ¥ ¢ ·",
+            "12,5% · 3‰ · 20°."
+          ],
+          "digest": "e0668aff2c359258c8a9c7560583fc04c6ec7adacdb8f086442fa1a3c06b9b4c"
+        },
+        {
+          "paragraph": 13,
+          "width": 9000,
+          "lines": [
+            "№ § ¶ ©",
+            "® ™ • · †",
+            "‡ ※ ± × ÷",
+            "≈ ≠ ≤ ≥ ∞",
+            "√ ∑ ∆ µ",
+            "← ↑ → ↓",
+            "↔."
+          ],
+          "digest": "3e863acce03d3529308d2762b3c5eb65e2c16f8bddb00399dc7129996851b28d"
+        },
+        {
+          "paragraph": 13,
+          "width": 12000,
+          "lines": [
+            "№ § ¶ © ® ™",
+            "• · † ‡ ※ ± ×",
+            "÷ ≈ ≠ ≤ ≥ ∞ √",
+            "∑ ∆ µ ← ↑ →",
+            "↓ ↔."
+          ],
+          "digest": "7e9c1d616405aa15cdfd1e92a82a38674284ce5768c6729057af2db3c8b3ec02"
+        },
+        {
+          "paragraph": 13,
+          "width": 16000,
+          "lines": [
+            "№ § ¶ © ® ™ • · †",
+            "‡ ※ ± × ÷ ≈ ≠ ≤ ≥",
+            "∞ √ ∑ ∆ µ ← ↑ →",
+            "↓ ↔."
+          ],
+          "digest": "17b1d7ee3f077ce6f3c13b7ccb27f69559152574e19cd870df4cef6147d50a07"
+        },
+        {
+          "paragraph": 13,
+          "width": 22000,
+          "lines": [
+            "№ § ¶ © ® ™ • · † ‡ ※ ±",
+            "× ÷ ≈ ≠ ≤ ≥ ∞ √ ∑ ∆ µ ←",
+            "↑ → ↓ ↔."
+          ],
+          "digest": "ac62b211a43d76e7b38297154b4652b2a64aa89cf5980602725537de6229b962"
+        },
+        {
+          "paragraph": 14,
+          "width": 9000,
+          "lines": [
+            "¹ ² ³ ¼ ½",
+            "¾ — – ‑ -",
+            "_ …",
+            "«кавычки»",
+            "„quotes“",
+            "() [] {} / \\",
+            "@ & * + −",
+            "= < > |."
+          ],
+          "digest": "772632488e3389ad5bfe9b1f568aedf41a371ddc707e06e7b6cbd30519840989"
+        },
+        {
+          "paragraph": 14,
+          "width": 12000,
+          "lines": [
+            "¹ ² ³ ¼ ½ ¾ —",
+            "– ‑ - _ …",
+            "«кавычки»",
+            "„quotes“ () []",
+            "{} / \\ @ & * +",
+            "− = < > |."
+          ],
+          "digest": "6764d6c9c238ae26c09f1266ebe14b424b0d61b733b708397d4714fcd0126334"
+        },
+        {
+          "paragraph": 14,
+          "width": 16000,
+          "lines": [
+            "¹ ² ³ ¼ ½ ¾ — – ‑ -",
+            "_ … «кавычки»",
+            "„quotes“ () [] {} / \\",
+            "@ & * + − = < > |."
+          ],
+          "digest": "11e51d76dc5de4baf970332332fbcb53595a4a4f94ba39861c035f86e893a254"
+        },
+        {
+          "paragraph": 14,
+          "width": 22000,
+          "lines": [
+            "¹ ² ³ ¼ ½ ¾ — – ‑ - _ …",
+            "«кавычки» „quotes“ () []",
+            "{} / \\ @ & * + − = < > |."
+          ],
+          "digest": "c9cc9729c17c8eb73c7bc1d7dca1582e3a28fa58ab61efb01fbde16972ee92fa"
+        },
+        {
+          "paragraph": 15,
+          "width": 9000,
+          "lines": [
+            "ӒӓӦӧӰӱӸӹ",
+            "ÀÁÂÃÄÅ",
+            "Ç ÈÉÊË",
+            "Ñ Ö Ü Ý",
+            "àáâãäå ç",
+            "èéêë ñ ö ü",
+            "ý ÿ."
+          ],
+          "digest": "d4090770aedf7541fbccba52fdad7607b6d07baa329fdc6149775c3d16faf0e1"
+        },
+        {
+          "paragraph": 15,
+          "width": 12000,
+          "lines": [
+            "ӒӓӦӧӰӱӸӹ",
+            "ÀÁÂÃÄÅ Ç",
+            "ÈÉÊË Ñ Ö Ü",
+            "Ý àáâãäå ç",
+            "èéêë ñ ö ü ý ÿ."
+          ],
+          "digest": "eff855608a8d3ab1e956e100a44d8801096a99b080fffec5a396064e266a34cd"
+        },
+        {
+          "paragraph": 15,
+          "width": 16000,
+          "lines": [
+            "ӒӓӦӧӰӱӸӹ",
+            "ÀÁÂÃÄÅ Ç",
+            "ÈÉÊË Ñ Ö Ü Ý",
+            "àáâãäå ç èéêë ñ ö",
+            "ü ý ÿ."
+          ],
+          "digest": "3c45acfaa822ff8231622ccd5e6b56937a837801e77a32188a32291311b047f7"
+        },
+        {
+          "paragraph": 15,
+          "width": 22000,
+          "lines": [
+            "ӒӓӦӧӰӱӸӹ ÀÁÂÃÄÅ Ç",
+            "ÈÉÊË Ñ Ö Ü Ý àáâãäå ç",
+            "èéêë ñ ö ü ý ÿ."
+          ],
+          "digest": "a85fc1f80c3c3e74fdc0d34db6fd43890cd6259ccfc3585173f64ccf72e0938e"
+        },
+        {
+          "paragraph": 16,
+          "width": 9000,
+          "lines": [
+            "À Á Â Ã Ä",
+            "Å Ç ā ă ȧ",
+            "ä å a̋ ǎ ą."
+          ],
+          "digest": "d147382577e80981e1419498a8c2ca42f4dbadc2806888b43d0c711c1816a04c"
+        },
+        {
+          "paragraph": 16,
+          "width": 12000,
+          "lines": [
+            "À Á Â Ã Ä Å",
+            "Ç ā ă ȧ ä å a̋",
+            "ǎ ą."
+          ],
+          "digest": "694a941935271a1818b43a5f2696a67483622f622548726893158a3da56c414a"
+        },
+        {
+          "paragraph": 16,
+          "width": 16000,
+          "lines": [
+            "À Á Â Ã Ä Å Ç ā ă",
+            "ȧ ä å a̋ ǎ ą."
+          ],
+          "digest": "5bdbdbf77b87f09c12d6e0f875a1651b7f97f30f87ab51e6e95dc32aa0330421"
+        },
+        {
+          "paragraph": 16,
+          "width": 22000,
+          "lines": [
+            "À Á Â Ã Ä Å Ç ā ă ȧ ä å a̋",
+            "ǎ ą."
+          ],
+          "digest": "0aed3ee72d82bf83e765c364a4f90831818e7d6ff5617e538da0746f9aeb0000"
+        }
+      ],
+      "pagination": [
+        {
+          "width": 9000,
+          "lines_per_page": 28,
+          "line_count": 2100,
+          "pages": 75
+        },
+        {
+          "width": 9000,
+          "lines_per_page": 36,
+          "line_count": 2100,
+          "pages": 59
+        },
+        {
+          "width": 9000,
+          "lines_per_page": 48,
+          "line_count": 2100,
+          "pages": 44
+        },
+        {
+          "width": 12000,
+          "lines_per_page": 28,
+          "line_count": 1780,
+          "pages": 64
+        },
+        {
+          "width": 12000,
+          "lines_per_page": 36,
+          "line_count": 1780,
+          "pages": 50
+        },
+        {
+          "width": 12000,
+          "lines_per_page": 48,
+          "line_count": 1780,
+          "pages": 38
+        },
+        {
+          "width": 16000,
+          "lines_per_page": 28,
+          "line_count": 1400,
+          "pages": 50
+        },
+        {
+          "width": 16000,
+          "lines_per_page": 36,
+          "line_count": 1400,
+          "pages": 39
+        },
+        {
+          "width": 16000,
+          "lines_per_page": 48,
+          "line_count": 1400,
+          "pages": 30
+        },
+        {
+          "width": 22000,
+          "lines_per_page": 28,
+          "line_count": 1000,
+          "pages": 36
+        },
+        {
+          "width": 22000,
+          "lines_per_page": 36,
+          "line_count": 1000,
+          "pages": 28
+        },
+        {
+          "width": 22000,
+          "lines_per_page": 48,
+          "line_count": 1000,
+          "pages": 21
+        }
+      ]
+    }
+  }
+}

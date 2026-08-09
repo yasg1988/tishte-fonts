@@ -10,6 +10,8 @@ from pathlib import Path
 import subprocess
 import sys
 
+from versioning import version_tag
+
 
 def digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -24,10 +26,10 @@ def files(root: Path, tag: str) -> list[Path]:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
-    parser.add_argument("--version", default="0.960")
+    parser.add_argument("--version", default="1.000")
     args = parser.parse_args()
     root = args.root.resolve()
-    tag = "v" + args.version.partition(".")[2]
+    tag = version_tag(args.version)
     before_paths = files(root, tag)
     if len(before_paths) != 8:
         raise ValueError(f"expected 8 existing binaries, got {len(before_paths)}")

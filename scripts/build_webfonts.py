@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 
 from fontTools.ttLib import TTFont
+from versioning import version_tag
 
 from build_serif_family import STYLES
 from font_metrics_audit import load_charset
@@ -16,10 +17,10 @@ from font_metrics_audit import load_charset
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
-    parser.add_argument("--version", default="0.960")
+    parser.add_argument("--version", default="1.000")
     args = parser.parse_args()
     root = args.root.resolve()
-    version_tag = "v" + args.version.partition(".")[2]
+    tag = version_tag(args.version)
     charset = load_charset(root / "data" / "document-charset.txt")
     output_dir = root / "build" / "web"
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -27,8 +28,8 @@ def main() -> int:
     css_blocks = []
     passed = True
     for style in STYLES:
-        ttf_path = root / "build" / f"TishteSerif-{style.key}-{version_tag}.ttf"
-        woff2_path = output_dir / f"TishteSerif-{style.key}-{version_tag}.woff2"
+        ttf_path = root / "build" / f"TishteSerif-{style.key}-{tag}.ttf"
+        woff2_path = output_dir / f"TishteSerif-{style.key}-{tag}.woff2"
         with TTFont(ttf_path, recalcTimestamp=False) as font:
             font.flavor = "woff2"
             font.save(woff2_path, reorderTables=True)
@@ -71,10 +72,10 @@ def main() -> int:
                 )
             )
         )
-    css_path = output_dir / f"tishte-serif-{version_tag}.css"
+    css_path = output_dir / f"tishte-serif-{tag}.css"
     css_path.write_text("\n\n".join(css_blocks) + "\n", encoding="utf-8")
     result = {"version": args.version, "charset": len(charset), "css": str(css_path), "styles": styles, "passed": passed}
-    report = root / "artifacts" / "reports" / f"webfonts-{version_tag}.json"
+    report = root / "artifacts" / "reports" / f"webfonts-{tag}.json"
     report.parent.mkdir(parents=True, exist_ok=True)
     report.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return 0 if passed else 1

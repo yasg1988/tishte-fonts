@@ -10,6 +10,8 @@ from pathlib import Path
 from fontTools.ttLib import TTFont
 import uharfbuzz as hb
 
+from versioning import version_tag
+
 
 REQUIRED_TABLES = ("GDEF", "GSUB", "GPOS", "STAT")
 REQUIRED_GSUB = {"ccmp"}
@@ -56,10 +58,10 @@ def shape(path: Path, text: str, features: dict[str, bool] | None = None) -> dic
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
-    parser.add_argument("--version", default="0.960")
+    parser.add_argument("--version", default="1.000")
     args = parser.parse_args()
     root = args.root.resolve()
-    tag = "v" + args.version.partition(".")[2]
+    tag = version_tag(args.version)
     styles = {}
     for style in ("Regular", "Bold", "Italic", "BoldItalic"):
         path = root / "build" / f"TishteSerif-{style}-{tag}.ttf"

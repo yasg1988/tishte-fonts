@@ -8,6 +8,8 @@ from pathlib import Path
 import subprocess
 import sys
 
+from versioning import version_tag
+
 
 # These checks conflict with the fixed Times New Roman layout contract or apply
 # only to inherited, out-of-scope historic glyphs. The rationale is maintained
@@ -24,10 +26,10 @@ EXCLUDED_CHECKS = (
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
-    parser.add_argument("--version", default="0.960")
+    parser.add_argument("--version", default="1.000")
     args = parser.parse_args()
     root = args.root.resolve()
-    tag = "v" + args.version.partition(".")[2]
+    tag = version_tag(args.version)
     fonts = [Path("build") / f"TishteSerif-{style}-{tag}.ttf" for style in ("Regular", "Bold", "Italic", "BoldItalic")]
     report_dir = root / "artifacts" / "reports"
     report_dir.mkdir(parents=True, exist_ok=True)

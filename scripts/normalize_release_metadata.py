@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 
 from fontTools.ttLib import TTFont
+from versioning import version_tag
 
 
 STYLES = ("Regular", "Bold", "Italic", "BoldItalic")
@@ -35,10 +36,10 @@ def set_windows_english(name_table, value: str, name_id: int) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
-    parser.add_argument("--version", default="0.960")
+    parser.add_argument("--version", default="1.000")
     args = parser.parse_args()
     root = args.root.resolve()
-    tag = "v" + args.version.partition(".")[2]
+    tag = version_tag(args.version)
     report = {"version": args.version, "styles": {}, "passed": True}
 
     for style in STYLES:

@@ -12,6 +12,7 @@ import uharfbuzz as hb
 
 from build_serif_family import STYLES
 from font_metrics_audit import load_charset
+from versioning import version_tag
 
 
 def shape(path: Path, text: str) -> list[tuple[int, int, int, int, int]]:
@@ -38,10 +39,10 @@ def shape(path: Path, text: str) -> list[tuple[int, int, int, int, int]]:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
-    parser.add_argument("--version", default="0.960")
+    parser.add_argument("--version", default="1.000")
     args = parser.parse_args()
     root = args.root.resolve()
-    version_tag = "v" + args.version.partition(".")[2]
+    tag = version_tag(args.version)
     charset = set(load_charset(root / "data" / "document-charset.txt"))
     canonical_cases = []
     for codepoint in sorted(charset):
@@ -53,7 +54,7 @@ def main() -> int:
     styles = {}
     passed = True
     for style in STYLES:
-        path = root / "build" / f"TishteSerif-{style.key}-{version_tag}.ttf"
+        path = root / "build" / f"TishteSerif-{style.key}-{tag}.ttf"
         failures = []
         for codepoint, nfc, nfd in canonical_cases:
             shaped_nfc = shape(path, nfc)
@@ -76,7 +77,7 @@ def main() -> int:
         "styles": styles,
         "passed": passed,
     }
-    output = root / "artifacts" / "reports" / f"unicode-normalization-{version_tag}.json"
+    output = root / "artifacts" / "reports" / f"unicode-normalization-{tag}.json"
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(result, ensure_ascii=False, indent=2))

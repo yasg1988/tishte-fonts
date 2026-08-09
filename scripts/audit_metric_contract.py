@@ -10,6 +10,8 @@ from pathlib import Path
 from fontTools.ttLib import TTFont
 import uharfbuzz as hb
 
+from versioning import version_tag
+
 
 FEATURES = {"kern": True, "liga": False, "clig": False}
 
@@ -40,11 +42,11 @@ class Shaper:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
-    parser.add_argument("--version", default="0.960")
+    parser.add_argument("--version", default="1.000")
     args = parser.parse_args()
     root = args.root.resolve()
     contract = json.loads((root / "data" / "times-new-roman-metrics.json").read_text(encoding="utf-8"))
-    tag = "v" + args.version.partition(".")[2]
+    tag = version_tag(args.version)
     report = {"version": args.version, "styles": {}, "passed": True}
     for style, expected in contract["styles"].items():
         path = root / "build" / f"TishteSerif-{style}-{tag}.ttf"
