@@ -79,7 +79,7 @@ def main() -> int:
             failures.append("stale trademark field present")
         if vendor_values != ["Tishte Project"]:
             failures.append("unexpected vendor")
-        if designer_values != ["Tishte Project contributors"]:
+        if designer_values != ["Сергей Якунин"]:
             failures.append("unexpected designer")
         if not description_values or not all("modified version of Tinos" in value for value in description_values):
             failures.append("derivative provenance absent from description")
