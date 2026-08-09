@@ -1,6 +1,8 @@
 [CmdletBinding()]
 param(
-    [string]$OutputRoot = "artifacts\office-tests\v060\excel"
+    [string]$OutputRoot = "artifacts\office-tests\v060\excel",
+    [string]$VersionLabel = "v0.060",
+    [string]$VersionTag = "v060"
 )
 
 $ErrorActionPreference = "Stop"
@@ -90,7 +92,7 @@ function Build-Workbook {
         $registry.Activate()
         $registry.Application.ActiveWindow.DisplayGridlines = $false
         $registry.Range("A1:H1").Merge()
-        $registry.Range("A1").Value2 = "TISHTE SERIF v0.060 · КОНТРОЛЬ EXCEL · $Variant"
+        $registry.Range("A1").Value2 = "TISHTE SERIF $VersionLabel · КОНТРОЛЬ EXCEL · $Variant"
         Set-Font $registry.Range("A1") $FontName 18 $true
         $registry.Range("A1").Font.Color = 0xFFFFFF
         $registry.Range("A1:H1").Interior.Color = $accent
@@ -179,7 +181,7 @@ function Build-Workbook {
         Write-Host "Styles sheet ready: $Variant"
 
         $Excel.CalculateFullRebuild()
-        $path = Join-Path $root "tishte-serif-v060-$($Variant.ToLower()).xlsx"
+        $path = Join-Path $root "tishte-serif-$VersionTag-$($Variant.ToLower()).xlsx"
         Write-Host "Saving: $path"
         $book.SaveAs($path, $xlOpenXMLWorkbook)
         Write-Host "Saved: $path"

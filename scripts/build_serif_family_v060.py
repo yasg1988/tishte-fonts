@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build and normalize the four-style Tishte Serif engineering family."""
+"""Build and normalize a four-style Tishte Serif engineering family."""
 
 from __future__ import annotations
 
@@ -89,19 +89,25 @@ def sync_metrics(font: TTFont, reference: TTFont, codepoints: list[int]) -> None
             setattr(font[table_name], field, getattr(reference[table_name], field))
 
 
-def normalize(path: Path, reference_path: Path, style: Style, codepoints: list[int]) -> None:
+def normalize(
+    path: Path,
+    reference_path: Path,
+    style: Style,
+    codepoints: list[int],
+    version: str,
+) -> None:
     with TTFont(path, recalcTimestamp=False) as font, TTFont(reference_path, lazy=False) as reference:
         font["name"].names = [
             record for record in font["name"].names if record.nameID not in PRIMARY_NAME_IDS
         ]
-        unique_id = f"Version {VERSION}; Tishte Serif engineering prototype; {style.key}"
+        unique_id = f"Version {version}; Tishte Serif engineering prototype; {style.key}"
         full_name = f"{FAMILY} {style.subfamily}"
         names = {
             1: FAMILY,
             2: style.subfamily,
             3: unique_id,
             4: full_name,
-            5: f"Version {VERSION}",
+            5: f"Version {version}",
             6: style.postscript,
             13: LICENSE,
             14: LICENSE_URL,
@@ -128,15 +134,16 @@ def normalize(path: Path, reference_path: Path, style: Style, codepoints: list[i
     temporary.replace(path)
 
 
-def build(root: Path) -> list[Path]:
+def build(root: Path, version: str = VERSION) -> list[Path]:
     codepoints = load_charset(root / "data" / "document-charset.txt")
+    version_tag = "v" + version.partition(".")[2]
     outputs: list[Path] = []
     for style in STYLES:
-        source = root / "sources" / "tishte-serif" / "iterations" / f"TishteSerif-{style.key}-v060.sfd"
-        output = root / "build" / f"TishteSerif-{style.key}-v060.ttf"
+        source = root / "sources" / "tishte-serif" / "iterations" / f"TishteSerif-{style.key}-{version_tag}.sfd"
+        output = root / "build" / f"TishteSerif-{style.key}-{version_tag}.ttf"
         reference = Path("C:/Windows/Fonts") / style.reference_name
         generate(source, output)
-        normalize(output, reference, style, codepoints)
+        normalize(output, reference, style, codepoints, version)
         outputs.append(output)
         print(output)
     return outputs
@@ -145,8 +152,9 @@ def build(root: Path) -> list[Path]:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
+    parser.add_argument("--version", default=VERSION)
     args = parser.parse_args()
-    build(args.root.resolve())
+    build(args.root.resolve(), args.version)
 
 
 if __name__ == "__main__":

@@ -1,6 +1,7 @@
 [CmdletBinding()]
 param(
-    [string]$BuildDirectory = "build"
+    [string]$BuildDirectory = "build",
+    [string]$Version = "060"
 )
 
 $ErrorActionPreference = "Stop"
@@ -10,10 +11,10 @@ New-Item -ItemType Directory -Path $fontDir -Force | Out-Null
 New-Item -Path $registryPath -Force | Out-Null
 
 $styles = @(
-    @{ File = "TishteSerif-Regular-v060.ttf"; Registry = "Tishte Serif Prototype (TrueType)" },
-    @{ File = "TishteSerif-Bold-v060.ttf"; Registry = "Tishte Serif Prototype Bold (TrueType)" },
-    @{ File = "TishteSerif-Italic-v060.ttf"; Registry = "Tishte Serif Prototype Italic (TrueType)" },
-    @{ File = "TishteSerif-BoldItalic-v060.ttf"; Registry = "Tishte Serif Prototype Bold Italic (TrueType)" }
+    @{ File = "TishteSerif-Regular-v$Version.ttf"; Registry = "Tishte Serif Prototype (TrueType)" },
+    @{ File = "TishteSerif-Bold-v$Version.ttf"; Registry = "Tishte Serif Prototype Bold (TrueType)" },
+    @{ File = "TishteSerif-Italic-v$Version.ttf"; Registry = "Tishte Serif Prototype Italic (TrueType)" },
+    @{ File = "TishteSerif-BoldItalic-v$Version.ttf"; Registry = "Tishte Serif Prototype Bold Italic (TrueType)" }
 )
 
 if (-not ("Tishte.FontBroadcast" -as [type])) {
@@ -47,6 +48,12 @@ foreach ($style in $styles) {
 Remove-ItemProperty -Path $registryPath -Name "Tishte Serif Prototype Regular (TrueType)" -ErrorAction SilentlyContinue
 $oldFont = Join-Path $fontDir "TishteSerif-Regular-v040.ttf"
 if (Test-Path -LiteralPath $oldFont) { Remove-Item -LiteralPath $oldFont -Force }
+if ($Version -ne "060") {
+    foreach ($oldStyle in @("Regular", "Bold", "Italic", "BoldItalic")) {
+        $oldFamilyFont = Join-Path $fontDir "TishteSerif-$oldStyle-v060.ttf"
+        if (Test-Path -LiteralPath $oldFamilyFont) { Remove-Item -LiteralPath $oldFamilyFont -Force }
+    }
+}
 
 $broadcastResult = [UIntPtr]::Zero
 [void][Tishte.FontBroadcast]::SendMessageTimeout(

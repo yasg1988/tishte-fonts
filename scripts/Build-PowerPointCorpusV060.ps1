@@ -1,6 +1,8 @@
 [CmdletBinding()]
 param(
-    [string]$OutputRoot = "artifacts\office-tests\v060\powerpoint"
+    [string]$OutputRoot = "artifacts\office-tests\v060\powerpoint",
+    [string]$VersionLabel = "v0.060",
+    [string]$VersionTag = "v060"
 )
 
 $ErrorActionPreference = "Stop"
@@ -50,7 +52,7 @@ function Add-Text {
 
 function Add-Footer {
     param($Slide, [string]$FontName, [int]$Page)
-    [void](Add-Text $Slide "TISHTE SERIF v0.060 · КОНТРОЛЬ POWERPOINT" 42 510 650 16 $FontName 8 $false $false $muted)
+    [void](Add-Text $Slide "TISHTE SERIF $VersionLabel · КОНТРОЛЬ POWERPOINT" 42 510 650 16 $FontName 8 $false $false $muted)
     [void](Add-Text $Slide ([string]$Page) 900 510 20 16 $FontName 8 $false $false $muted)
 }
 
@@ -69,7 +71,7 @@ function Build-Deck {
         $bar.Line.Visible = $msoFalse
         [void](Add-Text $slide "ИНЖЕНЕРНЫЙ КОМПЛЕКТ" 70 74 760 24 $FontName 13 $true $false $accent)
         [void](Add-Text $slide "Четыре начертания теперь сохраняют раскладку Times New Roman." 70 122 780 130 $FontName 34 $true)
-        [void](Add-Text $slide "Tishte Serif v0.060 · $Variant" 70 300 600 30 $FontName 18 $false $true $muted)
+        [void](Add-Text $slide "Tishte Serif $VersionLabel · $Variant" 70 300 600 30 $FontName 18 $false $true $muted)
         [void](Add-Text $slide "Regular · Bold · Italic · Bold Italic" 70 356 650 34 $FontName 22)
         Add-Footer $slide $FontName 1
 
@@ -133,8 +135,8 @@ function Build-Deck {
         }
         Add-Footer $slide $FontName 4
 
-        $pptx = Join-Path $root "tishte-serif-v060-$($Variant.ToLower()).pptx"
-        $pdf = Join-Path $root "tishte-serif-v060-$($Variant.ToLower()).pdf"
+        $pptx = Join-Path $root "tishte-serif-$VersionTag-$($Variant.ToLower()).pptx"
+        $pdf = Join-Path $root "tishte-serif-$VersionTag-$($Variant.ToLower()).pdf"
         $deck.SaveAs($pptx, $ppSaveAsOpenXMLPresentation, $msoTrue)
         $deck.SaveAs($pdf, $ppSaveAsPDF)
         return [ordered]@{ pptx = $pptx; pdf = $pdf; slides = $deck.Slides.Count }

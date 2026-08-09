@@ -22,7 +22,13 @@ def render(pdf: Path, output_dir: Path, scale: float) -> list[Path]:
     return pages
 
 
-def build_sheet(times: list[Path], tishte: list[Path], output: Path, title: str) -> None:
+def build_sheet(
+    times: list[Path],
+    tishte: list[Path],
+    output: Path,
+    title: str,
+    tishte_label: str,
+) -> None:
     if len(times) != len(tishte):
         raise ValueError(f"page-count mismatch: {len(times)} != {len(tishte)}")
     left = [Image.open(path).convert("RGB") for path in times]
@@ -35,7 +41,7 @@ def build_sheet(times: list[Path], tishte: list[Path], output: Path, title: str)
         draw = ImageDraw.Draw(sheet)
         font = ImageFont.truetype("C:/Windows/Fonts/arial.ttf", 24)
         draw.text((gap, 20), f"{title} · TIMES NEW ROMAN", font=font, fill="#24211f")
-        draw.text((width + gap * 2, 20), "TISHTE SERIF v0.060", font=font, fill="#8f2434")
+        draw.text((width + gap * 2, 20), tishte_label, font=font, fill="#8f2434")
         y = header
         for times_page, tishte_page in zip(left, right):
             sheet.paste(times_page, (gap, y))
@@ -54,12 +60,13 @@ def main() -> None:
     parser.add_argument("--tishte", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--title", required=True)
+    parser.add_argument("--tishte-label", default="TISHTE SERIF v0.060")
     parser.add_argument("--scale", type=float, default=1.35)
     args = parser.parse_args()
     root = args.output.parent / "pages"
     times = render(args.times, root / "times", args.scale)
     tishte = render(args.tishte, root / "tishte", args.scale)
-    build_sheet(times, tishte, args.output, args.title)
+    build_sheet(times, tishte, args.output, args.title, args.tishte_label)
     print(f"pages={len(times)} output={args.output}")
 
 
