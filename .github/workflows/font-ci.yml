@@ -33,7 +33,7 @@ jobs:
           python scripts/audit_unicode_normalization_v090.py --version 0.910
           python scripts/audit_language_corpus.py --version 0.910
           python scripts/audit_opentype_v120.py --version 0.910
-          python scripts/audit_outline_originality.py --version 0.910 --max-identical-ratio 0.82
+          python scripts/audit_outline_originality.py --version 0.910 --max-identical-ratio 0.56
       - name: Validate outlines with FontForge
         run: |
           for font in build/*-v910.ttf; do
@@ -86,4 +86,4 @@ jobs:
           python scripts/audit_unicode_normalization_v090.py --version 0.910
           python scripts/audit_language_corpus.py --version 0.910
           python scripts/audit_opentype_v120.py --version 0.910
-          python scripts/audit_outline_originality.py --version 0.910 --max-identical-ratio 0.82
+          python scripts/audit_outline_originality.py --version 0.910 --max-identical-ratio 0.56

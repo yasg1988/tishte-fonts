@@ -41,7 +41,7 @@ python scripts/audit_metric_contract.py --version 0.910
 python scripts/audit_unicode_normalization_v090.py --version 0.910
 python scripts/audit_language_corpus.py --version 0.910
 python scripts/audit_opentype_v120.py --version 0.910
-python scripts/audit_outline_originality.py --version 0.910 --max-identical-ratio 0.82
+python scripts/audit_outline_originality.py --version 0.910 --max-identical-ratio 0.56
 python scripts/run_fontbakery.py --version 0.910
 ```
 
