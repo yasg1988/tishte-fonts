@@ -1,14 +1,17 @@
 [CmdletBinding()]
-param([string]$Version = "060")
+param(
+    [string]$Version = "060",
+    [string]$FamilyName = "Tishte Serif Prototype"
+)
 
 $ErrorActionPreference = "Stop"
 $fontDir = Join-Path $env:LOCALAPPDATA "Microsoft\Windows\Fonts"
 $registryPath = "HKCU:\Software\Microsoft\Windows NT\CurrentVersion\Fonts"
 $styles = @(
-    @{ File = "TishteSerif-Regular-v$Version.ttf"; Registry = "Tishte Serif Prototype (TrueType)" },
-    @{ File = "TishteSerif-Bold-v$Version.ttf"; Registry = "Tishte Serif Prototype Bold (TrueType)" },
-    @{ File = "TishteSerif-Italic-v$Version.ttf"; Registry = "Tishte Serif Prototype Italic (TrueType)" },
-    @{ File = "TishteSerif-BoldItalic-v$Version.ttf"; Registry = "Tishte Serif Prototype Bold Italic (TrueType)" }
+    @{ File = "TishteSerif-Regular-v$Version.ttf"; Registry = "$FamilyName (TrueType)" },
+    @{ File = "TishteSerif-Bold-v$Version.ttf"; Registry = "$FamilyName Bold (TrueType)" },
+    @{ File = "TishteSerif-Italic-v$Version.ttf"; Registry = "$FamilyName Italic (TrueType)" },
+    @{ File = "TishteSerif-BoldItalic-v$Version.ttf"; Registry = "$FamilyName Bold Italic (TrueType)" }
 )
 
 foreach ($style in $styles) {
@@ -17,4 +20,4 @@ foreach ($style in $styles) {
     if (Test-Path -LiteralPath $path) { Remove-Item -LiteralPath $path -Force }
 }
 
-[ordered]@{ removed = $styles.Count; family = "Tishte Serif Prototype" } | ConvertTo-Json
+[ordered]@{ removed = $styles.Count; family = $FamilyName } | ConvertTo-Json

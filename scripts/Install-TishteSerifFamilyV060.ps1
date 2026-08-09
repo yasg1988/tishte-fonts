@@ -1,7 +1,8 @@
 [CmdletBinding()]
 param(
     [string]$BuildDirectory = "build",
-    [string]$Version = "060"
+    [string]$Version = "060",
+    [string]$FamilyName = "Tishte Serif Prototype"
 )
 
 $ErrorActionPreference = "Stop"
@@ -11,10 +12,10 @@ New-Item -ItemType Directory -Path $fontDir -Force | Out-Null
 New-Item -Path $registryPath -Force | Out-Null
 
 $styles = @(
-    @{ File = "TishteSerif-Regular-v$Version.ttf"; Registry = "Tishte Serif Prototype (TrueType)" },
-    @{ File = "TishteSerif-Bold-v$Version.ttf"; Registry = "Tishte Serif Prototype Bold (TrueType)" },
-    @{ File = "TishteSerif-Italic-v$Version.ttf"; Registry = "Tishte Serif Prototype Italic (TrueType)" },
-    @{ File = "TishteSerif-BoldItalic-v$Version.ttf"; Registry = "Tishte Serif Prototype Bold Italic (TrueType)" }
+    @{ File = "TishteSerif-Regular-v$Version.ttf"; Registry = "$FamilyName (TrueType)" },
+    @{ File = "TishteSerif-Bold-v$Version.ttf"; Registry = "$FamilyName Bold (TrueType)" },
+    @{ File = "TishteSerif-Italic-v$Version.ttf"; Registry = "$FamilyName Italic (TrueType)" },
+    @{ File = "TishteSerif-BoldItalic-v$Version.ttf"; Registry = "$FamilyName Bold Italic (TrueType)" }
 )
 
 if (-not ("Tishte.FontBroadcast" -as [type])) {

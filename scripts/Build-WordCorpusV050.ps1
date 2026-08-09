@@ -3,6 +3,7 @@ param(
     [string]$OutputRoot = "artifacts\document-tests\v050",
     [string]$MilestoneLabel = "v0.050",
     [string]$TishteLabel = "TISHTE SERIF v0.040",
+    [string]$TishteFontName = "Tishte Serif Prototype",
     [switch]$IncludeStyleMatrix
 )
 
@@ -286,13 +287,13 @@ try {
     $word.Visible = $false
     $word.DisplayAlerts = 0
     $availableFonts = @($word.FontNames)
-    if ($availableFonts -notcontains "Tishte Serif Prototype") {
-        throw "Microsoft Word does not enumerate 'Tishte Serif Prototype'. Run Install-TishteTestFont.ps1 and restart Word."
+    if ($availableFonts -notcontains $TishteFontName) {
+        throw "Microsoft Word does not enumerate '$TishteFontName'. Install the family and restart Word."
     }
 
     $variants = @(
         @{ Id = "times"; Font = "Times New Roman"; Label = "TIMES NEW ROMAN" },
-        @{ Id = "tishte"; Font = "Tishte Serif Prototype"; Label = $TishteLabel }
+        @{ Id = "tishte"; Font = $TishteFontName; Label = $TishteLabel }
     )
     $kinds = @("order", "letter", "protocol", "table", "languages")
     foreach ($variant in $variants) {

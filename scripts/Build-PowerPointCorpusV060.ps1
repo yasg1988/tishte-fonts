@@ -2,7 +2,8 @@
 param(
     [string]$OutputRoot = "artifacts\office-tests\v060\powerpoint",
     [string]$VersionLabel = "v0.060",
-    [string]$VersionTag = "v060"
+    [string]$VersionTag = "v060",
+    [string]$TishteFontName = "Tishte Serif Prototype"
 )
 
 $ErrorActionPreference = "Stop"
@@ -154,7 +155,7 @@ try {
     $powerPoint.Visible = $msoTrue
     $results = @(
         (Build-Deck $powerPoint "Times New Roman" "Times"),
-        (Build-Deck $powerPoint "Tishte Serif Prototype" "Tishte")
+        (Build-Deck $powerPoint $TishteFontName "Tishte")
     )
     $results | ConvertTo-Json -Depth 4
 }

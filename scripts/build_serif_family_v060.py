@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 from dataclasses import dataclass
+from decimal import Decimal
 import json
 from pathlib import Path
 import math
@@ -152,23 +153,29 @@ def normalize(
     version: str,
 ) -> None:
     with TTFont(path, recalcTimestamp=False) as font:
+        release_candidate = Decimal(version) >= Decimal("0.900")
+        family_name = "Tishte Serif" if release_candidate else FAMILY
+        postscript_name = (
+            f"TishteSerif-{style.key}" if release_candidate else style.postscript
+        )
         font["name"].names = [
             record
             for record in font["name"].names
             if record.platformID != 1 and record.nameID not in PRIMARY_NAME_IDS
         ]
-        unique_id = f"Version {version}; Tishte Serif engineering prototype; {style.key}"
-        full_name = f"{FAMILY} {style.subfamily}"
+        status_name = "release candidate" if release_candidate else "engineering prototype"
+        unique_id = f"Version {version}; Tishte Serif {status_name}; {style.key}"
+        full_name = f"{family_name} {style.subfamily}"
         names = {
-            1: FAMILY,
+            1: family_name,
             2: style.subfamily,
             3: unique_id,
             4: full_name,
             5: f"Version {version}",
-            6: style.postscript,
+            6: postscript_name,
             13: LICENSE,
             14: LICENSE_URL,
-            16: FAMILY,
+            16: family_name,
             17: style.subfamily,
         }
         for name_id, value in names.items():

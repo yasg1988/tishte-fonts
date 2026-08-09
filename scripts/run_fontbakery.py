@@ -17,6 +17,7 @@ EXCLUDED_CHECKS = (
     "case_mapping",
     "family/vertical_metrics",
     "family/win_ascent_and_descent",
+    "freetype_rasterizer",
     "os2_metrics_match_hhea",
     "tabular_kerning",
 )
@@ -29,7 +30,7 @@ def main() -> int:
     args = parser.parse_args()
     root = args.root.resolve()
     tag = "v" + args.version.partition(".")[2]
-    fonts = [root / "build" / f"TishteSerif-{style}-{tag}.ttf" for style in ("Regular", "Bold", "Italic", "BoldItalic")]
+    fonts = [Path("build") / f"TishteSerif-{style}-{tag}.ttf" for style in ("Regular", "Bold", "Italic", "BoldItalic")]
     report_dir = root / "artifacts" / "reports"
     report_dir.mkdir(parents=True, exist_ok=True)
     command = [
@@ -38,6 +39,8 @@ def main() -> int:
         *(str(font) for font in fonts),
         "--skip-network",
         "--succinct",
+        "-J",
+        "1",
         "-n",
         "-C",
         "-l",
@@ -49,7 +52,35 @@ def main() -> int:
     ]
     for check in EXCLUDED_CHECKS:
         command.extend(("-x", check))
-    return subprocess.run(command, cwd=root).returncode
+    result = subprocess.run(command, cwd=root).returncode
+    if result:
+        return result
+    # fontbakery 1.1 / freetype-py can report a false "cannot open resource"
+    # on Windows when this check follows other checks in a multi-font run.
+    # Running the exact check per file is deterministic and still gates every
+    # binary; Linux CI uses the same sequence.
+    for font in fonts:
+        check = subprocess.run(
+            [
+                "fontbakery",
+                "check-universal",
+                str(font),
+                "-c",
+                "freetype_rasterizer",
+                "--skip-network",
+                "--succinct",
+                "-J",
+                "1",
+                "-n",
+                "-C",
+                "-l",
+                "WARN",
+            ],
+            cwd=root,
+        )
+        if check.returncode:
+            return check.returncode
+    return 0
 
 
 if __name__ == "__main__":

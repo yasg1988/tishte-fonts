@@ -13,15 +13,17 @@
 
 ## Статус
 
-Собрано связанное инженерное семейство Tishte Serif v0.090: Regular, Bold,
+Собран кандидат на выпуск Tishte Serif v0.900 RC: Regular, Bold,
 Italic и Bold Italic. Каждое начертание содержит 422 обязательных символа,
 включая специальные буквы луговомарийского и горномарийского языков, и
 сохраняет метрики соответствующего начертания Times New Roman. Собственная
 визуальная система Regular развивается с версии v0.040; в v0.070 общие признаки
 перенесены в остальные начертания, а все четыре файла получили чистую нулевую
-маску валидации FontForge. v0.090 расширяет латиницу, добавляет управляемые
-пробелы, канонический NFC/NFD-аудит, WOFF2, OTS, FontBakery и GitHub CI. Полная
-оригинализация всё ещё требуется до релиза.
+маску валидации FontForge. Семейство включает расширенную латиницу, управляемые
+пробелы, канонический NFC/NFD-аудит, WOFF2, OTS, FontBakery и GitHub CI.
+v0.100–v0.110 расширяют собственную пластику на базовые латинские и
+кириллические формы всей семьи. Ограничения RC перечислены в
+`docs/release-candidate-v900.md`.
 Нормативные и продуктовые требования зафиксированы в каталоге `docs/`.
 
 Повторный корпус Microsoft Word v0.080 полностью совпал в пяти парах по числу
@@ -31,14 +33,16 @@ PowerPoint с внедрением шрифтов, формулами, табл�
 `docs/engineering-family-v080.md`. Актуальная политика автоматических проверок
 описана в `docs/quality-policy-v090.md`.
 
-## Воспроизводимая сборка v0.090
+## Воспроизводимая сборка v0.900 RC
 
 ```powershell
-python scripts/build_serif_family_v060.py --version 0.090 --source-version 0.070
-python scripts/audit_metric_contract.py --version 0.090
-python scripts/audit_unicode_normalization_v090.py --version 0.090
-python scripts/build_webfonts.py --version 0.090
-python scripts/run_fontbakery.py --version 0.090
+python scripts/build_serif_family_v060.py --version 0.900 --source-version 0.110
+python scripts/audit_metric_contract.py --version 0.900
+python scripts/audit_unicode_normalization_v090.py --version 0.900
+python scripts/audit_language_corpus.py --version 0.900
+python scripts/audit_opentype_v120.py --version 0.900
+python scripts/build_webfonts.py --version 0.900
+python scripts/run_fontbakery.py --version 0.900
 ```
 
 ## Быстрый запуск проверки метрик

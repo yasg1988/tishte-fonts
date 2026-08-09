@@ -24,6 +24,7 @@ def main() -> int:
     output_dir = root / "build" / "web"
     output_dir.mkdir(parents=True, exist_ok=True)
     styles = {}
+    css_blocks = []
     passed = True
     for style in STYLES:
         ttf_path = root / "build" / f"TishteSerif-{style.key}-{version_tag}.ttf"
@@ -57,7 +58,22 @@ def main() -> int:
             }
             passed = passed and style_passed
             print(woff2_path)
-    result = {"version": args.version, "charset": len(charset), "styles": styles, "passed": passed}
+        css_blocks.append(
+            "\n".join(
+                (
+                    "@font-face {",
+                    "  font-family: 'Tishte Serif';",
+                    f"  src: url('{woff2_path.name}') format('woff2');",
+                    f"  font-weight: {style.weight};",
+                    f"  font-style: {'italic' if 'Italic' in style.subfamily else 'normal'};",
+                    "  font-display: swap;",
+                    "}",
+                )
+            )
+        )
+    css_path = output_dir / f"tishte-serif-{version_tag}.css"
+    css_path.write_text("\n\n".join(css_blocks) + "\n", encoding="utf-8")
+    result = {"version": args.version, "charset": len(charset), "css": str(css_path), "styles": styles, "passed": passed}
     report = root / "artifacts" / "reports" / f"webfonts-{version_tag}.json"
     report.parent.mkdir(parents=True, exist_ok=True)
     report.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

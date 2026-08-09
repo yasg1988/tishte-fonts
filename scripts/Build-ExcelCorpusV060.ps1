@@ -2,7 +2,8 @@
 param(
     [string]$OutputRoot = "artifacts\office-tests\v060\excel",
     [string]$VersionLabel = "v0.060",
-    [string]$VersionTag = "v060"
+    [string]$VersionTag = "v060",
+    [string]$TishteFontName = "Tishte Serif Prototype"
 )
 
 $ErrorActionPreference = "Stop"
@@ -201,7 +202,7 @@ try {
     $excel.DisplayAlerts = $false
     $paths = @(
         (Build-Workbook $excel "Times New Roman" "Times"),
-        (Build-Workbook $excel "Tishte Serif Prototype" "Tishte")
+        (Build-Workbook $excel $TishteFontName "Tishte")
     )
     $paths | ConvertTo-Json
 }
