@@ -15,7 +15,6 @@ from fontTools.otlLib.builder import buildStatTable
 from fontTools.pens.recordingPen import DecomposingRecordingPen
 from fontTools.pens.ttGlyphPen import TTGlyphPen
 from fontTools.ttLib import TTFont, newTable
-from fontTools.ttLib.removeOverlaps import removeOverlaps
 from fontTools.ttLib.tables._g_l_y_f import GlyphCoordinates
 from fontTools.ttLib.tables.ttProgram import Program
 from fontTools.varLib.instancer import instantiateVariableFont
@@ -330,6 +329,8 @@ def normalize_metadata(font: TTFont, style: Style, version: str) -> None:
 
 
 def build(root: Path, version: str = VERSION) -> list[Path]:
+    from fontTools.ttLib.removeOverlaps import removeOverlaps
+
     tag = version_tag(version)
     source_dir = root / "sources" / "upstream" / "arimo"
     codepoints = load_charset(root / "data" / "document-charset.txt")
