@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -168,6 +169,10 @@ def parse_args() -> argparse.Namespace:
 
 
 def main() -> int:
+    # Windows PowerShell may expose a legacy console code page. Reports remain
+    # valid UTF-8 even when the charset contains symbols outside that page.
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
     args = parse_args()
     report = compare(
         args.reference,
@@ -184,4 +189,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
