@@ -1,6 +1,9 @@
 [CmdletBinding()]
 param(
-    [string]$OutputRoot = "artifacts\document-tests\v050"
+    [string]$OutputRoot = "artifacts\document-tests\v050",
+    [string]$MilestoneLabel = "v0.050",
+    [string]$TishteLabel = "TISHTE SERIF v0.040",
+    [switch]$IncludeStyleMatrix
 )
 
 $ErrorActionPreference = "Stop"
@@ -21,25 +24,34 @@ $wdCollapseEnd = 0
 $wdBorderNone = 0
 
 function Set-StyleFont {
-    param($Style, [string]$FontName, [double]$Size, [bool]$Bold = $false)
+    param(
+        $Style,
+        [string]$FontName,
+        [double]$Size,
+        [bool]$Bold = $false,
+        [bool]$Italic = $false
+    )
     $Style.Font.Name = $FontName
     $Style.Font.NameAscii = $FontName
     $Style.Font.Size = $Size
     $Style.Font.Bold = if ($Bold) { -1 } else { 0 }
+    $Style.Font.Italic = if ($Italic) { -1 } else { 0 }
 }
 
 function Add-CorpusStyles {
     param($Document, [string]$FontName)
     $styles = @(
-        @{ Name = "Tishte Body"; Size = 14; Bold = $false; Align = $wdAlignJustify; Before = 0; After = 0 },
-        @{ Name = "Tishte Title"; Size = 14; Bold = $true; Align = $wdAlignCenter; Before = 0; After = 12 },
-        @{ Name = "Tishte Heading"; Size = 14; Bold = $true; Align = $wdAlignLeft; Before = 12; After = 6 },
-        @{ Name = "Tishte Small"; Size = 10; Bold = $false; Align = $wdAlignLeft; Before = 0; After = 0 },
-        @{ Name = "Tishte Table"; Size = 11; Bold = $false; Align = $wdAlignLeft; Before = 0; After = 0 }
+        @{ Name = "Tishte Body"; Size = 14; Bold = $false; Italic = $false; Align = $wdAlignJustify; Before = 0; After = 0 },
+        @{ Name = "Tishte Title"; Size = 14; Bold = $true; Italic = $false; Align = $wdAlignCenter; Before = 0; After = 12 },
+        @{ Name = "Tishte Heading"; Size = 14; Bold = $true; Italic = $false; Align = $wdAlignLeft; Before = 12; After = 6 },
+        @{ Name = "Tishte Italic"; Size = 14; Bold = $false; Italic = $true; Align = $wdAlignLeft; Before = 0; After = 0 },
+        @{ Name = "Tishte Bold Italic"; Size = 14; Bold = $true; Italic = $true; Align = $wdAlignLeft; Before = 0; After = 0 },
+        @{ Name = "Tishte Small"; Size = 10; Bold = $false; Italic = $false; Align = $wdAlignLeft; Before = 0; After = 0 },
+        @{ Name = "Tishte Table"; Size = 11; Bold = $false; Italic = $false; Align = $wdAlignLeft; Before = 0; After = 0 }
     )
     foreach ($spec in $styles) {
         $style = $Document.Styles.Add($spec.Name, $wdStyleTypeParagraph)
-        Set-StyleFont $style $FontName $spec.Size $spec.Bold
+        Set-StyleFont $style $FontName $spec.Size $spec.Bold $spec.Italic
         $style.ParagraphFormat.Alignment = $spec.Align
         $style.ParagraphFormat.SpaceBefore = $spec.Before
         $style.ParagraphFormat.SpaceAfter = $spec.After
@@ -119,7 +131,7 @@ function Configure-Document {
     $Document.DoNotEmbedSystemFonts = $false
 
     $header = $section.Headers.Item(1).Range
-    $header.Text = "TISHTE v0.050 · КОНТРОЛЬНЫЙ ОБРАЗЕЦ · $Label"
+    $header.Text = "TISHTE $MilestoneLabel · КОНТРОЛЬНЫЙ ОБРАЗЕЦ · $Label"
     $header.Font.Name = $FontName
     $header.Font.NameAscii = $FontName
     $header.Font.Size = 9
@@ -257,6 +269,12 @@ function Build-LanguageDocument {
 
     Add-Paragraph $Document "ЛАТИНИЦА, ЦИФРЫ И СПЕЦИАЛЬНЫЕ ЗНАКИ" "Tishte Heading" $wdAlignLeft 0 $true
     Add-Paragraph $Document "ABCDEFGHIJKLMNOPQRSTUVWXYZ · abcdefghijklmnopqrstuvwxyz · 0123456789 · № 147 · 1 250 000,00 ₽ · € £ ¥ · ± × ÷ ≠ ≤ ≥ · ← ↑ → ↓ ↔" "Tishte Body" $wdAlignLeft 0
+    if ($IncludeStyleMatrix) {
+        Add-Paragraph $Document "КОНТРОЛЬ НАЧЕРТАНИЙ" "Tishte Heading" $wdAlignLeft 0 $true
+        Add-Paragraph $Document "Regular: Республика Марий Эл · Ӓ ӓ Ӧ ӧ Ӱ ӱ Ӹ ӹ Ҥ ҥ · 0123456789" "Tishte Body" $wdAlignLeft 0
+        Add-Paragraph $Document "Italic: Республика Марий Эл · Ӓ ӓ Ӧ ӧ Ӱ ӱ Ӹ ӹ Ҥ ҥ · 0123456789" "Tishte Italic" $wdAlignLeft 0
+        Add-Paragraph $Document "Bold Italic: Республика Марий Эл · Ӓ ӓ Ӧ ӧ Ӱ ӱ Ӹ ӹ Ҥ ҥ · 0123456789" "Tishte Bold Italic" $wdAlignLeft 0
+    }
     Add-Paragraph $Document "Примечание: марийские строки требуют окончательной лингвистической проверки специалистами по луговомарийскому и горномарийскому литературным языкам." "Tishte Small" $wdAlignLeft 0
 }
 
@@ -273,7 +291,7 @@ try {
 
     $variants = @(
         @{ Id = "times"; Font = "Times New Roman"; Label = "TIMES NEW ROMAN" },
-        @{ Id = "tishte"; Font = "Tishte Serif Prototype"; Label = "TISHTE SERIF v0.040" }
+        @{ Id = "tishte"; Font = "Tishte Serif Prototype"; Label = $TishteLabel }
     )
     $kinds = @("order", "letter", "protocol", "table", "languages")
     foreach ($variant in $variants) {
