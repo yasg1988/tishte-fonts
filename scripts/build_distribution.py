@@ -57,7 +57,8 @@ def main() -> None:
     manifest = {
         "package": package_name,
         "version": args.version,
-        "status": "free community release; not an official government font",
+        "developer": "Сергей Якунин",
+        "license": "SIL Open Font License 1.1",
         "files": [
             {
                 "path": path.relative_to(stage).as_posix(),

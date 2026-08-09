@@ -20,8 +20,7 @@ COPYRIGHT_NOTICE = (
 DESCRIPTION = (
     "Tishte Serif is a modified version of Tinos, developed as a free "
     "Times New Roman-metric document typeface with Russian, Meadow Mari, "
-    "Hill Mari and Latin coverage. It is not an official government font "
-    "unless adopted by an authorized public body."
+    "Hill Mari and Latin coverage."
 )
 PROJECT_URL = "https://github.com/yasg1988/tishte-fonts"
 LICENSE = "This Font Software is licensed under the SIL Open Font License, Version 1.1."
@@ -49,7 +48,7 @@ def main() -> int:
         set_windows_english(names, COPYRIGHT_NOTICE, 0)
         names.removeNames(nameID=7)
         set_windows_english(names, "Tishte Project", 8)
-        set_windows_english(names, "Tishte Project contributors", 9)
+        set_windows_english(names, "Сергей Якунин", 9)
         set_windows_english(names, DESCRIPTION, 10)
         set_windows_english(names, PROJECT_URL, 11)
         set_windows_english(names, PROJECT_URL, 12)

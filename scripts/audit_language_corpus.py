@@ -81,7 +81,6 @@ def main() -> int:
         "inventory_codepoints": len(set(inventory)),
         "linguistic_inventory_failures": linguistic_failures,
         "styles": styles,
-        "editorial_note": corpus["review_status"],
     }
     report["passed"] = not linguistic_failures and all(item["passed"] for item in styles.values())
     output = root / "artifacts" / "reports" / f"language-corpus-{tag}.json"
