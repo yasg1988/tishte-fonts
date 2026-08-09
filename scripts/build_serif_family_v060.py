@@ -22,6 +22,9 @@ from font_metrics_audit import load_charset
 
 FAMILY = "Tishte Serif Prototype"
 VERSION = "0.060"
+# OpenType seconds since 1904-01-01 for 2026-01-01T00:00:00Z. Keeping this
+# stable makes identical sources and dependencies produce identical binaries.
+BUILD_TIMESTAMP = 3850070400
 
 
 @dataclass(frozen=True)
@@ -194,6 +197,8 @@ def normalize(
         os2.xAvgCharWidth = os2.recalcAvgCharWidth(font)
         font["head"].macStyle = metrics["mac_style"]
         font["head"].fontRevision = float(version)
+        font["head"].created = BUILD_TIMESTAMP
+        font["head"].modified = BUILD_TIMESTAMP
         font["post"].underlineThickness = 100
 
         italic_angle = font["post"].italicAngle

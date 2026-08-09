@@ -20,6 +20,12 @@ SHAPING_CASES = {
     "meadow_mari": "Ӓӓ Ӧӧ Ӱӱ Ҥҥ",
     "hill_mari": "Ӓӓ Ӧӧ Ӱӱ Ӹӹ",
 }
+POSITIONING_CASES = {
+    "latin_top": "A\u030B",
+    "latin_bottom": "a\u0327",
+    "cyrillic_top": "А\u030B",
+    "mari_top": "Ӓ\u0301",
+}
 
 
 def feature_tags(font: TTFont, table: str) -> set[str]:
@@ -39,6 +45,10 @@ def shape(path: Path, text: str, features: dict[str, bool] | None = None) -> dic
     return {
         "glyph_ids": [info.codepoint for info in buffer.glyph_infos],
         "advances": [position.x_advance for position in buffer.glyph_positions],
+        "offsets": [
+            {"x": position.x_offset, "y": position.y_offset}
+            for position in buffer.glyph_positions
+        ],
         "notdef": sum(info.codepoint == 0 for info in buffer.glyph_infos),
     }
 
@@ -64,6 +74,7 @@ def main() -> int:
                 for codepoint in (0x0300, 0x0308, 0x0328)
             }
         shaping = {name: shape(path, text) for name, text in SHAPING_CASES.items()}
+        positioning = {name: shape(path, text) for name, text in POSITIONING_CASES.items()}
         kerning = {}
         for name, text in {"latin": "AV", "cyrillic": "ТА"}.items():
             enabled = shape(path, text, {"kern": True})
@@ -80,6 +91,13 @@ def main() -> int:
         if len(set(digit_widths)) != 1: failures.append({"non_tabular_digits": digit_widths})
         if any(combining_widths.values()): failures.append({"combining_widths": combining_widths})
         if any(value["notdef"] for value in shaping.values()): failures.append({"shaping_notdef": shaping})
+        inactive_marks = {
+            name: value for name, value in positioning.items()
+            if len(value["offsets"]) < 2
+            or value["notdef"]
+            or not any(offset["x"] or offset["y"] for offset in value["offsets"][1:])
+        }
+        if inactive_marks: failures.append({"inactive_mark_positioning": inactive_marks})
         if not all(value["active"] for value in kerning.values()): failures.append({"inactive_kerning": kerning})
         styles[style] = {
             "missing_tables": missing_tables,
@@ -88,6 +106,7 @@ def main() -> int:
             "digit_widths": digit_widths,
             "combining_widths": combining_widths,
             "shaping": shaping,
+            "mark_positioning": positioning,
             "kerning": kerning,
             "failures": failures,
             "passed": not failures,

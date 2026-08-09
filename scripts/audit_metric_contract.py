@@ -8,6 +8,33 @@ import json
 from pathlib import Path
 
 from fontTools.ttLib import TTFont
+import uharfbuzz as hb
+
+
+FEATURES = {"kern": True, "liga": False, "clig": False}
+
+
+class Shaper:
+    def __init__(self, path: Path):
+        data = path.read_bytes()
+        self.face = hb.Face(data)
+        self.font = hb.Font(self.face)
+        self.font.scale = (self.face.upem, self.face.upem)
+        self.singles: dict[str, int] = {}
+
+    def advance(self, text: str) -> int:
+        buffer = hb.Buffer()
+        buffer.add_str(text)
+        buffer.guess_segment_properties()
+        hb.shape(self.font, buffer, FEATURES)
+        return sum(position.x_advance for position in buffer.glyph_positions)
+
+    def adjustment(self, left: str, right: str) -> int:
+        if left not in self.singles:
+            self.singles[left] = self.advance(left)
+        if right not in self.singles:
+            self.singles[right] = self.advance(right)
+        return self.advance(left + right) - self.singles[left] - self.singles[right]
 
 
 def main() -> int:
@@ -36,11 +63,31 @@ def main() -> int:
                     actual = getattr(font[table_name], field)
                     if actual != value:
                         vertical.append({"table": table_name, "field": field, "expected": value, "actual": actual})
-            passed = not mismatches and not vertical
+            pair_mismatches = []
+            expected_pairs = expected.get("pair_adjustments", {})
+            codepoints = [int(token[2:], 16) for token in expected["advances"]]
+            shaper = Shaper(path)
+            for left_codepoint in codepoints:
+                for right_codepoint in codepoints:
+                    token = f"U+{left_codepoint:04X} U+{right_codepoint:04X}"
+                    expected_adjustment = expected_pairs.get(token, 0)
+                    actual_adjustment = shaper.adjustment(
+                        chr(left_codepoint), chr(right_codepoint)
+                    )
+                    if actual_adjustment != expected_adjustment:
+                        pair_mismatches.append({
+                            "pair": token,
+                            "expected": expected_adjustment,
+                            "actual": actual_adjustment,
+                        })
+            passed = not mismatches and not vertical and not pair_mismatches
             report["styles"][style] = {
                 "codepoints": len(expected["advances"]),
                 "advance_mismatches": mismatches,
                 "vertical_mismatches": vertical,
+                "pair_checks": len(codepoints) ** 2,
+                "pair_mismatch_count": len(pair_mismatches),
+                "pair_mismatches": pair_mismatches[:100],
                 "passed": passed,
             }
             report["passed"] &= passed
