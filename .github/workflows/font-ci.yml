@@ -22,32 +22,68 @@ jobs:
       - name: Install system tools
         run: sudo apt-get update && sudo apt-get install -y fontforge python3-fontforge opentype-sanitizer
       - name: Install Python dependencies
-        run: python -m pip install --upgrade pip && pip install -r requirements.txt
+        run: python -m pip install --upgrade pip && pip install -r requirements-lock.txt
       - name: Build TTF and WOFF2
-        run: |
-          python scripts/build_serif_family_v060.py --version 0.900 --source-version 0.110
-          python scripts/build_webfonts.py --version 0.900
+        run: python scripts/build_release.py --version 0.910 --source-version 0.110
+      - name: Verify reproducible build
+        run: python scripts/audit_reproducible_build.py --version 0.910 --source-version 0.110
       - name: Audit metric and Unicode contracts
         run: |
-          python scripts/audit_metric_contract.py --version 0.900
-          python scripts/audit_unicode_normalization_v090.py --version 0.900
-          python scripts/audit_language_corpus.py --version 0.900
-          python scripts/audit_opentype_v120.py --version 0.900
+          python scripts/audit_metric_contract.py --version 0.910
+          python scripts/audit_unicode_normalization_v090.py --version 0.910
+          python scripts/audit_language_corpus.py --version 0.910
+          python scripts/audit_opentype_v120.py --version 0.910
+          python scripts/audit_outline_originality.py --version 0.910 --max-identical-ratio 0.82
       - name: Validate outlines with FontForge
         run: |
-          for font in build/*-v900.ttf; do
+          for font in build/*-v910.ttf; do
             fontforge -lang=py -script scripts/validate_font_outlines.py "$font"
           done
       - name: Sanitize binaries with OTS
         run: |
-          for font in build/*-v900.ttf build/web/*-v900.woff2; do
+          for font in build/*-v910.ttf build/web/*-v910.woff2; do
             ots-sanitize "$font"
           done
       - name: Run FontBakery policy gate
-        run: python scripts/run_fontbakery.py --version 0.900
+        run: python scripts/run_fontbakery.py --version 0.910
+      - name: Upload production binaries
+        uses: actions/upload-artifact@v4
+        with:
+          name: tishte-v0910-binaries
+          path: |
+            build/*-v910.ttf
+            build/web/*-v910.woff2
+            build/web/tishte-serif-v910.css
       - name: Upload quality reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: font-quality-reports
           path: artifacts/reports/
+
+  portable-audits:
+    name: Portable audit (${{ matrix.os }})
+    needs: validate-fonts
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2025, macos-15]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install --upgrade pip && pip install -r requirements-audit-lock.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: tishte-v0910-binaries
+          path: build
+      - name: Audit portable contracts
+        run: |
+          python scripts/audit_metric_contract.py --version 0.910
+          python scripts/audit_unicode_normalization_v090.py --version 0.910
+          python scripts/audit_language_corpus.py --version 0.910
+          python scripts/audit_opentype_v120.py --version 0.910
+          python scripts/audit_outline_originality.py --version 0.910 --max-identical-ratio 0.82

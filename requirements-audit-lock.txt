@@ -1,0 +1,4 @@
+# Cross-platform dependency set for portable binary audits (no source build).
+brotli==1.2.0
+fonttools==4.61.0
+uharfbuzz==0.56.0

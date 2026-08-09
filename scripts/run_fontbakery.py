@@ -13,8 +13,6 @@ import sys
 # only to inherited, out-of-scope historic glyphs. The rationale is maintained
 # in docs/quality-policy-v090.md.
 EXCLUDED_CHECKS = (
-    "base_has_width",
-    "case_mapping",
     "family/vertical_metrics",
     "family/win_ascent_and_descent",
     "freetype_rasterizer",
