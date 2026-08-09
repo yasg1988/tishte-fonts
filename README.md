@@ -13,36 +13,34 @@
 
 ## Статус
 
-Собрана дизайн-итерация Tishte Serif v0.940: Regular, Bold,
+Собран кандидат независимой приёмки Tishte Serif v0.950: Regular, Bold,
 Italic и Bold Italic. Каждое начертание содержит 422 обязательных символа,
 включая специальные буквы луговомарийского и горномарийского языков, и
-сохраняет метрики соответствующего начертания Times New Roman. Собственная
-визуальная система Regular развивается с версии v0.040; в v0.070 общие признаки
-перенесены в остальные начертания, а все четыре файла получили чистую нулевую
-маску валидации FontForge. Семейство включает расширенную латиницу, управляемые
-пробелы, канонический NFC/NFD-аудит, WOFF2, OTS, FontBakery и GitHub CI.
-v0.100–v0.110 расширяют собственную пластику на базовые латинские и
-кириллические формы всей семьи. Ограничения RC перечислены в
-`docs/release-candidate-v900.md`.
-Нормативные и продуктовые требования зафиксированы в каталоге `docs/`.
+сохраняет метрики соответствующего начертания Times New Roman. В v0.950
+нормализованы лицензионные и идентификационные метаданные производных файлов,
+добавлен отдельный правовой аудит и подготовлены четыре независимых протокола:
+типографический, луговомарийский, горномарийский и юридический. Пустые формы и
+автоматические отчёты не означают одобрения экспертов и не придают шрифту
+официального статуса. Программа приёмки описана в
+`docs/expert-review-v950.md`, правовые границы — в `docs/legal-review-v950.md`.
 
-Повторный корпус Microsoft Word v0.080 полностью совпал в пяти парах по числу
-страниц и строк. Дополнительно выполнены нативные испытания Microsoft Excel и
-PowerPoint с внедрением шрифтов, формулами, таблицами и отдельными образцами
-обоих марийских литературных языков. Результаты описаны в
-`docs/engineering-family-v080.md`. Актуальная политика автоматических проверок
-описана в `docs/quality-policy-v090.md`.
+Нативный корпус Microsoft Word v0.950 совпадает с Times New Roman во всех пяти
+парах по числу страниц и строк. Корпусы Excel и PowerPoint проходят без ошибок
+формул, переполнения и расхождений высоты текста. Это доказательство метрической
+совместимости, но не замена печатной, языковой или юридической приёмки.
 
-## Воспроизводимая сборка v0.940
+## Воспроизводимая сборка v0.950
 
 ```powershell
-python scripts/build_release.py --version 0.940 --source-version 0.140
-python scripts/audit_metric_contract.py --version 0.940
-python scripts/audit_unicode_normalization_v090.py --version 0.940
-python scripts/audit_language_corpus.py --version 0.940
-python scripts/audit_opentype_v120.py --version 0.940
-python scripts/audit_outline_originality.py --version 0.940 --max-identical-ratio 0.01
-python scripts/run_fontbakery.py --version 0.940
+python scripts/build_release.py --version 0.950 --source-version 0.140
+python scripts/audit_reproducible_build.py --version 0.950 --source-version 0.140
+python scripts/audit_metric_contract.py --version 0.950
+python scripts/audit_unicode_normalization_v090.py --version 0.950
+python scripts/audit_language_corpus.py --version 0.950
+python scripts/audit_opentype_v120.py --version 0.950
+python scripts/audit_outline_originality.py --version 0.950 --max-identical-ratio 0.01
+python scripts/audit_legal_metadata.py --version 0.950
+python scripts/run_fontbakery.py --version 0.950
 ```
 
 ## Быстрый запуск проверки метрик

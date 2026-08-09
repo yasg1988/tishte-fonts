@@ -1,0 +1,5 @@
+Tinos Project Authors — upstream font software
+https://github.com/googlefonts/tinos
+
+Tishte Project contributors — modified font software and review tooling
+https://github.com/yasg1988/tishte-fonts

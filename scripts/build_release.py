@@ -20,13 +20,14 @@ def run(root: Path, script: str, *arguments: str) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
-    parser.add_argument("--version", default="0.940")
+    parser.add_argument("--version", default="0.950")
     parser.add_argument("--source-version", default="0.140")
     args = parser.parse_args()
     root = args.root.resolve()
     version = ["--version", args.version]
     run(root, "build_serif_family_v060.py", *version, "--source-version", args.source_version)
     run(root, "subset_production_fonts.py", *version)
+    run(root, "normalize_release_metadata.py", *version)
     run(root, "add_production_mark_positioning.py", *version)
     run(root, "sync_metric_pair_contract.py", *version)
     run(root, "build_webfonts.py", *version)
