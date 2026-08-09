@@ -1,3 +1,5 @@
 fonttools>=4.61,<5
 uharfbuzz>=0.56,<1
 pillow>=12,<13
+fontbakery>=1.1,<2
+brotli>=1.1,<2

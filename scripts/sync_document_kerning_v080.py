@@ -111,10 +111,11 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--version-tag", default="v080")
+    parser.add_argument("--version", default="0.080")
     args = parser.parse_args()
     root = args.root.resolve()
     codepoints = load_charset(root / "data" / "document-charset.txt")
-    report = {"version": "0.080", "styles": {}}
+    report = {"version": args.version, "styles": {}}
     for style in STYLES:
         reference = Path("C:/Windows/Fonts") / style.reference_name
         candidate = root / "build" / f"TishteSerif-{style.key}-{args.version_tag}.ttf"
@@ -127,7 +128,7 @@ def main() -> None:
             "maximum_delta": max(values, default=0),
         }
         print(f"{style.key}: {len(deltas)} pairs")
-    output = root / "artifacts" / "reports" / "kerning-deltas-v080.json"
+    output = root / "artifacts" / "reports" / f"kerning-deltas-{args.version_tag}.json"
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
