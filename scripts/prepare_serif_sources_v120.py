@@ -24,6 +24,10 @@ def normalize_timestamp(path: Path) -> None:
     )
     if count != 1:
         raise ValueError(f"expected one ModificationTime in {path}, got {count}")
+    # FontForge 2023 (Linux) and 2025 (Windows) serialize identical tiny
+    # floating-point coordinates as e-15 and e-015. Canonicalize exponent
+    # padding without rounding or changing any numeric value.
+    normalized = re.sub(r"e([+-])0+(\d+)", r"e\1\2", normalized)
     normalized = "\n".join(line.rstrip() for line in normalized.splitlines()) + "\n"
     path.write_text(normalized, encoding="utf-8", newline="\n")
 
