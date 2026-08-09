@@ -13,7 +13,7 @@
 
 ## Статус
 
-Собрана дизайн-итерация Tishte Serif v0.930: Regular, Bold,
+Собрана дизайн-итерация Tishte Serif v0.940: Regular, Bold,
 Italic и Bold Italic. Каждое начертание содержит 422 обязательных символа,
 включая специальные буквы луговомарийского и горномарийского языков, и
 сохраняет метрики соответствующего начертания Times New Roman. Собственная
@@ -33,16 +33,16 @@ PowerPoint с внедрением шрифтов, формулами, табл�
 `docs/engineering-family-v080.md`. Актуальная политика автоматических проверок
 описана в `docs/quality-policy-v090.md`.
 
-## Воспроизводимая сборка v0.930
+## Воспроизводимая сборка v0.940
 
 ```powershell
-python scripts/build_release.py --version 0.930 --source-version 0.130
-python scripts/audit_metric_contract.py --version 0.930
-python scripts/audit_unicode_normalization_v090.py --version 0.930
-python scripts/audit_language_corpus.py --version 0.930
-python scripts/audit_opentype_v120.py --version 0.930
-python scripts/audit_outline_originality.py --version 0.930 --max-identical-ratio 0.15
-python scripts/run_fontbakery.py --version 0.930
+python scripts/build_release.py --version 0.940 --source-version 0.140
+python scripts/audit_metric_contract.py --version 0.940
+python scripts/audit_unicode_normalization_v090.py --version 0.940
+python scripts/audit_language_corpus.py --version 0.940
+python scripts/audit_opentype_v120.py --version 0.940
+python scripts/audit_outline_originality.py --version 0.940 --max-identical-ratio 0.01
+python scripts/run_fontbakery.py --version 0.940
 ```
 
 ## Быстрый запуск проверки метрик
