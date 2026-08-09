@@ -52,9 +52,10 @@ def broaden_round(glyph) -> bool:
 
 
 def main() -> None:
-    if len(sys.argv) != 3:
-        raise SystemExit("usage: develop_serif_v100.py INPUT.sfd OUTPUT.sfd")
-    source, output = sys.argv[1:]
+    if len(sys.argv) not in (3, 4):
+        raise SystemExit("usage: develop_serif_v100.py INPUT.sfd OUTPUT.sfd [VERSION]")
+    source, output = sys.argv[1:3]
+    version = sys.argv[3] if len(sys.argv) == 4 else "0.100"
     font = fontforge.open(source)
     changed = set()
     for name in (*LATIN_LOWER, *CYRILLIC_LOWER):
@@ -63,8 +64,8 @@ def main() -> None:
     for name in ROUND_GLYPHS:
         if name in font and broaden_round(font[name]):
             changed.add(name)
-    font.version = "0.100"
-    font.sfntRevision = 0.100
+    font.version = version
+    font.sfntRevision = float(version)
     font.save(output)
     font.close()
     print(json.dumps({"source": source, "output": output, "changed": len(changed), "glyphs": sorted(changed)}))
