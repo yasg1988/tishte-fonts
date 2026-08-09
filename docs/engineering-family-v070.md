@@ -42,12 +42,26 @@ v0.070 — первая четырёхстилевая сборка Tishte Serif
 - Контрольные изображения Word, Excel и PowerPoint проверены визуально:
   пропавших знаков, обрезки и повреждения таблиц не обнаружено.
 
+## Кернинг и формирование строк
+
+HarfBuzz-аудит проверяет шесть строк в каждом из четырёх начертаний: русский,
+луговомарийский, горномарийский, латиницу, числа/символы и набор кернинговых
+пар. В документном режиме (`kern=0`, `liga=0`, `clig=0`) все 24 сравнения имеют
+нулевую разницу продвижения с Times New Roman и не содержат `.notdef`.
+
+При включённом по умолчанию кернинге искусственная строка пар отличается в
+Bold, Italic и Bold Italic (не более 544 единиц шрифта); обычные контрольные
+строки совпадают. Поэтому точная метрическая совместимость v0.070 относится к
+документному режиму без дискреционного кернинга и лигатур. GPOS остаётся
+предметом следующей дизайнерской итерации и расширенного прикладного корпуса.
+
 ## Воспроизводимость
 
 ```powershell
 python scripts\prepare_serif_family_sources_v070.py
 python scripts\build_serif_family_v060.py --version 0.070
 python scripts\audit_serif_family_v060.py --version 0.070
+python scripts\audit_shaping_v070.py
 .\scripts\Install-TishteSerifFamilyV060.ps1 -Version 070
 .\scripts\Build-WordCorpusV070.ps1
 .\scripts\Compare-WordCorpusV050.ps1 -CorpusRoot artifacts\document-tests\v070
