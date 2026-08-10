@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tishte — свободные шрифты Serif и Sans с поддержкой русского, луговомарийского, горномарийского языков и латиницы.">
+  <meta name="theme-color" content="#760f2b">
+  <title>Tishte — шрифты из Республики Марий Эл</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav wrap" aria-label="Главная навигация">
+      <a class="brand" href="#top" aria-label="Tishte, начало страницы">Tishte<span aria-hidden="true">◆</span></a>
+      <div class="nav-links">
+        <a href="#families">Начертания</a>
+        <a href="#try">Попробовать</a>
+        <a href="#languages">Языки</a>
+        <a href="https://github.com/yasg1988/tishte-fonts">GitHub</a>
+      </div>
+    </nav>
+
+    <div class="hero-grid wrap" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">Сделано в Республике Марий Эл</p>
+        <h1>Tishte</h1>
+        <p class="lead">Две свободные гарнитуры для документов и цифровой среды — с поддержкой луговомарийского, горномарийского, русского языков и латиницы.</p>
+        <div class="actions">
+          <a class="button primary" href="https://github.com/yasg1988/tishte-fonts/releases/download/v1.000/Tishte-Serif-v1.000.zip">Скачать Serif</a>
+          <a class="button secondary" href="https://github.com/yasg1988/tishte-fonts/releases/download/v1.000/Tishte-Sans-v1.000.zip">Скачать Sans</a>
+        </div>
+        <p class="license">Версия 1.000 · Лицензия SIL Open Font License 1.1</p>
+      </div>
+      <div class="hero-glyphs" aria-label="Образцы марийских букв">
+        <span>Ӓ</span><span>Ӧ</span><span>Ӱ</span><span>Ҥ</span>
+        <small>ä · ö · ü · ӹ · ӧ · ӱ · ҥ</small>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section wrap" id="families">
+      <div class="section-heading">
+        <p class="eyebrow">Одна система — два характера</p>
+        <h2>Для бумаги и экрана</h2>
+      </div>
+      <div class="family-grid">
+        <article class="family serif-card">
+          <p class="family-label">Tishte Serif</p>
+          <p class="family-sample">Марий Эл</p>
+          <p>Документы, длинные тексты, официально-деловая переписка и печатные материалы.</p>
+          <p class="styles">Regular · Italic · Bold · Bold Italic</p>
+        </article>
+        <article class="family sans-card">
+          <p class="family-label">Tishte Sans</p>
+          <p class="family-sample">Йошкар-Ола</p>
+          <p>Интерфейсы, сайты, презентации, навигация, отчёты и цифровые сервисы.</p>
+          <p class="styles">Regular · Medium · SemiBold · Bold + Italic</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="playground" id="try">
+      <div class="wrap">
+        <div class="section-heading light">
+          <p class="eyebrow">Живой набор</p>
+          <h2>Попробуйте Tishte</h2>
+        </div>
+        <div class="controls" aria-label="Настройки шрифта">
+          <label>Гарнитура
+            <select id="font-family">
+              <option value="serif">Tishte Serif</option>
+              <option value="sans">Tishte Sans</option>
+            </select>
+          </label>
+          <label>Начертание
+            <select id="font-weight">
+              <option value="400">Regular</option>
+              <option value="500">Medium</option>
+              <option value="600">SemiBold</option>
+              <option value="700">Bold</option>
+            </select>
+          </label>
+          <label>Размер <output id="size-output">64 px</output>
+            <input id="font-size" type="range" min="24" max="112" value="64">
+          </label>
+          <label class="check"><input id="font-italic" type="checkbox"> Курсив</label>
+        </div>
+        <div id="sample" class="editable serif" contenteditable="true" role="textbox" aria-multiline="true" spellcheck="false">Тиште — знак, оставленный с мыслью о будущем.</div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="languages">
+      <div class="section-heading">
+        <p class="eyebrow">Языковая поддержка</p>
+        <h2>Два марийских языка — полностью</h2>
+      </div>
+      <div class="language-list">
+        <article>
+          <h3>Луговомарийский</h3>
+          <p class="language-sample serif-text" lang="mhr">Марий йылме — марий калыкын шӱмжӧ.</p>
+          <p>Ӓ ӓ · Ӧ ӧ · Ӱ ӱ · Ҥ ҥ</p>
+        </article>
+        <article>
+          <h3>Горномарийский</h3>
+          <p class="language-sample sans-text" lang="mrj">Кырык мары йӹлмӹ — мары калыкын поянлыкшы.</p>
+          <p>Ӓ ӓ · Ӧ ӧ · Ӱ ӱ · Ӹ ӹ</p>
+        </article>
+        <article>
+          <h3>Русский и латиница</h3>
+          <p class="language-sample serif-text">Съешь ещё этих мягких французских булок.</p>
+          <p>ABCDEFGHIJKLMNOPQRSTUVWXYZ · 0123456789</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="specimens wrap" aria-labelledby="specimens-title">
+      <div class="section-heading">
+        <p class="eyebrow">Полные карточки</p>
+        <h2 id="specimens-title">Все знаки и начертания</h2>
+      </div>
+      <div class="image-grid">
+        <a href="images/tishte-serif-specimen.png"><img src="images/tishte-serif-specimen.png" alt="Полная карточка Tishte Serif" loading="lazy"></a>
+        <a href="images/tishte-sans-specimen.png"><img src="images/tishte-sans-specimen.png" alt="Полная карточка Tishte Sans" loading="lazy"></a>
+      </div>
+    </section>
+
+    <section class="install">
+      <div class="wrap install-grid">
+        <div>
+          <p class="eyebrow">Для разработчиков</p>
+          <h2>Подключение через npm</h2>
+          <p>В пакете находятся WOFF2 для сайтов и TTF для настольных приложений.</p>
+        </div>
+        <pre><code>npm install @yasg1988/tishte-fonts
+
+import '@yasg1988/tishte-fonts';</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <p><strong>Tishte</strong><br>Сделано в Республике Марий Эл</p>
+      <p>Разработчик: Сергей Якунин<br><a href="https://github.com/yasg1988/tishte-fonts/blob/main/OFL.txt">SIL Open Font License 1.1</a></p>
+      <p><a href="https://github.com/yasg1988/tishte-fonts">Исходники и документация</a><br><a href="https://github.com/yasg1988/tishte-fonts/issues">Сообщить о проблеме</a></p>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

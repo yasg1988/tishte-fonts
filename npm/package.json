@@ -1,0 +1,51 @@
+{
+  "name": "@yasg1988/tishte-fonts",
+  "version": "1.0.0",
+  "description": "Tishte Serif and Tishte Sans web and desktop fonts with Mari and Cyrillic support",
+  "license": "OFL-1.1",
+  "author": "Sergey Yakunin",
+  "homepage": "https://yasg1988.github.io/tishte-fonts/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yasg1988/tishte-fonts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yasg1988/tishte-fonts/issues"
+  },
+  "keywords": [
+    "font",
+    "webfont",
+    "woff2",
+    "ttf",
+    "cyrillic",
+    "mari",
+    "meadow-mari",
+    "hill-mari",
+    "serif",
+    "sans-serif",
+    "ofl"
+  ],
+  "style": "index.css",
+  "sideEffects": [
+    "*.css"
+  ],
+  "exports": {
+    ".": "./index.css",
+    "./serif.css": "./serif.css",
+    "./sans.css": "./sans.css",
+    "./woff2/*": "./woff2/*",
+    "./ttf/*": "./ttf/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "*.css",
+    "woff2/",
+    "ttf/",
+    "LICENSE.txt",
+    "THIRD_PARTY_NOTICES.md",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
