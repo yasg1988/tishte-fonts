@@ -10,6 +10,8 @@ import unicodedata
 
 from fontTools.feaLib.builder import addOpenTypeFeaturesFromString
 from fontTools.pens.boundsPen import BoundsPen
+from fontTools.pens.recordingPen import RecordingPen
+from fontTools.pens.ttGlyphPen import TTGlyphPen
 from fontTools.ttLib import TTFont
 from fontTools.ttLib.tables import otTables
 
@@ -111,6 +113,176 @@ def sort_feature_records(gpos: otTables.GPOS) -> None:
             )
             if lang_system.ReqFeatureIndex != 0xFFFF:
                 lang_system.ReqFeatureIndex = old_to_new[lang_system.ReqFeatureIndex]
+
+
+def dotless_iogonek_glyph(font: TTFont, source_name: str, target_name: str) -> None:
+    """Create an unencoded i-ogonek alternate without its soft dot."""
+    recording = RecordingPen()
+    font["glyf"][source_name].draw(recording, font["glyf"])
+    contours: list[list[tuple[str, tuple]]] = []
+    current: list[tuple[str, tuple]] = []
+    for operation, operands in recording.value:
+        current.append((operation, operands))
+        if operation in {"closePath", "endPath"}:
+            contours.append(current)
+            current = []
+    if current:
+        contours.append(current)
+
+    x_height = font["OS/2"].sxHeight
+    body_contours = []
+    removed = 0
+    for contour in contours:
+        points = [
+            point
+            for _, operands in contour
+            for point in operands
+            if point is not None
+        ]
+        if points and min(point[1] for point in points) > x_height:
+            removed += 1
+        else:
+            body_contours.append(contour)
+    if removed != 1:
+        raise ValueError(f"expected one soft-dot contour in {source_name}, removed {removed}")
+
+    pen = TTGlyphPen(None)
+    for contour in body_contours:
+        for operation, operands in contour:
+            getattr(pen, operation)(*operands)
+    font["glyf"][target_name] = pen.glyph()
+    font["hmtx"].metrics[target_name] = font["hmtx"].metrics[source_name]
+    font["maxp"].numGlyphs = len(font.getGlyphOrder())
+
+
+def append_soft_dotted_substitution(path: Path) -> None:
+    """Make i-ogonek lose its dot before above marks, as Unicode requires."""
+    with TTFont(path, recalcTimestamp=False) as font:
+        cmap = font.getBestCmap()
+        source_name = cmap.get(0x012F)
+        if source_name is None:
+            return
+        target_name = f"{source_name}.dotless"
+        dotless_iogonek_glyph(font, source_name, target_name)
+        above_marks = []
+        for codepoint, name in cmap.items():
+            if unicodedata.combining(chr(codepoint)) == 230 and name not in above_marks:
+                above_marks.append(name)
+        if not above_marks:
+            raise ValueError("no above-mark glyphs found for soft-dotted substitution")
+
+        source = (
+            "@TishteAboveMarks = ["
+            + " ".join(glyph_name(name) for name in above_marks)
+            + "];\nfeature ccmp {\n  sub "
+            + glyph_name(source_name)
+            + "' @TishteAboveMarks by "
+            + glyph_name(target_name)
+            + ";\n} ccmp;\n"
+        )
+        compiler = deepcopy(font)
+        if "GSUB" in compiler:
+            del compiler["GSUB"]
+        addOpenTypeFeaturesFromString(compiler, source, tables=["GSUB"])
+        generated = compiler["GSUB"].table
+        record = next(
+            record for record in generated.FeatureList.FeatureRecord
+            if record.FeatureTag == "ccmp"
+        )
+        gsub = font["GSUB"].table
+        offset = len(gsub.LookupList.Lookup)
+        lookups = deepcopy(generated.LookupList.Lookup)
+        for lookup in lookups:
+            for subtable in lookup.SubTable:
+                for substitution in getattr(subtable, "SubstLookupRecord", []):
+                    substitution.LookupListIndex += offset
+        for lookup in lookups:
+            gsub.LookupList.Lookup.append(lookup)
+        gsub.LookupList.LookupCount = len(gsub.LookupList.Lookup)
+        new_indices = [offset + index for index in record.Feature.LookupListIndex]
+        records = [
+            record for record in gsub.FeatureList.FeatureRecord
+            if record.FeatureTag == "ccmp"
+        ]
+        if records:
+            for record in records:
+                record.Feature.LookupListIndex.extend(new_indices)
+                record.Feature.LookupCount = len(record.Feature.LookupListIndex)
+        else:
+            record = otTables.FeatureRecord()
+            record.FeatureTag = "ccmp"
+            record.Feature = otTables.Feature()
+            record.Feature.FeatureParams = None
+            record.Feature.LookupListIndex = new_indices
+            record.Feature.LookupCount = len(new_indices)
+            gsub.FeatureList.FeatureRecord.append(record)
+            gsub.FeatureList.FeatureCount = len(gsub.FeatureList.FeatureRecord)
+            attach_feature_to_scripts(gsub, gsub.FeatureList.FeatureCount - 1)
+        sort_feature_records(gsub)
+
+        # The alternate is newly created and therefore is not present in the
+        # upstream mark-to-base coverage. Give it the same deterministic top
+        # anchor policy used by the production mark lookup. Without this,
+        # shaping selects the correct dotless glyph but leaves the accent
+        # unattached (notably in Lithuanian i-ogonek sequences).
+        mark_lines = []
+        seen_marks = set()
+        for name in above_marks:
+            if name in seen_marks:
+                continue
+            seen_marks.add(name)
+            x_min, y_min, x_max, _ = bounds(font, name)
+            mark_lines.append(
+                f"markClass {glyph_name(name)} <anchor {round((x_min + x_max) / 2)} {y_min}> "
+                "@TishteSoftDotTop;"
+            )
+        x_min, _, x_max, y_max = bounds(font, target_name)
+        mark_lines.extend((
+            "feature mark {",
+            f"  pos base {glyph_name(target_name)} "
+            f"<anchor {round((x_min + x_max) / 2)} {y_max + 20}> mark @TishteSoftDotTop;",
+            "} mark;",
+        ))
+        compiler = deepcopy(font)
+        if "GPOS" in compiler:
+            del compiler["GPOS"]
+        addOpenTypeFeaturesFromString(compiler, "\n".join(mark_lines) + "\n", tables=["GPOS"])
+        generated_gpos = compiler["GPOS"].table
+        generated_record = next(
+            record for record in generated_gpos.FeatureList.FeatureRecord
+            if record.FeatureTag == "mark"
+        )
+        gpos = font["GPOS"].table
+        gpos_offset = len(gpos.LookupList.Lookup)
+        for index in generated_record.Feature.LookupListIndex:
+            gpos.LookupList.Lookup.append(deepcopy(generated_gpos.LookupList.Lookup[index]))
+        gpos.LookupList.LookupCount = len(gpos.LookupList.Lookup)
+        new_gpos_indices = [
+            gpos_offset + index
+            for index in range(len(generated_record.Feature.LookupListIndex))
+        ]
+        mark_records = [
+            record for record in gpos.FeatureList.FeatureRecord
+            if record.FeatureTag == "mark"
+        ]
+        if mark_records:
+            for record in mark_records:
+                record.Feature.LookupListIndex.extend(new_gpos_indices)
+                record.Feature.LookupCount = len(record.Feature.LookupListIndex)
+        else:
+            record = deepcopy(generated_record)
+            record.Feature.LookupListIndex = new_gpos_indices
+            record.Feature.LookupCount = len(new_gpos_indices)
+            gpos.FeatureList.FeatureRecord.append(record)
+            gpos.FeatureList.FeatureCount = len(gpos.FeatureList.FeatureRecord)
+            attach_feature_to_scripts(gpos, gpos.FeatureList.FeatureCount - 1)
+        sort_feature_records(gpos)
+        # feaLib also classifies the new alternate as a base glyph in GDEF.
+        font["GDEF"] = deepcopy(compiler["GDEF"])
+
+        temporary = path.with_suffix(".soft-dotted.ttf")
+        font.save(temporary, reorderTables=True)
+    temporary.replace(path)
 
 
 def append_mark_lookup(path: Path, codepoints: list[int]) -> None:

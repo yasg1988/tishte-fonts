@@ -1,6 +1,16 @@
-# Google Fonts audit environment. Kept separate from gftools because the
-# current releases require incompatible protobuf major versions.
-fontbakery[googlefonts]==1.1.0
+# Google Fonts audit environment. The published FontBakery `googlefonts`
+# extra still requires protobuf<4 while its current Axis Registry dependency
+# requires protobuf>=6.33, so the working profile components are pinned
+# explicitly until that upstream resolver conflict is removed.
+fontbakery==1.1.0
+glyphsets==1.1.3
+shaperglot==1.2.1
+gfsubsets==2025.11.4
+axisregistry==0.4.20
+gfmetadata==0.2.5
+protobuf==7.34.0
+lxml==6.0.2
+beautifulsoup4==4.14.3
 fonttools==4.61.0
 uharfbuzz==0.56.0
 pillow==12.0.0
