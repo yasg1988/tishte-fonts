@@ -7,6 +7,7 @@ on:
       - "site/**"
       - "npm/**"
       - "scripts/build_publishing_assets.py"
+      - "scripts/build_catalog_submissions.py"
       - "scripts/audit_publishing_assets.py"
       - "docs/images/**"
   push:
@@ -16,6 +17,7 @@ on:
       - "site/**"
       - "npm/**"
       - "scripts/build_publishing_assets.py"
+      - "scripts/build_catalog_submissions.py"
       - "scripts/audit_publishing_assets.py"
       - "docs/images/**"
   workflow_dispatch:
@@ -48,6 +50,7 @@ jobs:
       - name: Build and audit publishing assets
         run: |
           python scripts/build_publishing_assets.py
+          python scripts/build_catalog_submissions.py
           python scripts/audit_publishing_assets.py
       - name: Validate npm package contents
         working-directory: build/publishing/npm

@@ -6,7 +6,7 @@
 [![npm](https://img.shields.io/npm/v/%40yasg1988%2Ftishte-fonts?style=flat-square&logo=npm)](https://www.npmjs.com/package/@yasg1988/tishte-fonts)
 [![Релиз](https://img.shields.io/github/v/release/yasg1988/tishte-fonts?style=flat-square&label=релиз)](https://github.com/yasg1988/tishte-fonts/releases/latest)
 [![Публикация](https://img.shields.io/github/actions/workflow/status/yasg1988/tishte-fonts/publishing.yml?branch=main&style=flat-square&label=публикация)](https://github.com/yasg1988/tishte-fonts/actions/workflows/publishing.yml)
-[![Лицензия OFL 1.1](https://img.shields.io/badge/лицензия-OFL--1.1-263238?style=flat-square)](OFL.txt)
+[![Лицензия OFL 1.1](https://img.shields.io/badge/лицензия-OFL--1.1-263238?style=flat-square)](LICENSE.txt)
 
 ![Карточка шрифта Tishte Serif](docs/images/tishte-serif-specimen.png)
 

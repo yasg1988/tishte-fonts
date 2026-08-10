@@ -8,6 +8,7 @@ from html.parser import HTMLParser
 import json
 from pathlib import Path
 from urllib.parse import urlparse
+from zipfile import ZipFile
 
 
 class LocalReferences(HTMLParser):
@@ -55,7 +56,23 @@ def audit(root: Path) -> None:
     for css_name in ("index.css", "serif.css", "sans.css"):
         if not (package / css_name).exists():
             raise FileNotFoundError(package / css_name)
-    print(f"Publishing assets: {len(parser.references)} site references, 12 WOFF2, 12 TTF — OK")
+
+    submissions = publishing / "submissions"
+    for family, expected_styles in (("Serif", 4), ("Sans", 8)):
+        bundle = submissions / f"Tishte-{family}-v1.000-catalog.zip"
+        with ZipFile(bundle) as source:
+            names = source.namelist()
+        font_names = [name for name in names if name.endswith(".ttf")]
+        required = {"LICENSE.txt", "THIRD_PARTY_NOTICES.md", "PREVIEW.png", "README.txt"}
+        if len(font_names) != expected_styles or not required.issubset(names):
+            raise ValueError(f"Invalid catalog archive {bundle.name}: {names}")
+        forbidden = [name for name in names if name.endswith((".woff", ".woff2", ".css", ".exe", ".ps1"))]
+        if forbidden:
+            raise ValueError(f"Catalog archive contains extra distribution files: {forbidden}")
+    print(
+        f"Publishing assets: {len(parser.references)} site references, "
+        "12 WOFF2, 12 TTF, 2 catalog archives — OK"
+    )
 
 
 def main() -> None:
