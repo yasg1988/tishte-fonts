@@ -16,8 +16,21 @@ The canonical TTFs and downstream metadata are written to
 Editable UFO review exports are written to `build/googlefonts/upstream`.
 The normal release files are not overwritten.
 
-Run the official profile from inside each generated family directory so
-FontBakery discovers `OFL.txt`, `METADATA.pb`, and the article:
+Run the current official Fontspector profile after installing Fontspector
+1.7.3 or newer:
+
+```bash
+python scripts/audit_fontspector.py
+```
+
+The deterministic CI audit skips network-only checks. Run
+`python scripts/audit_fontspector.py --network` for an additional live check;
+transient `namecheck.fontdata.com` failures are retried. The audit rejects
+every FAIL/FATAL/ERROR and every warning not reviewed in
+`data/googlefonts-accepted-warnings.json`; full unfiltered reports are written
+to `artifacts/reports/fontspector/`.
+
+The compatibility FontBakery gate remains available as a secondary audit:
 
 ```bash
 fontbakery check-googlefonts *.ttf METADATA.pb --skip-network

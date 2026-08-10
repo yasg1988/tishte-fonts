@@ -22,7 +22,7 @@ from build_serif_family import STYLES as SERIF_STYLES
 from build_serif_family import build as build_serif
 from build_serif_family import find_fontforge
 from font_metrics_audit import load_charset
-from add_production_mark_positioning import append_mark_lookup
+from add_production_mark_positioning import append_mark_lookup, append_soft_dotted_substitution
 from render_sans_card import render as render_sans_card
 from render_type_card import render as render_serif_card
 
@@ -78,6 +78,35 @@ def subset_font(source: Path, destination: Path, codepoints: list[int]) -> None:
         font.save(destination, reorderTables=True)
 
 
+def merge_duplicate_nbspace(path: Path) -> None:
+    """Map NBSP to the identical space glyph and remove Arimo's legacy alias."""
+    with TTFont(path, recalcTimestamp=False) as font:
+        glyph_order = font.getGlyphOrder()
+        if "nbspace" not in glyph_order:
+            return
+        # Decompile glyph-indexed tables before changing the order so fontTools
+        # can remap every GSUB/GPOS/GDEF reference when it recompiles them.
+        for tag in font.keys():
+            font[tag]
+        glyf = font["glyf"]
+        hmtx = font["hmtx"]
+        if hmtx.metrics["space"] != hmtx.metrics["nbspace"]:
+            raise ValueError("space and nbspace metrics differ")
+        if glyf["space"].compile(glyf) != glyf["nbspace"].compile(glyf):
+            raise ValueError("space and nbspace outlines differ")
+        for table in font["cmap"].tables:
+            if table.isUnicode() and table.cmap.get(0x00A0) == "nbspace":
+                table.cmap[0x00A0] = "space"
+        glyph_order.remove("nbspace")
+        glyf.glyphs.pop("nbspace")
+        hmtx.metrics.pop("nbspace")
+        font.setGlyphOrder(glyph_order)
+        font["maxp"].numGlyphs = len(glyph_order)
+        temporary = path.with_suffix(".nbspace.ttf")
+        font.save(temporary, reorderTables=True)
+    temporary.replace(path)
+
+
 def family_bounds(paths: list[Path]) -> tuple[int, int, int]:
     y_min = 0
     y_max = 0
@@ -102,7 +131,8 @@ def google_metrics(paths: list[Path]) -> tuple[int, int]:
 
 
 def normalize_family(
-    paths: list[Path], ribbi_styles: set[str], copyright_notice: str, smart_dropout: bool
+    paths: list[Path], ribbi_styles: set[str], copyright_notice: str,
+    smart_dropout: bool,
 ) -> None:
     ascent, descent = google_metrics(paths)
     for path in paths:
@@ -119,6 +149,8 @@ def normalize_family(
             os2.usWinAscent = ascent
             os2.usWinDescent = abs(descent)
             os2.fsSelection |= 1 << 7
+            # The generated family/subfamily names are WWS-conformant.
+            os2.fsSelection |= 1 << 8
             remove_tabular_digit_kerning(font)
             if smart_dropout:
                 normalize_screen_metrics(font)
@@ -280,6 +312,10 @@ def build(root: Path, version: str) -> list[Path]:
         if slug == "tishte-serif":
             for path in paths:
                 append_mark_lookup(path, codepoints)
+        for path in paths:
+            append_soft_dotted_substitution(path)
+            if slug == "tishte-sans":
+                merge_duplicate_nbspace(path)
         normalize_family(
             paths,
             {"Regular", "Italic", "Bold", "BoldItalic"},

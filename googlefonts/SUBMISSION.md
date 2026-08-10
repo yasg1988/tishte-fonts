@@ -12,12 +12,16 @@ exports are generated in `build/googlefonts/upstream/`.
 - GF Latin Core, Cyrillic, extended Cyrillic, Meadow Mari, and Hill Mari;
 - `METADATA.pb`, article, specimen image, and canonical OFL package;
 - family-wide vertical metrics, `USE_TYPO_METRICS`, meta ScriptLangTags;
-- zero FAIL/FATAL/ERROR results in `fontbakery check-googlefonts`;
+- zero FAIL/FATAL/ERROR results in the current Fontspector `googlefonts`
+  profile and the compatibility `fontbakery check-googlefonts` profile;
 - a dedicated GitHub Actions readiness gate.
+
+The deterministic CI profile skips network-only checks. Both family names are
+also checked separately through `namecheck.fontdata.com` before submission.
 
 ## Before opening the upstream issue
 
-1. Merge the readiness pull request and wait for the dedicated CI job.
+1. Confirm the public upstream repository and successful dedicated CI job.
 2. Download and inspect the `tishte-googlefonts-readiness` artifact.
 3. Use the Google Fonts issue form to propose Tishte Serif first, then Tishte
    Sans as a separate family.
@@ -37,4 +41,16 @@ exports are generated in `build/googlefonts/upstream/`.
 - Serif math-sign widths intentionally follow its document metric contract.
 
 These warnings are not hidden by configuration. Any new FAIL, FATAL, or ERROR
-blocks the readiness workflow.
+blocks the readiness workflow. The accepted warning types and their maximum
+family-wide counts are pinned in `data/googlefonts-accepted-warnings.json`;
+an unexpected warning or an increased count also blocks CI. A lower count is
+accepted automatically as an improvement, while the raw JSON and Markdown
+reports remain available in the workflow artifact.
+
+## Submission disclosures
+
+- Tishte Serif is derived from the OFL-licensed Tinos project;
+- Tishte Sans is derived from the OFL-licensed Arimo project;
+- AI-assisted tools were used for engineering automation, QA, and
+  documentation. The glyph provenance is the named OFL upstream projects and
+  the tracked Tishte transformation/source files.

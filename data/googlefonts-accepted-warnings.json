@@ -1,0 +1,20 @@
+{
+  "tishteserif": {
+    "contour_count:contour-count": 2,
+    "googlefonts/metadata/unreachable_subsetting:unreachable-subsetting": 4,
+    "googlefonts/vendor_id:unknown": 4,
+    "math_signs_width:width-outliers": 4,
+    "outline_alignment_miss:found-misalignments": 4,
+    "outline_colinear_vectors:found-colinear-vectors": 4,
+    "outline_jaggy_segments:found-jaggy-segments": 3,
+    "outline_semi_vertical:found-semi-vertical": 2
+  },
+  "tishtesans": {
+    "googlefonts/metadata/unreachable_subsetting:unreachable-subsetting": 8,
+    "googlefonts/vendor_id:unknown": 8,
+    "outline_alignment_miss:found-misalignments": 8,
+    "outline_colinear_vectors:found-colinear-vectors": 8,
+    "outline_jaggy_segments:found-jaggy-segments": 8,
+    "outline_semi_vertical:found-semi-vertical": 4
+  }
+}
