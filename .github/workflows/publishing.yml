@@ -6,20 +6,20 @@ on:
       - ".github/workflows/publishing.yml"
       - "site/**"
       - "npm/**"
-      - "scripts/build_publishing_assets.py"
-      - "scripts/build_catalog_submissions.py"
-      - "scripts/audit_publishing_assets.py"
+      - "scripts/**/*.py"
       - "docs/images/**"
+      - "docs/**/*.md"
+      - "README.md"
   push:
     branches: [main]
     paths:
       - ".github/workflows/publishing.yml"
       - "site/**"
       - "npm/**"
-      - "scripts/build_publishing_assets.py"
-      - "scripts/build_catalog_submissions.py"
-      - "scripts/audit_publishing_assets.py"
+      - "scripts/**/*.py"
       - "docs/images/**"
+      - "docs/**/*.md"
+      - "README.md"
   workflow_dispatch:
 
 permissions:
@@ -52,6 +52,7 @@ jobs:
           python scripts/build_publishing_assets.py
           python scripts/build_catalog_submissions.py
           python scripts/audit_publishing_assets.py
+          python scripts/audit_russian_terminology.py
       - name: Validate npm package contents
         working-directory: build/publishing/npm
         run: npm pack --dry-run
