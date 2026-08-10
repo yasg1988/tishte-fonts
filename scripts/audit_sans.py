@@ -56,7 +56,7 @@ def main() -> int:
             missing = [f"U+{cp:04X}" for cp in charset if cp not in cmap]
             unexpected = [f"U+{cp:04X}" for cp in cmap if cp not in set(charset)]
             missing_tables = sorted(REQUIRED_TABLES - set(font.keys()))
-            names = {name_id: font["name"].getDebugName(name_id) for name_id in (0, 4, 5, 6, 9, 10, 13, 14, 16, 17)}
+            names = {name_id: font["name"].getDebugName(name_id) for name_id in (0, 1, 2, 4, 5, 6, 9, 10, 13, 14, 16, 17)}
             digits = [font["hmtx"].metrics[cmap[ord(char)]][0] for char in "0123456789"]
             operators = [font["hmtx"].metrics[cmap[ord(char)]][0] for char in "+=<>±×÷−≈≠≤≥"]
             gsub = features(font, "GSUB")
@@ -78,6 +78,18 @@ def main() -> int:
             if missing_tables: failures.append("tables")
             if names[9] != "Сергей Якунин": failures.append("designer")
             if "Copyright 2020 The Arimo Project Authors" not in (names[0] or ""): failures.append("copyright")
+            expected_legacy_family = (
+                "Tishte Sans"
+                if style.weight in (400, 700)
+                else f"Tishte Sans {'Medium' if style.weight == 500 else 'SemiBold'}"
+            )
+            expected_legacy_subfamily = (
+                ("Bold Italic" if style.italic else "Bold")
+                if style.weight == 700
+                else ("Italic" if style.italic else "Regular")
+            )
+            if names[1] != expected_legacy_family or names[2] != expected_legacy_subfamily:
+                failures.append("legacy_names")
             if names[16] != "Tishte Sans" or names[17] != style.subfamily: failures.append("typographic_names")
             if "Arimo" not in (names[10] or ""): failures.append("provenance")
             if names[13] is None or "SIL Open Font License" not in names[13]: failures.append("license")
