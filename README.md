@@ -2,6 +2,12 @@
 
 **Сделано в Республике Марий Эл**
 
+[![Сайт](https://img.shields.io/badge/сайт-попробовать_Tishte-760f2b?style=flat-square)](https://yasg1988.github.io/tishte-fonts/)
+[![npm](https://img.shields.io/npm/v/%40yasg1988%2Ftishte-fonts?style=flat-square&logo=npm)](https://www.npmjs.com/package/@yasg1988/tishte-fonts)
+[![Релиз](https://img.shields.io/github/v/release/yasg1988/tishte-fonts?style=flat-square&label=релиз)](https://github.com/yasg1988/tishte-fonts/releases/latest)
+[![Публикация](https://img.shields.io/github/actions/workflow/status/yasg1988/tishte-fonts/publishing.yml?branch=main&style=flat-square&label=публикация)](https://github.com/yasg1988/tishte-fonts/actions/workflows/publishing.yml)
+[![Лицензия OFL 1.1](https://img.shields.io/badge/лицензия-OFL--1.1-263238?style=flat-square)](OFL.txt)
+
 ![Карточка шрифта Tishte Serif](docs/images/tishte-serif-specimen.png)
 
 ![Карточка шрифта Tishte Sans](docs/images/tishte-sans-specimen.png)
@@ -93,6 +99,20 @@ val TishteSans = FontFamily(
 ```css
 body { font-family: "Tishte Sans", sans-serif; }
 article { font-family: "Tishte Serif", serif; }
+```
+
+### npm
+
+```bash
+npm install @yasg1988/tishte-fonts
+```
+
+Подключите обе гарнитуры либо только нужную:
+
+```js
+import "@yasg1988/tishte-fonts";
+import "@yasg1988/tishte-fonts/serif.css";
+import "@yasg1988/tishte-fonts/sans.css";
 ```
 
 ## Сборка и проверка
