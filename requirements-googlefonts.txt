@@ -1,0 +1,7 @@
+# Google Fonts audit environment. Kept separate from gftools because the
+# current releases require incompatible protobuf major versions.
+fontbakery[googlefonts]==1.1.0
+fonttools==4.61.0
+uharfbuzz==0.56.0
+pillow==12.0.0
+brotli==1.2.0

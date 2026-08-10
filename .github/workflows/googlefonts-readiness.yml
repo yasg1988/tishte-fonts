@@ -1,0 +1,61 @@
+name: Google Fonts readiness
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/**"
+      - "googlefonts/**"
+      - "scripts/**"
+      - "sources/tishte-serif/**"
+      - "requirements*.txt"
+      - ".github/workflows/googlefonts-readiness.yml"
+  pull_request:
+    paths:
+      - "data/**"
+      - "googlefonts/**"
+      - "scripts/**"
+      - "sources/tishte-serif/**"
+      - "requirements*.txt"
+      - ".github/workflows/googlefonts-readiness.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fontbakery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install FontForge and Python dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fontforge
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-lock.txt
+          python -m pip install -r requirements-googlefonts.txt
+      - name: Fetch pinned upstream inputs
+        run: python scripts/fetch_sans_upstream.py
+      - name: Build Google Fonts packages
+        run: python scripts/build_googlefonts.py --version 1.000
+      - name: Validate editable UFO exports
+        run: find build/googlefonts/upstream -type d -name '*.ufo' -exec ufolint '{}' \;
+      - name: Verify reproducible staging tree
+        run: python scripts/audit_googlefonts_reproducible.py --version 1.000
+      - name: Run Google Fonts profile
+        run: python scripts/audit_googlefonts.py
+      - name: Upload review packages and reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: tishte-googlefonts-readiness
+          path: |
+            build/googlefonts/ofl
+            build/googlefonts/upstream
+            artifacts/reports/googlefonts

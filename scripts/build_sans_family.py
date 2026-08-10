@@ -279,8 +279,14 @@ def remove_tabular_digit_kerning(font: TTFont) -> None:
 def normalize_metadata(font: TTFont, style: Style, version: str) -> None:
     legacy_family = FAMILY if style.weight in (400, 700) else f"{FAMILY} {'Medium' if style.weight == 500 else 'SemiBold'}"
     if style.weight in (400, 700):
-        legacy_subfamily = ("Bold " if style.weight == 700 else "") + ("Italic" if style.italic else "Regular")
-        legacy_subfamily = legacy_subfamily.strip()
+        if style.weight == 700 and style.italic:
+            legacy_subfamily = "Bold Italic"
+        elif style.weight == 700:
+            legacy_subfamily = "Bold"
+        elif style.italic:
+            legacy_subfamily = "Italic"
+        else:
+            legacy_subfamily = "Regular"
     else:
         legacy_subfamily = "Italic" if style.italic else "Regular"
     names = {
@@ -328,12 +334,19 @@ def normalize_metadata(font: TTFont, style: Style, version: str) -> None:
     add_stat(font, style)
 
 
-def build(root: Path, version: str = VERSION) -> list[Path]:
+def build(
+    root: Path,
+    version: str = VERSION,
+    charset: Path | None = None,
+    output_dir: Path | None = None,
+    canonical_names: bool = False,
+) -> list[Path]:
     from fontTools.ttLib.removeOverlaps import removeOverlaps
 
     tag = version_tag(version)
     source_dir = root / "sources" / "upstream" / "arimo"
-    codepoints = load_charset(root / "data" / "document-charset.txt")
+    codepoints = load_charset(charset or root / "data" / "document-charset.txt")
+    output_dir = output_dir or root / "build"
     outputs = []
     report = {"version": version, "charset": len(codepoints), "styles": {}}
     for style in STYLES:
@@ -351,7 +364,8 @@ def build(root: Path, version: str = VERSION) -> list[Path]:
         normalize_math_widths(font)
         remove_tabular_digit_kerning(font)
         normalize_metadata(font, style, version)
-        path = root / "build" / f"TishteSans-{style.key}-{tag}.ttf"
+        suffix = "" if canonical_names else f"-{tag}"
+        path = output_dir / f"TishteSans-{style.key}{suffix}.ttf"
         path.parent.mkdir(parents=True, exist_ok=True)
         font.save(path, reorderTables=True)
         font.close()
@@ -372,8 +386,13 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--version", default=VERSION)
+    parser.add_argument("--charset", type=Path)
+    parser.add_argument("--output-dir", type=Path)
+    parser.add_argument("--canonical-names", action="store_true")
     args = parser.parse_args()
-    build(args.root.resolve(), args.version)
+    charset = args.charset.resolve() if args.charset else None
+    output_dir = args.output_dir.resolve() if args.output_dir else None
+    build(args.root.resolve(), args.version, charset, output_dir, args.canonical_names)
 
 
 if __name__ == "__main__":

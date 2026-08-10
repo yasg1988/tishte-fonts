@@ -1,0 +1,3 @@
+# Google Fonts packaging/source-tool environment.
+gftools==0.9.998
+fontmake==3.12.1

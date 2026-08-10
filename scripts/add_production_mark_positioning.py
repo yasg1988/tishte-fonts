@@ -58,7 +58,7 @@ def feature_source(font: TTFont, codepoints: list[int]) -> str:
     base_names: list[str] = []
     seen_bases = set()
     for codepoint in codepoints:
-        if unicodedata.category(chr(codepoint)).startswith("L"):
+        if unicodedata.category(chr(codepoint)).startswith("L") or codepoint == 0x25CC:
             name = cmap[codepoint]
             if name not in seen_bases:
                 seen_bases.add(name)

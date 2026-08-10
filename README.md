@@ -1,5 +1,7 @@
 # Tishte
 
+**Сделано в Республике Марий Эл**
+
 Свободная типографическая система с поддержкой русского, луговомарийского,
 горномарийского языков и расширенной латиницы. Версия `1.000` включает две
 гарнитуры и 12 статических начертаний в TTF и WOFF2.
@@ -128,6 +130,21 @@ python scripts/audit_distribution.py dist/Tishte-Sans-v1.000.zip
 воспроизводимо строится из закреплённой версии свободного Arimo с собственными
 преобразованиями Tishte. Сборка проверяется в GitHub Actions на Linux, Windows
 и macOS.
+
+### Подготовка для Google Fonts
+
+Отдельный сборочный контур создаёт две независимые папки для ревью Google
+Fonts, не изменяя обычные релизные файлы:
+
+```powershell
+python scripts/fetch_sans_upstream.py
+python scripts/build_googlefonts.py --version 1.000
+python scripts/audit_googlefonts.py
+```
+
+Результат сохраняется в `build/googlefonts/ofl/tishteserif` и
+`build/googlefonts/ofl/tishtesans`. Требования к окружению, структура пакетов и
+оговорки по статическим семействам описаны в [googlefonts/README.md](googlefonts/README.md).
 
 ## Лицензия и происхождение
 

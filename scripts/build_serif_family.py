@@ -238,16 +238,20 @@ def normalize(
 def build(
     root: Path,
     version: str = VERSION,
+    output_dir: Path | None = None,
+    canonical_names: bool = False,
 ) -> list[Path]:
     codepoints = load_charset(root / "data" / "document-charset.txt")
     metric_contract = json.loads(
         (root / "data" / "times-new-roman-metrics.json").read_text(encoding="utf-8")
     )
     tag = version_tag(version)
+    output_dir = output_dir or root / "build"
     outputs: list[Path] = []
     for style in STYLES:
         source = root / "sources" / "tishte-serif" / f"TishteSerif-{style.key}.sfd"
-        output = root / "build" / f"TishteSerif-{style.key}-{tag}.ttf"
+        suffix = "" if canonical_names else f"-{tag}"
+        output = output_dir / f"TishteSerif-{style.key}{suffix}.ttf"
         generate(source, output)
         normalize(output, style, metric_contract["styles"][style.key], codepoints, version)
         outputs.append(output)
@@ -259,8 +263,11 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--version", default=VERSION)
+    parser.add_argument("--output-dir", type=Path)
+    parser.add_argument("--canonical-names", action="store_true")
     args = parser.parse_args()
-    build(args.root.resolve(), args.version)
+    output_dir = args.output_dir.resolve() if args.output_dir else None
+    build(args.root.resolve(), args.version, output_dir, args.canonical_names)
 
 
 if __name__ == "__main__":
