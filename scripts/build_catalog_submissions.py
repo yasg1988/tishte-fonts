@@ -28,7 +28,8 @@ def description(family: str) -> str:
         else "a screen-oriented sans serif for interfaces, presentations and the web"
     )
     styles = "Regular, Italic, Bold and Bold Italic" if family == "Serif" else (
-        "Regular, Italic, Medium, Medium Italic, SemiBold, SemiBold Italic, Bold and Bold Italic"
+        "Regular, Italic, Medium, Medium Italic, SemiBold, SemiBold Italic, "
+        "Bold, Bold Italic, ExtraBold and ExtraBold Italic"
     )
     return (
         f"Tishte {family} is {purpose}.\n\n"
@@ -36,7 +37,7 @@ def description(family: str) -> str:
         "currency signs, punctuation, mathematical and document symbols.\n\n"
         f"Styles: {styles}.\n"
         "Designer: Sergey Yakunin\n"
-        "Version: 1.000\n"
+        "Version: 1.100\n"
         "License: SIL Open Font License 1.1\n"
         "Website: https://yasg1988.github.io/tishte-fonts/\n"
         "Source: https://github.com/yasg1988/tishte-fonts\n"
@@ -73,7 +74,7 @@ def build(root: Path, version: str) -> list[Path]:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
-    parser.add_argument("--version", default="1.000")
+    parser.add_argument("--version", default="1.100")
     args = parser.parse_args()
     build(args.root.resolve(), args.version)
 

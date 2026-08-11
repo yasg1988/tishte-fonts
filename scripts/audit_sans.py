@@ -43,7 +43,7 @@ def features(font: TTFont, table: str) -> set[str]:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
-    parser.add_argument("--version", default="1.000")
+    parser.add_argument("--version", default="1.100")
     args = parser.parse_args()
     root = args.root.resolve()
     tag = version_tag(args.version)
@@ -65,7 +65,7 @@ def main() -> int:
             no_glyph_hints = not any(table in font for table in ("fpgm", "cvt "))
             smart_dropout = SMART_DROPOUT in font["prep"].program.getBytecode()
             zero_line_gap = font["hhea"].lineGap == 0 and font["OS/2"].sTypoLineGap == 0
-            expected_regular = style.weight < 700 and not style.italic
+            expected_regular = style.weight != 700 and not style.italic
             regular_flag = bool(font["OS/2"].fsSelection & 64)
             digit_pair_widths = {
                 pair: shape(path, pair)[1]
@@ -78,10 +78,10 @@ def main() -> int:
             if missing_tables: failures.append("tables")
             if names[9] != "Сергей Якунин": failures.append("designer")
             if "Copyright 2020 The Arimo Project Authors" not in (names[0] or ""): failures.append("copyright")
+            legacy_weight_names = {500: "Medium", 600: "SemiBold", 800: "ExtraBold"}
             expected_legacy_family = (
-                "Tishte Sans"
-                if style.weight in (400, 700)
-                else f"Tishte Sans {'Medium' if style.weight == 500 else 'SemiBold'}"
+                "Tishte Sans" if style.weight in (400, 700)
+                else f"Tishte Sans {legacy_weight_names[style.weight]}"
             )
             expected_legacy_subfamily = (
                 ("Bold Italic" if style.italic else "Bold")
@@ -107,6 +107,31 @@ def main() -> int:
             report["styles"][style.key] = {"path": str(path), "codepoints": len(cmap), "missing": missing, "unexpected": unexpected, "missing_tables": missing_tables, "names": names, "digit_widths": digits, "operator_widths": operators, "digit_pair_widths": digit_pair_widths, "zero_line_gap": zero_line_gap, "smart_dropout": smart_dropout, "gsub": sorted(gsub), "gpos": sorted(gpos), "nfc_glyphs": len(nfc_ids), "nfd_glyphs": len(nfd_ids), "normalization_width": nfc_width, "failures": failures, "passed": passed}
             report["passed"] &= passed
             print(f"{style.key}: {'passed' if passed else ', '.join(failures)}")
+    report["weight_progression"] = {}
+    for italic, bold_key, extra_bold_key in (
+        (False, "Bold", "ExtraBold"),
+        (True, "BoldItalic", "ExtraBoldItalic"),
+    ):
+        bold_path = root / "build" / f"TishteSans-{bold_key}-{tag}.ttf"
+        extra_bold_path = root / "build" / f"TishteSans-{extra_bold_key}-{tag}.ttf"
+        with TTFont(bold_path) as bold, TTFont(extra_bold_path) as extra_bold:
+            shared = sorted(set(bold.getBestCmap()) & set(extra_bold.getBestCmap()))
+            changed = sum(
+                bold["glyf"][bold.getBestCmap()[cp]].compile(bold["glyf"])
+                != extra_bold["glyf"][extra_bold.getBestCmap()[cp]].compile(extra_bold["glyf"])
+                for cp in shared
+            )
+        ratio = changed / len(shared) if shared else 0
+        passed = ratio >= 0.9
+        key = "italic" if italic else "roman"
+        report["weight_progression"][key] = {
+            "shared": len(shared),
+            "changed": changed,
+            "changed_ratio": ratio,
+            "passed": passed,
+        }
+        report["passed"] &= passed
+        print(f"Bold-to-ExtraBold {key}: {changed}/{len(shared)} outlines changed ({ratio:.1%})")
     output = root / "artifacts" / "reports" / f"sans-audit-{tag}.json"
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

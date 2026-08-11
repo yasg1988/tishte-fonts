@@ -95,11 +95,11 @@ def render(root: Path, version: str, output: Path, family: str = "serif") -> Non
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
-    parser.add_argument("--version", default="1.000")
+    parser.add_argument("--version", default="1.100")
     parser.add_argument("--family", choices=("serif", "sans"), default="serif")
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
-    default_name = f"tishte-{args.family}-v1000-glyph-map.png"
+    default_name = f"tishte-{args.family}-v1100-glyph-map.png"
     requested = args.output or Path("artifacts") / "specimens" / default_name
     output = requested if requested.is_absolute() else args.root / requested
     render(args.root.resolve(), args.version, output, args.family)

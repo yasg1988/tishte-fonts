@@ -5,10 +5,10 @@ $ErrorActionPreference = "Stop"
 $fontStore = Join-Path $env:LOCALAPPDATA "Microsoft\Windows\Fonts"
 $registryPath = "HKCU:\Software\Microsoft\Windows NT\CurrentVersion\Fonts"
 $styles = @(
-    @{ File = "TishteSerif-Regular-v1000.ttf"; Registry = "Tishte Serif (TrueType)" },
-    @{ File = "TishteSerif-Bold-v1000.ttf"; Registry = "Tishte Serif Bold (TrueType)" },
-    @{ File = "TishteSerif-Italic-v1000.ttf"; Registry = "Tishte Serif Italic (TrueType)" },
-    @{ File = "TishteSerif-BoldItalic-v1000.ttf"; Registry = "Tishte Serif Bold Italic (TrueType)" }
+    @{ File = "TishteSerif-Regular-v1100.ttf"; Registry = "Tishte Serif (TrueType)" },
+    @{ File = "TishteSerif-Bold-v1100.ttf"; Registry = "Tishte Serif Bold (TrueType)" },
+    @{ File = "TishteSerif-Italic-v1100.ttf"; Registry = "Tishte Serif Italic (TrueType)" },
+    @{ File = "TishteSerif-BoldItalic-v1100.ttf"; Registry = "Tishte Serif Bold Italic (TrueType)" }
 )
 
 foreach ($style in $styles) {

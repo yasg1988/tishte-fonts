@@ -19,8 +19,8 @@ def main() -> None:
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
     root = args.root.resolve()
-    output = args.output or root / "artifacts" / "specimens" / "tishte-sans-v1000-screen-audit.png"
-    paths = {style: root / "build" / f"TishteSans-{style}-v1000.ttf" for style in ("Regular", "Medium", "SemiBold", "Bold")}
+    output = args.output or root / "artifacts" / "specimens" / "tishte-sans-v1100-screen-audit.png"
+    paths = {style: root / "build" / f"TishteSans-{style}-v1100.ttf" for style in ("Regular", "Medium", "SemiBold", "Bold", "ExtraBold")}
     canvas = Image.new("RGB", (1920, 1280), "#eef1f3")
     draw = ImageDraw.Draw(canvas)
     draw.rectangle((0, 0, 1920, 124), fill="#13202b")
@@ -67,12 +67,12 @@ def main() -> None:
 
     x, y = 1026, 672
     draw.text((x, y), "Начертания и символы", font=font(paths["SemiBold"], 29), fill="#13202b")
-    rows = [("Regular", paths["Regular"]), ("Medium", paths["Medium"]), ("SemiBold", paths["SemiBold"]), ("Bold", paths["Bold"])]
+    rows = [("Regular", paths["Regular"]), ("Medium", paths["Medium"]), ("SemiBold", paths["SemiBold"]), ("Bold", paths["Bold"]), ("ExtraBold", paths["ExtraBold"])]
     sy = y + 64
     for name, path in rows:
         draw.text((x, sy), name, font=font(path, 22), fill="#851a32")
         draw.text((x + 170, sy), "Aa Бб Ӓӓ Ӧӧ Ӱӱ Ҥҥ Ӹӹ 012 № ₽ %", font=font(path, 25), fill="#13202b")
-        sy += 68
+        sy += 58
     draw.line((x, sy + 4, 1835, sy + 4), fill="#d8dde1", width=2)
     sy += 35
     draw.text((x, sy), "← ↑ → ↓ ↔   + − × ÷ = ≠ ≤ ≥   © ® ™", font=font(paths["Regular"], 28), fill="#13202b")

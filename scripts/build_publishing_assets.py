@@ -10,8 +10,8 @@ from zipfile import ZipFile
 
 
 FAMILIES = {
-    "Serif": ("Tishte-Serif", "tishte-serif-v1000.css", 4),
-    "Sans": ("Tishte-Sans", "tishte-sans-v1000.css", 8),
+    "Serif": ("Tishte-Serif", "tishte-serif-v1100.css", 4),
+    "Sans": ("Tishte-Sans", "tishte-sans-v1100.css", 10),
 }
 
 
@@ -104,8 +104,8 @@ def build(root: Path, version: str) -> tuple[Path, Path]:
     shutil.copy2(root / "LICENSE.txt", npm_output / "LICENSE.txt")
     shutil.copy2(root / "THIRD_PARTY_NOTICES.md", npm_output / "THIRD_PARTY_NOTICES.md")
 
-    if total_woff2 != 12 or total_ttf != 12:
-        raise ValueError(f"Expected 12 styles, got {total_woff2} WOFF2 and {total_ttf} TTF")
+    if total_woff2 != 14 or total_ttf != 14:
+        raise ValueError(f"Expected 14 styles, got {total_woff2} WOFF2 and {total_ttf} TTF")
     print(f"Site: {site_output}")
     print(f"npm package: {npm_output}")
     return site_output, npm_output
@@ -114,7 +114,7 @@ def build(root: Path, version: str) -> tuple[Path, Path]:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
-    parser.add_argument("--version", default="1.000")
+    parser.add_argument("--version", default="1.100")
     args = parser.parse_args()
     build(args.root.resolve(), args.version)
 

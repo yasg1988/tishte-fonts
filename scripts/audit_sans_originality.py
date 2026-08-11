@@ -9,9 +9,7 @@ from pathlib import Path
 
 from fontTools.pens.recordingPen import DecomposingRecordingPen
 from fontTools.ttLib import TTFont
-from fontTools.varLib.instancer import instantiateVariableFont
-
-from build_sans_family import STYLES
+from build_sans_family import STYLES, instantiate_weight
 from font_metrics_audit import load_charset
 from versioning import version_tag
 
@@ -25,7 +23,7 @@ def drawing(font: TTFont, glyph_name: str) -> list:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
-    parser.add_argument("--version", default="1.000")
+    parser.add_argument("--version", default="1.100")
     parser.add_argument("--max-identical-ratio", type=float, default=0.01)
     args = parser.parse_args()
     root = args.root.resolve()
@@ -34,7 +32,7 @@ def main() -> int:
     report = {"version": args.version, "styles": {}, "passed": True}
     for style in STYLES:
         variable = TTFont(root / "sources" / "upstream" / "arimo" / style.source)
-        upstream = instantiateVariableFont(variable, {"wght": style.weight}, inplace=False, optimize=True)
+        upstream = instantiate_weight(variable, style.weight)
         candidate = TTFont(root / "build" / f"TishteSans-{style.key}-{tag}.ttf")
         upstream_cmap = upstream.getBestCmap()
         candidate_cmap = candidate.getBestCmap()

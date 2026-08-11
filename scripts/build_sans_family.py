@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the eight-style Tishte Sans family from a pinned OFL scaffold."""
+"""Build the ten-style Tishte Sans family from a pinned OFL scaffold."""
 
 from __future__ import annotations
 
@@ -24,7 +24,7 @@ from versioning import version_tag
 
 
 FAMILY = "Tishte Sans"
-VERSION = "1.000"
+VERSION = "1.100"
 BUILD_TIMESTAMP = 3850070400
 PROJECT_URL = "https://github.com/yasg1988/tishte-fonts"
 LICENSE = "This Font Software is licensed under the SIL Open Font License, Version 1.1."
@@ -65,7 +65,51 @@ STYLES = (
     Style("SemiBoldItalic", "SemiBold Italic", 600, True),
     Style("Bold", "Bold", 700, False),
     Style("BoldItalic", "Bold Italic", 700, True),
+    Style("ExtraBold", "ExtraBold", 800, False),
+    Style("ExtraBoldItalic", "ExtraBold Italic", 800, True),
 )
+
+
+def instantiate_weight(variable: TTFont, weight: int) -> TTFont:
+    """Instantiate a weight, extrapolating a genuine 800 beyond Arimo's 700 master."""
+    axis = next(axis for axis in variable["fvar"].axes if axis.axisTag == "wght")
+    if weight <= axis.maxValue:
+        return instantiateVariableFont(variable, {"wght": weight}, inplace=False, optimize=True)
+
+    regular_weight = axis.defaultValue
+    bold_weight = axis.maxValue
+    if regular_weight >= bold_weight:
+        raise ValueError("Cannot extrapolate a weight axis without a regular-to-bold range")
+    # A slight optical easing keeps the heaviest counters open and prevents the
+    # roman r shoulder from folding over itself while remaining a clear step
+    # beyond the 700 master. Metadata and STAT still identify the design as 800.
+    factor = (weight - bold_weight) / (bold_weight - regular_weight) * 0.9
+    regular = instantiateVariableFont(variable, {"wght": regular_weight}, inplace=False, optimize=True)
+    bold = instantiateVariableFont(variable, {"wght": bold_weight}, inplace=False, optimize=True)
+    regular_glyf = regular["glyf"]
+    bold_glyf = bold["glyf"]
+    regular_metrics = regular["hmtx"].metrics
+    bold_metrics = bold["hmtx"].metrics
+    for glyph_name in bold.getGlyphOrder():
+        regular_coordinates, _ = regular_glyf._getCoordinatesAndControls(glyph_name, regular_metrics)
+        bold_coordinates, _ = bold_glyf._getCoordinatesAndControls(glyph_name, bold_metrics)
+        if len(regular_coordinates) != len(bold_coordinates):
+            raise ValueError(f"Cannot extrapolate incompatible glyph {glyph_name}")
+        # The roman r shoulder closes much faster than the rest of the design;
+        # ease that single base glyph further so its counter stays valid. The
+        # accented composites inherit the corrected outline automatically.
+        glyph_factor = factor * 0.3 if glyph_name == "r" else factor
+        extrapolated = GlyphCoordinates(
+            (
+                round(bold_x + (bold_x - regular_x) * glyph_factor),
+                round(bold_y + (bold_y - regular_y) * glyph_factor),
+            )
+            for (regular_x, regular_y), (bold_x, bold_y) in zip(regular_coordinates, bold_coordinates)
+        )
+        bold_glyf._setCoordinates(glyph_name, extrapolated, bold_metrics)
+    bold["hhea"].advanceWidthMax = max(width for width, _ in bold_metrics.values())
+    regular.close()
+    return bold
 
 
 def set_name(font: TTFont, name_id: int, value: str) -> None:
@@ -134,7 +178,7 @@ def diamondize(font: TTFont) -> int:
             width = max(xs) - min(xs)
             height = max(ys) - min(ys)
             ratio = width / height if height else 99
-            if 35 <= width <= 360 and 35 <= height <= 360 and 0.45 <= ratio <= 2.2:
+            if 35 <= width <= 420 and 35 <= height <= 360 and 0.45 <= ratio <= 2.2:
                 cx = round((min(xs) + max(xs)) / 2)
                 cy = round((min(ys) + max(ys)) / 2)
                 rx = max(22, round(width / 2))
@@ -201,7 +245,7 @@ def subset_font(font: TTFont, codepoints: list[int]) -> None:
 
 
 def add_stat(font: TTFont, style: Style) -> None:
-    weight_names = {400: "Regular", 500: "Medium", 600: "SemiBold", 700: "Bold"}
+    weight_names = {400: "Regular", 500: "Medium", 600: "SemiBold", 700: "Bold", 800: "ExtraBold"}
     axes = [
         {"tag": "wght", "name": "Weight", "ordering": 0, "values": [{"value": style.weight, "name": weight_names[style.weight], "flags": 0x2 if style.weight == 400 else 0}]},
         {"tag": "ital", "name": "Italic", "ordering": 1, "values": [{"value": 1 if style.italic else 0, "name": "Italic" if style.italic else "Roman", "flags": 0 if style.italic else 0x2, **({"linkedValue": 1} if not style.italic else {})}]},
@@ -277,7 +321,8 @@ def remove_tabular_digit_kerning(font: TTFont) -> None:
 
 
 def normalize_metadata(font: TTFont, style: Style, version: str) -> None:
-    legacy_family = FAMILY if style.weight in (400, 700) else f"{FAMILY} {'Medium' if style.weight == 500 else 'SemiBold'}"
+    legacy_weight_names = {500: "Medium", 600: "SemiBold", 800: "ExtraBold"}
+    legacy_family = FAMILY if style.weight in (400, 700) else f"{FAMILY} {legacy_weight_names[style.weight]}"
     if style.weight in (400, 700):
         if style.weight == 700 and style.italic:
             legacy_subfamily = "Bold Italic"
@@ -315,10 +360,10 @@ def normalize_metadata(font: TTFont, style: Style, version: str) -> None:
     os2.achVendID = "MRIE"
     os2.usWeightClass = style.weight
     os2.fsSelection &= ~0x61
-    os2.fsSelection |= (1 if style.italic else 0) | (32 if style.weight == 700 else 0) | (64 if style.weight < 700 and not style.italic else 0)
+    os2.fsSelection |= (1 if style.italic else 0) | (32 if style.weight == 700 else 0) | (64 if style.weight != 700 and not style.italic else 0)
     os2.panose.bFamilyType = 2
     os2.panose.bSerifStyle = 11
-    os2.panose.bWeight = {400: 5, 500: 6, 600: 7, 700: 8}[style.weight]
+    os2.panose.bWeight = {400: 5, 500: 6, 600: 7, 700: 8, 800: 9}[style.weight]
     os2.xAvgCharWidth = os2.recalcAvgCharWidth(font)
     font["head"].macStyle = (1 if style.weight == 700 else 0) | (2 if style.italic else 0)
     font["head"].fontRevision = float(version)
@@ -351,7 +396,7 @@ def build(
     report = {"version": version, "charset": len(codepoints), "styles": {}}
     for style in STYLES:
         variable = TTFont(source_dir / style.source, recalcTimestamp=False)
-        font = instantiateVariableFont(variable, {"wght": style.weight}, inplace=False, optimize=True)
+        font = instantiate_weight(variable, style.weight)
         font.recalcTimestamp = False
         variable.close()
         clear_hints(font)
