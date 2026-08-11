@@ -80,7 +80,10 @@ def instantiate_weight(variable: TTFont, weight: int) -> TTFont:
     bold_weight = axis.maxValue
     if regular_weight >= bold_weight:
         raise ValueError("Cannot extrapolate a weight axis without a regular-to-bold range")
-    factor = (weight - bold_weight) / (bold_weight - regular_weight)
+    # A slight optical easing keeps the heaviest counters open and prevents the
+    # roman r shoulder from folding over itself while remaining a clear step
+    # beyond the 700 master. Metadata and STAT still identify the design as 800.
+    factor = (weight - bold_weight) / (bold_weight - regular_weight) * 0.9
     regular = instantiateVariableFont(variable, {"wght": regular_weight}, inplace=False, optimize=True)
     bold = instantiateVariableFont(variable, {"wght": bold_weight}, inplace=False, optimize=True)
     regular_glyf = regular["glyf"]
@@ -92,10 +95,14 @@ def instantiate_weight(variable: TTFont, weight: int) -> TTFont:
         bold_coordinates, _ = bold_glyf._getCoordinatesAndControls(glyph_name, bold_metrics)
         if len(regular_coordinates) != len(bold_coordinates):
             raise ValueError(f"Cannot extrapolate incompatible glyph {glyph_name}")
+        # The roman r shoulder closes much faster than the rest of the design;
+        # ease that single base glyph further so its counter stays valid. The
+        # accented composites inherit the corrected outline automatically.
+        glyph_factor = factor * 0.3 if glyph_name == "r" else factor
         extrapolated = GlyphCoordinates(
             (
-                round(bold_x + (bold_x - regular_x) * factor),
-                round(bold_y + (bold_y - regular_y) * factor),
+                round(bold_x + (bold_x - regular_x) * glyph_factor),
+                round(bold_y + (bold_y - regular_y) * glyph_factor),
             )
             for (regular_x, regular_y), (bold_x, bold_y) in zip(regular_coordinates, bold_coordinates)
         )
