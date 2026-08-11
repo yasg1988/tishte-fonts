@@ -43,7 +43,7 @@ def audit(root: Path) -> None:
     metadata = json.loads((package / "package.json").read_text(encoding="utf-8"))
     expected = {
         "name": "@yasg1988/tishte-fonts",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "license": "OFL-1.1",
     }
     for key, value in expected.items():
@@ -51,15 +51,15 @@ def audit(root: Path) -> None:
             raise ValueError(f"package.json {key}: expected {value!r}, got {metadata.get(key)!r}")
     woff2 = sorted((package / "woff2").glob("*.woff2"))
     ttf = sorted((package / "ttf").glob("*.ttf"))
-    if len(woff2) != 12 or len(ttf) != 12:
-        raise ValueError(f"Expected 12 WOFF2 and TTF files, got {len(woff2)} and {len(ttf)}")
+    if len(woff2) != 14 or len(ttf) != 14:
+        raise ValueError(f"Expected 14 WOFF2 and TTF files, got {len(woff2)} and {len(ttf)}")
     for css_name in ("index.css", "serif.css", "sans.css"):
         if not (package / css_name).exists():
             raise FileNotFoundError(package / css_name)
 
     submissions = publishing / "submissions"
-    for family, expected_styles in (("Serif", 4), ("Sans", 8)):
-        bundle = submissions / f"Tishte-{family}-v1.000-catalog.zip"
+    for family, expected_styles in (("Serif", 4), ("Sans", 10)):
+        bundle = submissions / f"Tishte-{family}-v1.100-catalog.zip"
         with ZipFile(bundle) as source:
             names = source.namelist()
         font_names = [name for name in names if name.endswith(".ttf")]
@@ -71,7 +71,7 @@ def audit(root: Path) -> None:
             raise ValueError(f"Catalog archive contains extra distribution files: {forbidden}")
     print(
         f"Publishing assets: {len(parser.references)} site references, "
-        "12 WOFF2, 12 TTF, 2 catalog archives — OK"
+        "14 WOFF2, 14 TTF, 2 catalog archives — OK"
     )
 
 

@@ -20,7 +20,7 @@ def run(root: Path, script: str, *arguments: str) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
-    parser.add_argument("--version", default="1.000")
+    parser.add_argument("--version", default="1.100")
     args = parser.parse_args()
     root = args.root.resolve()
     version = ["--version", args.version]

@@ -21,7 +21,7 @@ from versioning import version_tag
 
 
 FAMILY = "Tishte Serif"
-VERSION = "1.000"
+VERSION = "1.100"
 LICENSE = "This Font Software is licensed under the SIL Open Font License, Version 1.1."
 LICENSE_URL = "https://openfontlicense.org"
 # OpenType seconds since 1904-01-01 for 2026-01-01T00:00:00Z. Keeping this

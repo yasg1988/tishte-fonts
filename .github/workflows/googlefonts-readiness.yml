@@ -56,11 +56,11 @@ jobs:
       - name: Fetch pinned upstream inputs
         run: python scripts/fetch_sans_upstream.py
       - name: Build Google Fonts packages
-        run: python scripts/build_googlefonts.py --version 1.000
+        run: python scripts/build_googlefonts.py --version 1.100
       - name: Validate editable UFO exports
         run: find build/googlefonts/upstream -type d -name '*.ufo' -exec ufolint '{}' \;
       - name: Verify reproducible staging tree
-        run: python scripts/audit_googlefonts_reproducible.py --version 1.000
+        run: python scripts/audit_googlefonts_reproducible.py --version 1.100
       - name: Run Google Fonts profile
         run: python scripts/audit_googlefonts.py
       - name: Run current Fontspector Google Fonts profile

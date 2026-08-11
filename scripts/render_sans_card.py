@@ -41,7 +41,11 @@ def fitted(draw: ImageDraw.ImageDraw, x: int, y: int, text: str, path: Path, wid
 
 
 def render(font_dir: Path, output: Path) -> None:
-    paths = {name: font_dir / f"TishteSans-{name}-v1000.ttf" for name in ("Regular", "Italic", "Medium", "MediumItalic", "SemiBold", "SemiBoldItalic", "Bold", "BoldItalic")}
+    style_names = (
+        "Regular", "Italic", "Medium", "MediumItalic", "SemiBold",
+        "SemiBoldItalic", "Bold", "BoldItalic", "ExtraBold", "ExtraBoldItalic",
+    )
+    paths = {name: font_dir / f"TishteSans-{name}-v1100.ttf" for name in style_names}
     for path in paths.values():
         if not path.is_file(): raise FileNotFoundError(path)
     regular = paths["Regular"]
@@ -55,8 +59,8 @@ def render(font_dir: Path, output: Path) -> None:
     cx = 1830
     vertical(draw, cx - 42, 52, 302)
     label(draw, cx, 58, "Экранный характер", regular, 1100)
-    draw.text((cx, 102), "Открытые формы. Крупная строчная.\nРомбовидные точки и диакритика.\nВосемь согласованных начертаний.", font=face(regular, 31), fill=INK, spacing=14)
-    draw.text((cx, 248), "Версия 1.000 · SIL Open Font License 1.1", font=face(regular, 23), fill=MUTED)
+    draw.text((cx, 102), "Открытые формы. Крупная строчная.\nРомбовидные точки и диакритика.\nДесять согласованных начертаний.", font=face(regular, 31), fill=INK, spacing=14)
+    draw.text((cx, 248), "Версия 1.100 · SIL Open Font License 1.1", font=face(regular, 23), fill=MUTED)
     line(draw, 330)
 
     mid = WIDTH // 2
@@ -103,19 +107,27 @@ def render(font_dir: Path, output: Path) -> None:
         draw.multiline_text((x, 1314), text, font=face(regular, 29), fill=INK, spacing=15)
     line(draw, 1522)
 
-    style_order = ("Regular", "Medium", "SemiBold", "Bold", "Italic", "MediumItalic", "SemiBoldItalic", "BoldItalic")
-    cell_w = (WIDTH - 2 * MARGIN - 3 * 26) // 4
+    style_order = ("Regular", "Medium", "SemiBold", "Bold", "ExtraBold", "Italic", "MediumItalic", "SemiBoldItalic", "BoldItalic", "ExtraBoldItalic")
+    display_names = {
+        "MediumItalic": "Medium Italic",
+        "SemiBold": "SemiBold",
+        "SemiBoldItalic": "SemiBold Italic",
+        "BoldItalic": "Bold Italic",
+        "ExtraBold": "ExtraBold",
+        "ExtraBoldItalic": "ExtraBold Italic",
+    }
+    cell_w = (WIDTH - 2 * MARGIN - 4 * 22) // 5
     for i, name in enumerate(style_order):
-        row, col = divmod(i, 4)
-        x = MARGIN + col * (cell_w + 26)
+        row, col = divmod(i, 5)
+        x = MARGIN + col * (cell_w + 22)
         y = 1547 + row * 202
         if col: vertical(draw, x - 13, y, y + 178)
-        label(draw, x, y, name, regular, cell_w)
+        label(draw, x, y, display_names.get(name, name), regular, cell_w)
         fitted(draw, x, y + 40, "Цифровая среда · Digital", paths[name], cell_w, 31)
         fitted(draw, x, y + 86, "Ӓӓ Ӧӧ Ӱӱ Ҥҥ Ӹӹ  0123456789", paths[name], cell_w, 27)
         fitted(draw, x, y + 127, "№ 147-р  ·  2 583,70 ₽", paths[name], cell_w, 27)
     line(draw, 1942)
-    draw.text((MARGIN + 8, 1967), "Tishte Sans · v1.000 · 425 символов · 8 начертаний · TTF + WOFF2", font=face(regular, 23), fill=MUTED)
+    draw.text((MARGIN + 8, 1967), "Tishte Sans · v1.100 · 425 символов · 10 начертаний · TTF + WOFF2", font=face(regular, 23), fill=MUTED)
     footer = "Разработчик: Сергей Якунин"
     ff = face(regular, 21); fw = draw.textbbox((0, 0), footer, font=ff)[2]
     draw.text((WIDTH - MARGIN - fw, 1969), footer, font=ff, fill=MUTED)
@@ -127,7 +139,7 @@ def render(font_dir: Path, output: Path) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--font-dir", type=Path, default=Path("build"))
-    parser.add_argument("--output", type=Path, default=Path("artifacts/specimens/tishte-sans-v1000-card.png"))
+    parser.add_argument("--output", type=Path, default=Path("artifacts/specimens/tishte-sans-v1100-card.png"))
     args = parser.parse_args(); render(args.font_dir, args.output)
 
 

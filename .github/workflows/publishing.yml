@@ -32,21 +32,24 @@ jobs:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
         with:
-          python-version: "3.13"
-      - name: Download and verify release archives
-        env:
-          GH_TOKEN: ${{ github.token }}
+          python-version: "3.12"
+          cache: pip
+      - name: Install build dependencies
         run: |
-          mkdir -p dist
-          gh release download v1.000 --repo "$GITHUB_REPOSITORY" \
-            --pattern "Tishte-Serif-v1.000.zip" \
-            --pattern "Tishte-Serif-v1.000.zip.sha256" \
-            --pattern "Tishte-Sans-v1.000.zip" \
-            --pattern "Tishte-Sans-v1.000.zip.sha256" \
-            --dir dist
+          sudo apt-get update
+          sudo apt-get install -y fontforge
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-lock.txt
+      - name: Build and verify release archives
+        run: |
+          python scripts/fetch_sans_upstream.py
+          python scripts/build_release.py --version 1.100
+          python scripts/build_sans_release.py --version 1.100
+          python scripts/build_distribution.py --version 1.100
+          python scripts/build_sans_distribution.py --version 1.100
           cd dist
-          sha256sum --check Tishte-Serif-v1.000.zip.sha256
-          sha256sum --check Tishte-Sans-v1.000.zip.sha256
+          sha256sum --check Tishte-Serif-v1.100.zip.sha256
+          sha256sum --check Tishte-Sans-v1.100.zip.sha256
       - name: Build and audit publishing assets
         run: |
           python scripts/build_publishing_assets.py

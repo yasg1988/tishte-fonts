@@ -23,7 +23,7 @@ def sha256(path: Path) -> str:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--version", default="1.000")
+    parser.add_argument("--version", default="1.100")
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
     tag = version_tag(args.version)

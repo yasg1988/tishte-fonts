@@ -13,8 +13,8 @@
 ![Карточка шрифта Tishte Sans](docs/images/tishte-sans-specimen.png)
 
 Свободная типографическая система с поддержкой русского, лугового марийского,
-горномарийского языков и расширенной латиницы. Версия `1.000` включает две
-гарнитуры и 12 статических начертаний в TTF и WOFF2.
+горномарийского языков и расширенной латиницы. Версия `1.100` включает две
+гарнитуры и 14 статических начертаний в TTF и WOFF2.
 
 ## Семейства
 
@@ -24,8 +24,9 @@ Roman. Четыре начертания: Regular, Bold, Italic и Bold Italic. 
 документах без изменения переносов строк и пагинации.
 
 **Tishte Sans** — экранный гротеск для сайтов, приложений, презентаций,
-дашбордов и навигации. Восемь начертаний: Regular, Italic, Medium,
-Medium Italic, SemiBold, SemiBold Italic, Bold и Bold Italic. У него свободные
+дашбордов и навигации. Десять начертаний: Regular, Italic, Medium,
+Medium Italic, SemiBold, SemiBold Italic, Bold, Bold Italic, ExtraBold и
+ExtraBold Italic. У него свободные
 экранные метрики, табличные цифры, единая ширина математических операторов и
 оптимизированная для современных растеризаторов структура.
 
@@ -76,6 +77,7 @@ val TishteSans = FontFamily(
     Font(R.font.tishte_sans_medium, FontWeight.Medium),
     Font(R.font.tishte_sans_semibold, FontWeight.SemiBold),
     Font(R.font.tishte_sans_bold, FontWeight.Bold),
+    Font(R.font.tishte_sans_extrabold, FontWeight.ExtraBold),
 )
 ```
 
@@ -92,8 +94,8 @@ val TishteSans = FontFamily(
 Скопируйте содержимое `fonts/web` на сервер и подключите нужную таблицу стилей:
 
 ```html
-<link rel="stylesheet" href="/fonts/tishte-sans-v1000.css">
-<link rel="stylesheet" href="/fonts/tishte-serif-v1000.css">
+<link rel="stylesheet" href="/fonts/tishte-sans-v1100.css">
+<link rel="stylesheet" href="/fonts/tishte-serif-v1100.css">
 ```
 
 ```css
@@ -122,32 +124,32 @@ import "@yasg1988/tishte-fonts/sans.css";
 
 ```powershell
 # Tishte Serif
-python scripts/build_release.py --version 1.000
-python scripts/audit_reproducible_build.py --version 1.000
-python scripts/audit_metric_contract.py --version 1.000
-python scripts/audit_unicode_normalization.py --version 1.000
-python scripts/audit_language_corpus.py --version 1.000
-python scripts/audit_opentype.py --version 1.000
-python scripts/audit_document_layout.py --version 1.000
-python scripts/audit_outline_originality.py --version 1.000 --max-identical-ratio 0.01
-python scripts/audit_legal_metadata.py --version 1.000
+python scripts/build_release.py --version 1.100
+python scripts/audit_reproducible_build.py --version 1.100
+python scripts/audit_metric_contract.py --version 1.100
+python scripts/audit_unicode_normalization.py --version 1.100
+python scripts/audit_language_corpus.py --version 1.100
+python scripts/audit_opentype.py --version 1.100
+python scripts/audit_document_layout.py --version 1.100
+python scripts/audit_outline_originality.py --version 1.100 --max-identical-ratio 0.01
+python scripts/audit_legal_metadata.py --version 1.100
 python scripts/audit_source_metadata.py
-python scripts/run_fontbakery.py --version 1.000
+python scripts/run_fontbakery.py --version 1.100
 
 # Tishte Sans
-python scripts/build_sans_release.py --version 1.000
-python scripts/audit_sans_reproducible.py --version 1.000
-python scripts/audit_sans.py --version 1.000
-python scripts/audit_sans_raster.py --version 1.000
-python scripts/audit_sans_originality.py --version 1.000 --max-identical-ratio 0.01
-python scripts/run_sans_fontbakery.py --version 1.000
+python scripts/build_sans_release.py --version 1.100
+python scripts/audit_sans_reproducible.py --version 1.100
+python scripts/audit_sans.py --version 1.100
+python scripts/audit_sans_raster.py --version 1.100
+python scripts/audit_sans_originality.py --version 1.100 --max-identical-ratio 0.01
+python scripts/run_sans_fontbakery.py --version 1.100
 
 # Общий контракт и дистрибутивы
-python scripts/audit_superfamily.py --version 1.000
-python scripts/build_distribution.py --version 1.000
-python scripts/build_sans_distribution.py --version 1.000
-python scripts/audit_distribution.py dist/Tishte-Serif-v1.000.zip
-python scripts/audit_distribution.py dist/Tishte-Sans-v1.000.zip
+python scripts/audit_superfamily.py --version 1.100
+python scripts/build_distribution.py --version 1.100
+python scripts/build_sans_distribution.py --version 1.100
+python scripts/audit_distribution.py dist/Tishte-Serif-v1.100.zip
+python scripts/audit_distribution.py dist/Tishte-Sans-v1.100.zip
 ```
 
 Редактируемые исходники Serif находятся в `sources/tishte-serif`. Sans
@@ -162,7 +164,7 @@ Fonts, не изменяя обычные релизные файлы:
 
 ```powershell
 python scripts/fetch_sans_upstream.py
-python scripts/build_googlefonts.py --version 1.000
+python scripts/build_googlefonts.py --version 1.100
 python scripts/audit_googlefonts.py
 ```
 

@@ -27,7 +27,7 @@ from render_sans_card import render as render_sans_card
 from render_type_card import render as render_serif_card
 
 
-VERSION = "1.000"
+VERSION = "1.100"
 PROJECT_URL = "https://github.com/yasg1988/tishte-fonts"
 GF_LICENSE_DESCRIPTION = (
     "This Font Software is licensed under the SIL Open Font License, Version 1.1. "
@@ -228,7 +228,7 @@ def copy_documents(root: Path, destination: Path, slug: str) -> None:
         prefix = "TishteSerif" if slug == "tishte-serif" else "TishteSans"
         for path in destination.glob(f"{prefix}-*.ttf"):
             style = path.stem.split("-", 1)[1]
-            shutil.copy2(path, temporary_dir / f"{prefix}-{style}-v1000.ttf")
+            shutil.copy2(path, temporary_dir / f"{prefix}-{style}-v1100.ttf")
         large = temporary_dir / "specimen-large.png"
         if slug == "tishte-serif":
             render_serif_card(temporary_dir, large)
