@@ -65,7 +65,12 @@ h2 { margin: 0; font: 600 clamp(40px, 6vw, 76px)/1 var(--sans); letter-spacing: 
 .family-label, .styles { color: var(--accent); font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .family-sample { margin: auto 0; font-size: clamp(58px, 8vw, 104px); line-height: .95; letter-spacing: -.045em; }
 .serif-card .family-sample { font-family: var(--serif); }
-.sans-card .family-sample { font-family: var(--sans); font-weight: 600; }
+.sans-card .family-sample {
+  font-family: var(--sans);
+  font-size: clamp(40px, 6.2vw, 88px);
+  font-weight: 600;
+  white-space: nowrap;
+}
 .family > p:not(.family-label):not(.family-sample):not(.styles) { max-width: 520px; font-size: 18px; line-height: 1.5; }
 .playground { color: var(--white); background: var(--accent); padding-block: 96px; }
 .controls { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; padding: 20px 0; border-top: 1px solid #ffffff45; border-bottom: 1px solid #ffffff45; }
