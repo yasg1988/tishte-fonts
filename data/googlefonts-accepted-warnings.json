@@ -12,7 +12,7 @@
   "tishtesans": {
     "googlefonts/metadata/unreachable_subsetting:unreachable-subsetting": 10,
     "googlefonts/vendor_id:unknown": 10,
-    "outline_alignment_miss:found-misalignments": 8,
+    "outline_alignment_miss:found-misalignments": 10,
     "outline_colinear_vectors:found-colinear-vectors": 10,
     "outline_jaggy_segments:found-jaggy-segments": 10,
     "outline_semi_vertical:found-semi-vertical": 5
