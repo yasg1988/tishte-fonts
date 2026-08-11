@@ -25,6 +25,26 @@ a { color: inherit; }
 .hero-copy, .hero-glyphs, .family, .install-grid > *, .footer-grid > * { min-width: 0; }
 .eyebrow { margin: 0 0 18px; color: var(--accent); font-size: 13px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
 .hero .eyebrow, .light .eyebrow, .playground .eyebrow { color: #e45678; }
+.hero .origin-stamp {
+  position: relative;
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 24px;
+  padding: 10px 14px 9px;
+  border: 2px solid currentColor;
+  line-height: 1;
+  letter-spacing: .16em;
+  opacity: .92;
+  transform: rotate(-1deg);
+}
+.hero .origin-stamp::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border: 1px solid currentColor;
+  opacity: .5;
+  pointer-events: none;
+}
 h1 { margin: 0; font: 700 clamp(96px, 16vw, 214px)/.78 var(--sans); letter-spacing: -.075em; }
 .lead { max-width: 720px; margin: 44px 0 30px; font: 400 clamp(21px, 2.4vw, 31px)/1.3 var(--serif); overflow-wrap: anywhere; }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; }
