@@ -6,7 +6,9 @@ on:
       - ".github/workflows/publishing.yml"
       - "site/**"
       - "npm/**"
+      - "partner-kit/**"
       - "scripts/**/*.py"
+      - "scripts/**/*.ps1"
       - "docs/images/**"
       - "docs/**/*.md"
       - "README.md"
@@ -16,7 +18,9 @@ on:
       - ".github/workflows/publishing.yml"
       - "site/**"
       - "npm/**"
+      - "partner-kit/**"
       - "scripts/**/*.py"
+      - "scripts/**/*.ps1"
       - "docs/images/**"
       - "docs/**/*.md"
       - "README.md"
@@ -54,7 +58,9 @@ jobs:
         run: |
           python scripts/build_publishing_assets.py
           python scripts/build_catalog_submissions.py
+          python scripts/build_partner_submission_kit.py
           python scripts/audit_publishing_assets.py
+          python scripts/audit_partner_submission_kit.py
           python scripts/audit_russian_terminology.py
       - name: Validate npm package contents
         working-directory: build/publishing/npm

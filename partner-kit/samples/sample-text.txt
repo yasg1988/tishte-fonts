@@ -1,0 +1,11 @@
+Tishte — свободная типографическая система Республики Марий Эл.
+
+Русский: Съешь ещё этих мягких французских булок, да выпей чаю.
+Луговой марийский: Ӓӓ Ӧӧ Ӱӱ Ҥҥ.
+Горномарийский: Ӓӓ Ӧӧ Ӱӱ Ӹӹ.
+Latin: The quick brown fox jumps over the lazy dog.
+Цифры: 0123456789  1 234 567,89 ₽  $ € £ ¥
+Знаки: № § © ® ™ → ← ± × ÷ ≠ ≤ ≥
+
+Tishte Serif: Regular / Bold / Italic / Bold Italic
+Tishte Sans: Regular / Medium / SemiBold / Bold / ExtraBold и курсивы

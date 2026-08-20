@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "targets": [
+    {
+      "id": "r7-office",
+      "name": "Р7-Офис",
+      "route": "партнёрская программа и техническая команда",
+      "email": "partners@r7-office.ru",
+      "url": "https://r7-office.ru/about/contacts/",
+      "request": "включение Tishte в стандартный каталог шрифтов настольных и серверных редакторов"
+    },
+    {
+      "id": "myoffice",
+      "name": "МойОфис",
+      "route": "технологическое партнёрство",
+      "email": "partners@myoffice.team",
+      "url": "https://myoffice.ru/partners/",
+      "request": "техническая и редакционная оценка для включения Tishte в каталог продукта"
+    },
+    {
+      "id": "alteroffice",
+      "name": "AlterOffice",
+      "route": "служба поддержки и команда продукта",
+      "email": "support@alteroffice.ru",
+      "url": "https://support.almi-partner.ru/help/ru/9-alteroffice/324-alteroffice",
+      "request": "добавление Tishte в поставляемый набор свободных шрифтов"
+    },
+    {
+      "id": "office-plus",
+      "name": "Офис+",
+      "route": "команда продукта",
+      "email": "info@officep.ru; support@officep.ru",
+      "url": "https://officep.ru/o-kompanii-i-kontakty-ofis-plyus/",
+      "request": "оценка включения Tishte в стандартный каталог шрифтов"
+    },
+    {
+      "id": "yandex-documents",
+      "name": "Яндекс Документы",
+      "route": "технологическое партнёрство Яндекс B2B Tech",
+      "email": "",
+      "url": "https://b2btech.yandex.ru/partners/",
+      "request": "передача предложения команде каталога шрифтов Яндекс Документов"
+    },
+    {
+      "id": "onlyoffice",
+      "name": "ONLYOFFICE",
+      "route": "технологическое партнёрство",
+      "email": "partners@onlyoffice.com",
+      "url": "https://www.onlyoffice.com/partnership.aspx",
+      "request": "включение Tishte в доступный по умолчанию набор шрифтов редакторов"
+    },
+    {
+      "id": "libreoffice",
+      "name": "LibreOffice",
+      "route": "Bugzilla enhancement, обсуждение разработчиков и Gerrit",
+      "email": "",
+      "url": "https://www.libreoffice.org/community/developers/",
+      "request": "обсуждение включения Tishte в поставку LibreOffice или рекомендованный набор свободных шрифтов"
+    }
+  ]
+}

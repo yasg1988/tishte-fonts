@@ -172,6 +172,19 @@ python scripts/audit_googlefonts.py
 `build/googlefonts/ofl/tishtesans`. Требования к окружению, структура пакетов и
 оговорки по статическим семействам описаны в [googlefonts/README.md](googlefonts/README.md).
 
+### Пакет для офисных продуктов
+
+Единый комплект для технической и лицензионной оценки в офисных продуктах
+строится непосредственно из официальных релизных ZIP v1.100:
+
+```powershell
+python scripts/build_partner_submission_kit.py --version 1.100
+python scripts/audit_partner_submission_kit.py --version 1.100
+```
+
+Маршруты подачи, порядок работы и шаблоны обращений описаны в
+[docs/office-suite-submissions.md](docs/office-suite-submissions.md).
+
 ## Лицензия и происхождение
 
 Tishte распространяется по [SIL Open Font License 1.1](LICENSE.txt). Шрифт
