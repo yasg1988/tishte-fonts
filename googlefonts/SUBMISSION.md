@@ -33,7 +33,8 @@ also checked separately through `namecheck.fontdata.com` before submission.
 
 ## Known reviewed warnings
 
-- `MRIE` is the project vendor ID but is not registered in Microsoft's list;
+- `MRIE` is the Tishte Project vendor ID registered in Microsoft's public list;
+  the pinned validators may warn until their bundled vendor list catches up;
 - outline heuristics flag small alignment, collinearity, and segment-angle
   deviations inherited from or intentionally introduced into the design;
 - the subset reachability warning includes standalone combining marks required
