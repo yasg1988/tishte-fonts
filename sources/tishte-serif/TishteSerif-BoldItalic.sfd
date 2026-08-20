@@ -54,7 +54,7 @@ OS2StrikeYSize: 102
 OS2StrikeYPos: 530
 OS2CapHeight: 1341
 OS2XHeight: 941
-OS2Vendor: 'GOOG'
+OS2Vendor: 'MRIE'
 OS2CodePages: 600001bf.dff70000
 OS2UnicodeRanges: e0000aff.500078ff.00000029.00000000
 Lookup: 4 1 0 "'dlig' Discretionary Ligatures in Hebrew lookup 0" { "'dlig' Discretionary Ligatures in Hebrew lookup 0 subtable"  } ['dlig' ('hebr' <'dflt' > ) ]
