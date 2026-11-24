@@ -11,7 +11,7 @@ $qaPath = Join-Path $rootPath $QaDirectory
 New-Item -ItemType Directory -Force -Path $outputPath, $qaPath | Out-Null
 
 $sampleRussian = "Съешь ещё этих мягких французских булок, да выпей чаю."
-$sampleMari = "Луговой марийский: Ӓӓ Ӧӧ Ӱӱ Ҥҥ.  Горномарийский: Ӓӓ Ӧӧ Ӱӱ Ӹӹ."
+$sampleMari = "Луговой марийский: Ӧӧ Ӱӱ Ҥҥ.  Горномарийский: Ӓӓ Ӧӧ Ӱӱ Ӹӹ."
 $sampleLatin = "The quick brown fox jumps over the lazy dog.  0123456789  ₽ € $ £ ¥"
 
 $word = $null
@@ -102,7 +102,7 @@ try {
     $sheet.Range("D4").Value2 = 1250.50
     $sheet.Range("F4").Value2 = "№ 1"
     $sheet.Range("A5").Value2 = "Луговой марийский"
-    $sheet.Range("B5").Value2 = "Ӓӓ Ӧӧ Ӱӱ Ҥҥ"
+    $sheet.Range("B5").Value2 = "Ӧӧ Ӱӱ Ҥҥ"
     $sheet.Range("C5").Value2 = 5.0
     $sheet.Range("D5").Value2 = 980.25
     $sheet.Range("F5").Value2 = "≤ ≥ ≠"

@@ -16,7 +16,7 @@ from versioning import version_tag
 
 
 REQUIRED_BY_SECTION = {
-    "meadow_mari": "ӒӓӦӧӰӱҤҥ",
+    "meadow_mari": "ӦӧӰӱҤҥ",
     "hill_mari": "ӒӓӦӧӰӱӸӹ",
 }
 
