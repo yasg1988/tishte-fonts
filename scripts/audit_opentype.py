@@ -19,7 +19,7 @@ REQUIRED_GPOS = {"kern", "mark", "mkmk"}
 SHAPING_CASES = {
     "latin_marks": "A\u0308 a\u0328",
     "cyrillic_marks": "А\u0308 а\u0308",
-    "meadow_mari": "Ӓӓ Ӧӧ Ӱӱ Ҥҥ",
+    "meadow_mari": "Ӧӧ Ӱӱ Ҥҥ",
     "hill_mari": "Ӓӓ Ӧӧ Ӱӱ Ӹӹ",
 }
 POSITIONING_CASES = {
